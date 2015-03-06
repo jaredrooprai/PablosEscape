@@ -10,17 +10,15 @@ public class MapOne : Map
 	private int rows = 5; 
 	private int columns = 20;
 
-
-	public void setupScene ()
-	{
+	// Main method that sets up the scene with items and tiles
+	public void setupScene () {
 		setupGrid ();				// call method to setup grid
-		spawn_wall_floor ();		// generate wall and floor tiles
-		setup_items();
+		setupTiles ();		// generate wall and floor tiles
+		setupItems();
 	}
 
 
-	void setupGrid () 
-	{
+	void setupGrid (){
 		transformIt = new GameObject ("Board").transform;
 		mapPositions.Clear ();								// clear the list
 		for (int x = -1; x <= columns + 1; x++) 			// adding row items into list
@@ -31,31 +29,31 @@ public class MapOne : Map
 			}
 		}
 	}
-	
-	void spawn_wall_floor () {
 
+	//Sets up the floor and the walls
+	void setupTiles () {
+		//will contain wall prefab or floor prefab		
+		GameObject tile;
+ 
 		for (int x = -1; x <= columns + 1; x++) 
-		{
+		{ 
 			for (int y = -1; y <= rows + 1; y++)
 			{	
-				GameObject toInsta;												// initialize GameObject instance
+				// if coordinates == boundaries, spawn wall tile
+				if ( x == -1 || y == -1 || x == columns + 1 || y == rows + 1 )  
+					tile = wallTile; 
+				// else spawn floor tile
+				else 		
+					tile = floorTile; 
 
-				if ( x == -1 || y == -1 || x == columns + 1 || y == rows + 1 )  // if coordinates == boundaries, spawn wall tile
-					toInsta = wallTile; 
-				else 															// else spawn floor tile
-					toInsta = floorTile; 
-		
-				GameObject instance = Instantiate (toInsta, new Vector3 (x, y, 0f), Quaternion.identity) as GameObject;
-				instance.transform.SetParent (transformIt);						// instantiate wall/floor tile
+				spawnPrefab (x, y, tile);				
 			}
 		}
 	}
 
-	void setup_items()
-	{
-		spawn_item (3, 3, keySprite);
-	
-				
+	// Method to add items into the map using parent spawnItem method
+	void setupItems(){
+		spawnPrefab (3, 3, keyPrefab);				
 	}
 
 
