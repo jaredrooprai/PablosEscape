@@ -15,6 +15,7 @@ public class MapOne : Map
 	{
 		setupGrid ();				// call method to setup grid
 		spawn_wall_floor ();		// generate wall and floor tiles
+		spawn_door ();
 	}
 
 	void setupGrid () 
@@ -52,6 +53,9 @@ public class MapOne : Map
 	void spawn_door () {
 		int doorX;
 		int doorY;
+		
+		doorX = 1;
+		doorY = 1;
 
 		GameObject toInsta = doorSprite;
 
