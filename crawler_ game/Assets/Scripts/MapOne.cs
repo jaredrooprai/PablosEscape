@@ -8,24 +8,24 @@ public class MapOne : Map
 {
 
 	private int rows = 5; 
-	private int columns = 5;
+	private int columns = 20;
 
 
 	public void setupScene ()
 	{
-		setupGrid ();
-		spawn_wall_floor ();
+		setupGrid ();				// call method to setup grid
+		spawn_wall_floor ();		// generate wall and floor tiles
 	}
 
 	void setupGrid () 
 	{
 		transformIt = new GameObject ("Board").transform;
-		mapPositions.Clear ();
-		for (int x = -1; x <= columns + 1; x++) 
+		mapPositions.Clear ();								// clear the list
+		for (int x = -1; x <= columns + 1; x++) 			// adding row items into list
 		{
-			for (int y = -1; y <= rows + 1; y++) 
+			for (int y = -1; y <= rows + 1; y++) 			// adding column items to list
 			{
-				mapPositions.Add (new Vector3 (x, y, 0f));	//z coord is set to 0f because of 2d grid
+				mapPositions.Add (new Vector3 (x, y, 0f));	// z coord is set to 0f because of 2d grid
 			}
 		}
 	}
@@ -36,15 +36,15 @@ public class MapOne : Map
 		{
 			for (int y = -1; y <= rows + 1; y++)
 			{	
-				GameObject toInsta;
+				GameObject toInsta;												// initialize GameObject instance
 
-				if ( x == -1 || y == -1 || y == columns + 1 || x == rows + 1 )  
+				if ( x == -1 || y == -1 || x == columns + 1 || y == rows + 1 )  // if coordinates == boundaries, spawn wall tile
 					toInsta = wallTile; 
-				else 
+				else 															// else spawn floor tile
 					toInsta = floorTile; 
 		
 				GameObject instance = Instantiate (toInsta, new Vector3 (x, y, 0f), Quaternion.identity) as GameObject;
-				instance.transform.SetParent (transformIt);
+				instance.transform.SetParent (transformIt);						// instantiate wall/floor tile
 			}
 		}
 	}
