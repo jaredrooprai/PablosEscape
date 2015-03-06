@@ -6,10 +6,14 @@ using System.Collections.Generic;
 
 public class MapOne : Map 
 {
-	
-	
+	public void setupScene ()
+	{
+		setupGrid ();
+		spawnTiles ();
+	}
+
 	void setupGrid () {
-		transformers_robots_in_disguise = new GameObject ("Board").transform;
+		transformIt = new GameObject ("Board").transform;
 		mapPositions.Clear ();
 		for (int x = 0; x < 3; x++) {
 			for (int y = 0; y < 3; y++) {
@@ -26,15 +30,10 @@ public class MapOne : Map
 			{	
 				GameObject toInstantiate = floorTile;
 				GameObject instance = Instantiate (toInstantiate, new Vector3 (x, y, 0f), Quaternion.identity) as GameObject;
-				instance.transform.SetParent (transformers_robots_in_disguise);
+				instance.transform.SetParent (transformIt);
 			}
 		}
 	}
 	
-	public void setupScene ()
-	{
-		setupGrid ();
-		spawnTiles ();
-	}
 }
 
