@@ -15,13 +15,15 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void InitGame (){
-		if (instance == null)
+		if (instance == null){
 			instance = this;
+			boardscript.setupScene ();
+	}
 		else if (instance != this)
 			Destroy(gameObject);    
 		
 		DontDestroyOnLoad(gameObject);
-		boardscript.setupScene();
+
 	}
 	
 	// Update is called once per frame
