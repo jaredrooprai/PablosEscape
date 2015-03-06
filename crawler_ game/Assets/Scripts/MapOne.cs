@@ -53,6 +53,12 @@ public class MapOne : Map
 		int doorX;
 		int doorY;
 
+		GameObject toInsta = doorSprite;
+
+		GameObject instance = Instantiate (toInsta, new Vector3 (doorX, doorY, 0f), Quaternion.identity) as GameObject;
+		instance.transform.SetParent (transformIt);						// instantiate wall/floor tile
+		
+
 		// spawn door tile after map is generated
 	}
 }
