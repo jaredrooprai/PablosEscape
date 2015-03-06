@@ -41,7 +41,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c479abbe4293b34aa1a408ff9ae6fbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boardscript: {fileID: 0}
+  mapscript: {fileID: 0}
 --- !u!114 &11431902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53,7 +53,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c479abbe4293b34aa1a408ff9ae6fbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boardscript: {fileID: 0}
+  mapscript: {fileID: 0}
 --- !u!114 &11435832
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -65,14 +65,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b05dbf520230fd4ba34270ca041bb4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorSprite: {fileID: 0}
+  mapPositions: []
   floorTile: {fileID: 127410, guid: 22e5c7d2f9cccbe46a6dbcd1f5d3e455, type: 2}
   wallTile: {fileID: 143942, guid: eb582383d9f47354abfd78227f86cb2e, type: 2}
   trapTile: {fileID: 0}
-  keySprite: {fileID: 190008, guid: 2668976db90dc4b40919f711d952aee7, type: 2}
-  foodIteam: {fileID: 0}
+  keyPrefab: {fileID: 190008, guid: 2668976db90dc4b40919f711d952aee7, type: 2}
+  doorPrefab: {fileID: 0}
+  foodPrefab: {fileID: 0}
   transformIt: {fileID: 0}
-  mapPositions: []
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

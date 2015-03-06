@@ -7,8 +7,8 @@ using System.Collections.Generic;
 public class MapOne : Map 
 {
 
-	private int rows = 5; 
-	private int columns = 20;
+	private int rows = 10; 
+	private int columns = 5;
 
 	// Main method that sets up the scene with items and tiles
 	public void setupScene () {

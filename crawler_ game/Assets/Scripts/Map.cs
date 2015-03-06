@@ -22,8 +22,8 @@ public class Map : MonoBehaviour {
 	public void spawnPrefab (int xcoord, int ycoord, GameObject item) {
 		int x = xcoord;
 		int y = ycoord;
-		GameObject toInsta = item;
-		GameObject instance = Instantiate (toInsta, new Vector3 (x, y, 0f), Quaternion.identity) as GameObject;
+		GameObject toInstantiate = item;
+		GameObject instance = Instantiate (toInstantiate, new Vector3 (x, y, 0f), Quaternion.identity) as GameObject;
 		instance.transform.SetParent (transformIt);						
 	}
 
