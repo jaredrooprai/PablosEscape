@@ -48,5 +48,9 @@ public class MapOne : Map
 			}
 		}
 	}
+
+	void spawn_door () {
+		// spawn door tile after map is generated
+	}
 }
 
