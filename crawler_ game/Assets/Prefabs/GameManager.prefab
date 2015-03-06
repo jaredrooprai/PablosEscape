@@ -67,10 +67,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorTile: {fileID: 0}
   floorTile: {fileID: 127410, guid: 22e5c7d2f9cccbe46a6dbcd1f5d3e455, type: 2}
-  wallTile: {fileID: 0}
+  wallTile: {fileID: 143942, guid: eb582383d9f47354abfd78227f86cb2e, type: 2}
   trapTile: {fileID: 0}
   foodIteam: {fileID: 0}
-  transformers_robots_in_disguise: {fileID: 0}
+  transformIt: {fileID: 0}
   mapPositions: []
 --- !u!1001 &100100000
 Prefab:

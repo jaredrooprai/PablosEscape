@@ -6,34 +6,47 @@ using System.Collections.Generic;
 
 public class MapOne : Map 
 {
+
+	private int rows = 5; 
+	private int columns = 5;
+
+
 	public void setupScene ()
 	{
 		setupGrid ();
-		spawnTiles ();
+		spawn_wall_floor ();
 	}
 
-	void setupGrid () {
+	void setupGrid () 
+	{
 		transformIt = new GameObject ("Board").transform;
 		mapPositions.Clear ();
-		for (int x = 0; x < 3; x++) {
-			for (int y = 0; y < 3; y++) {
+		for (int x = -1; x <= columns + 1; x++) 
+		{
+			for (int y = -1; y <= rows + 1; y++) 
+			{
 				mapPositions.Add (new Vector3 (x, y, 0f));	//z coord is set to 0f because of 2d grid
-				
 			}
 		}
 	}
 	
-	void spawnTiles () {
-		for(int x = 0; x < 3; x++)
+	void spawn_wall_floor () {
+
+		for (int x = -1; x <= columns + 1; x++) 
 		{
-			for(int y = 0; y < 3; y++)
+			for (int y = -1; y <= rows + 1; y++)
 			{	
-				GameObject toInstantiate = floorTile;
-				GameObject instance = Instantiate (toInstantiate, new Vector3 (x, y, 0f), Quaternion.identity) as GameObject;
+				GameObject toInsta;
+
+				if ( x == -1 || y == -1 || y == columns + 1 || x == rows + 1 )  
+					toInsta = wallTile; 
+				else 
+					toInsta = floorTile; 
+		
+				GameObject instance = Instantiate (toInsta, new Vector3 (x, y, 0f), Quaternion.identity) as GameObject;
 				instance.transform.SetParent (transformIt);
 			}
 		}
 	}
-	
 }
 
