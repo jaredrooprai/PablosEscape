@@ -50,6 +50,9 @@ public class MapOne : Map
 	}
 
 	void spawn_door () {
+		int doorX;
+		int doorY;
+
 		// spawn door tile after map is generated
 	}
 }

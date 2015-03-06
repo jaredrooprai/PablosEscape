@@ -20,7 +20,11 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
+<<<<<<< HEAD
 --- !u!1102 &110233762
+=======
+--- !u!1102 &110227364
+>>>>>>> 0ef348bcefe00625e0a01de8f973c3b0d4436c91
 State:
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
@@ -60,7 +64,11 @@ StateMachine:
   m_DefaultState: {fileID: 110289224}
   m_States:
   - {fileID: 110289224}
+<<<<<<< HEAD
   - {fileID: 110233762}
+=======
+  - {fileID: 110227364}
+>>>>>>> 0ef348bcefe00625e0a01de8f973c3b0d4436c91
   m_ChildStateMachine: []
   m_ChildStateMachinePosition: []
   m_OrderedTransitions: {}
