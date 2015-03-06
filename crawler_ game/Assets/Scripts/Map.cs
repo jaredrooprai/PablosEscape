@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public class Map : MonoBehaviour {
 
 
-	public GameObject doorTile;
+	public GameObject doorSprite;
 	public GameObject floorTile;
 	public GameObject wallTile;
 	public GameObject trapTile;

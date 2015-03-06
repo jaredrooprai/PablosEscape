@@ -15,6 +15,7 @@ public class MapOne : Map
 	{
 		setupGrid ();				// call method to setup grid
 		spawn_wall_floor ();		// generate wall and floor tiles
+		spawn_door ();
 	}
 
 	void setupGrid () 
@@ -52,6 +53,15 @@ public class MapOne : Map
 	void spawn_door () {
 		int doorX;
 		int doorY;
+		
+		doorX = 1;
+		doorY = 1;
+
+		GameObject toInsta = doorSprite;
+
+		GameObject instance = Instantiate (toInsta, new Vector3 (doorX, doorY, 0f), Quaternion.identity) as GameObject;
+		instance.transform.SetParent (transformIt);						// instantiate wall/floor tile
+		
 
 		// spawn door tile after map is generated
 	}
