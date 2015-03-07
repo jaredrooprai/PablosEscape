@@ -10,21 +10,23 @@ public class Map : MonoBehaviour {
 
 	//GameObjects are holding prefabs
 	public GameObject floorTile;
+	public GameObject exitTile;
 	public GameObject wallTile;
 	public GameObject trapTile;
-	public GameObject keyPrefab;
 	public GameObject doorPrefab;
+	public GameObject keyPrefab;
 	public GameObject foodPrefab;
 
-	public Transform transformIt;
+	public Transform mapTransform;
 	
 	// Places GameObjects on a map
-	public void spawnPrefab (int xcoord, int ycoord, GameObject item) {
+	public void spawnPrefab (int xcoord, int ycoord, GameObject prefab) {
 		int x = xcoord;
 		int y = ycoord;
-		GameObject toInstantiate = item;
-		GameObject instance = Instantiate (toInstantiate, new Vector3 (x, y, 0f), Quaternion.identity) as GameObject;
-		instance.transform.SetParent (transformIt);						
+
+		// using instantiate method here
+		GameObject instance = Instantiate (prefab, new Vector3 (x, y, 0f), Quaternion.identity) as GameObject;
+		instance.transform.SetParent (mapTransform);						
 	}
 
 }

@@ -5,10 +5,9 @@ using System.Collections.Generic;
 
 
 public class MapOne : Map 
-{
-
-	private int rows = 10; 
+{ 
 	private int columns = 5;
+	private int rows = 10; 
 
 	// Main method that sets up the scene with items and tiles
 	public void setupScene () {
@@ -19,10 +18,10 @@ public class MapOne : Map
 
 
 	void setupGrid (){
-		transformIt = new GameObject ("Board").transform;
+		mapTransform = new GameObject ("Board").transform;
 		mapPositions.Clear ();								// clear the list
 		for (int x = -1; x <= columns + 1; x++) 			// adding row items into list
-		{
+	{
 			for (int y = -1; y <= rows + 1; y++) 			// adding column items to list
 			{
 				mapPositions.Add (new Vector3 (x, y, 0f));	// z coord is set to 0f because of 2d grid
@@ -39,8 +38,12 @@ public class MapOne : Map
 		{ 
 			for (int y = -1; y <= rows + 1; y++)
 			{	
+				// placing down a tile which represents the next room
+				// gate will still be on this tile,
+				if (x == columns && y == rows)
+					tile = exitTile;
 				// if coordinates == boundaries, spawn wall tile
-				if ( x == -1 || y == -1 || x == columns + 1 || y == rows + 1 )  
+				else if( x == -1 || y == -1 || x == columns + 1 || y == rows + 1 )  
 					tile = wallTile; 
 				// else spawn floor tile
 				else 		
