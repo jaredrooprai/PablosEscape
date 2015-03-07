@@ -12,6 +12,7 @@ GameObject:
   - 95: {fileID: 9599618}
   - 61: {fileID: 6199618}
   - 50: {fileID: 5099618}
+  - 114: {fileID: 11484362}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -72,6 +73,20 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11484362
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 199618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0242b35def11bee47bf5ecb618041970, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPrefab: {fileID: 101800, guid: aa94ffe14815eb7429efcb86f62b5403, type: 2}
+  playerAnimation: {fileID: 199618}
+  playerTransform: {fileID: 0}
 --- !u!212 &21299618
 SpriteRenderer:
   m_ObjectHideFlags: 1
