@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 public class MapOne : Map 
 { 
-	private int columns = 5;
+	private int columns = 4;
 	private int rows = 10; 
 
 	// Main method that sets up the scene with items and tiles
@@ -39,11 +39,10 @@ public class MapOne : Map
 			for (int y = -1; y <= rows + 1; y++)
 			{	
 				// placing down a tile which represents the next room
-				// gate will still be on this tile,
 				if (x == columns && y == rows)
 					tile = exitTile;
-				// if coordinates == boundaries, spawn wall tile
-
+				// depening on where the tile is placed it will either spawn a
+				// horizontal brick pattern or vertical brick battern
 				else if( x == -1 || x == columns + 1){
 					tile = VertWallTile;
 				}
@@ -51,8 +50,7 @@ public class MapOne : Map
 					tile = HorizWallTile;
 				}
 
-				// else spawn floor normal floor tile
-				else 		
+				else 		// else spawn floor normal floor tile
 					tile = floorTile; 
 
 				spawnPrefab (x, y, tile);				
