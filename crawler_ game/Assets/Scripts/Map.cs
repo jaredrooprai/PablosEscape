@@ -11,11 +11,13 @@ public class Map : MonoBehaviour {
 	//GameObjects are holding prefabs
 	public GameObject floorTile;
 	public GameObject exitTile;
-	public GameObject wallTile;
+	public GameObject VertWallTile, HorizWallTile; // same tile just edited for horizontal stacking
 	public GameObject trapTile;
 	public GameObject doorPrefab;
 	public GameObject keyPrefab;
 	public GameObject foodPrefab;
+
+	private bool shouldIFlip = false; // using this controller for the wallflipper method
 
 	public Transform mapTransform;
 	
@@ -28,5 +30,4 @@ public class Map : MonoBehaviour {
 		GameObject instance = Instantiate (prefab, new Vector3 (x, y, 0f), Quaternion.identity) as GameObject;
 		instance.transform.SetParent (mapTransform);						
 	}
-
 }

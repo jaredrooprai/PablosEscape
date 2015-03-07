@@ -31,7 +31,7 @@ public class MapOne : Map
 
 	//Sets up the floor and the walls
 	void setupTiles () {
-		//will contain wall prefab or floor prefab		
+		//will contain wall prefab or floor prefab
 		GameObject tile;
  
 		for (int x = -1; x <= columns + 1; x++) 
@@ -43,9 +43,17 @@ public class MapOne : Map
 				if (x == columns && y == rows)
 					tile = exitTile;
 				// if coordinates == boundaries, spawn wall tile
-				else if( x == -1 || y == -1 || x == columns + 1 || y == rows + 1 )  
-					tile = wallTile; 
-				// else spawn floor tile
+
+				else if( x == -1 || x == columns + 1)
+				{
+					tile = VertWallTile;
+				}
+				else if (y == -1 || y == rows + 1)
+				{
+					tile = HorizWallTile;
+				}
+
+				// else spawn floor normal floor tile
 				else 		
 					tile = floorTile; 
 
