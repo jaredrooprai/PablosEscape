@@ -44,12 +44,10 @@ public class MapOne : Map
 					tile = exitTile;
 				// if coordinates == boundaries, spawn wall tile
 
-				else if( x == -1 || x == columns + 1)
-				{
+				else if( x == -1 || x == columns + 1){
 					tile = VertWallTile;
 				}
-				else if (y == -1 || y == rows + 1)
-				{
+				else if (y == -1 || y == rows + 1){
 					tile = HorizWallTile;
 				}
 

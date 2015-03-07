@@ -16,9 +16,7 @@ public class Map : MonoBehaviour {
 	public GameObject doorPrefab;
 	public GameObject keyPrefab;
 	public GameObject foodPrefab;
-
-	private bool shouldIFlip = false; // using this controller for the wallflipper method
-
+	
 	public Transform mapTransform;
 	
 	// Places GameObjects on a map
