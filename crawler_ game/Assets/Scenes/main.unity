@@ -75,6 +75,50 @@ NavMeshSettings:
     heightInaccuracy: 10
     tileSizeHint: 0
   m_NavMesh: {fileID: 0}
+--- !u!1001 &12950467
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 400000, guid: 2f0f58bf4e8ce7240b3d6199d85a16a3, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -.0105149746
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 2f0f58bf4e8ce7240b3d6199d85a16a3, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -1.60269392
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 2f0f58bf4e8ce7240b3d6199d85a16a3, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 1.59740448e-05
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 2f0f58bf4e8ce7240b3d6199d85a16a3, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 2f0f58bf4e8ce7240b3d6199d85a16a3, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 2f0f58bf4e8ce7240b3d6199d85a16a3, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 2f0f58bf4e8ce7240b3d6199d85a16a3, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 2f0f58bf4e8ce7240b3d6199d85a16a3, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 2f0f58bf4e8ce7240b3d6199d85a16a3, type: 2}
+  m_RootGameObject: {fileID: 561067382}
+  m_IsPrefabParent: 0
+  m_IsExploded: 1
 --- !u!1 &71411826
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,8 +216,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 131902, guid: 1b52758b68636dc4c959d9f1e702bb44, type: 2}
-<<<<<<< HEAD
-=======
 --- !u!1 &561067382
 GameObject:
   m_ObjectHideFlags: 0
@@ -214,4 +256,3 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
->>>>>>> 3610e41d3a3079d5eb9728e30c239efd3e5fda01
