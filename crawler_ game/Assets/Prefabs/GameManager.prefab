@@ -70,6 +70,7 @@ MonoBehaviour:
   exitTile: {fileID: 145992, guid: 704f4343e25429f4fb08fb5378e4996d, type: 2}
   VertWallTile: {fileID: 101800, guid: aa94ffe14815eb7429efcb86f62b5403, type: 2}
   HorizWallTile: {fileID: 155422, guid: 47c33483254c006479c7dbe6d790d433, type: 2}
+  BlockingWallTile: {fileID: 147512, guid: 669dafbb1088c074a8eb869fc6e38f75, type: 2}
   trapTile: {fileID: 0}
   doorPrefab: {fileID: 0}
   keyPrefab: {fileID: 190008, guid: 2668976db90dc4b40919f711d952aee7, type: 2}
