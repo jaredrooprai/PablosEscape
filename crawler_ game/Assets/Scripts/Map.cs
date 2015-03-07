@@ -11,7 +11,7 @@ public class Map : MonoBehaviour {
 	//GameObjects are holding prefabs
 	public GameObject floorTile;
 	public GameObject exitTile;
-	public GameObject VertWallTile, HorizWallTile; // same tile just edited for horizontal stacking
+	public GameObject VertWallTile, HorizWallTile, BlockingWallTile; // same tile just edited for horizontal stacking
 	public GameObject trapTile;
 	public GameObject doorPrefab;
 	public GameObject keyPrefab;
