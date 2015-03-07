@@ -85,7 +85,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 101800, guid: aa94ffe14815eb7429efcb86f62b5403, type: 2}
-  playerAnimation: {fileID: 199618}
   playerTransform: {fileID: 0}
 --- !u!212 &21299618
 SpriteRenderer:

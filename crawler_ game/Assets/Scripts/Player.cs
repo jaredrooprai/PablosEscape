@@ -11,11 +11,9 @@ public class Player : MonoBehaviour {
 	private int health;
 	private int stamina;
 
-	public Transform playerTransform;
-
 	// Use this for initialization
 	public void SetupPlayer () {
-		SetPlayerLocation(0,0, playerPrefab);
+		UpdatePlayerLocation(0,0);
 		health = 100;
 		stamina = 100;
 	}
@@ -24,23 +22,28 @@ public class Player : MonoBehaviour {
 	public void Update () {
 	
 	}
-	
+
+	// used to set a change (positive/negative) to health
 	public void ChangeHealth (int change) {
 		health += change;
 	}
-
+	
+	// used to set a change (positive/negative) to stamina
 	public void ChangeStamina (int change) {
 		stamina += change;
 	}
-	
+
+	// used to retrieve health value
 	public int GetHealth () {
 		return health;
 	}
-
+	
+	// used to retrieve stamina value
 	public int GetStamina () {
 		return stamina;
 	}
-
+	
+	// used to retrieve player location values
 	public int[] GetLocation () {
 		return playerLocation;
 	}
@@ -53,16 +56,14 @@ public class Player : MonoBehaviour {
 			playerLocation[0] += direction[0];
 			playerLocation[1] += direction[1];
 		}
-		SetPlayerLocation(playerLocation[0], playerLocation[1], playerPrefab);
+		UpdatePlayerLocation(playerLocation[0], playerLocation[1]);
 	}
 
 	// Updates Player Sprite on map and removes old sprite
-	public void SetPlayerLocation(int xcoord, int ycoord, GameObject prefab) {
-		int x = xcoord;
-		int y = ycoord;
-
-		// using instantiate method here
-		instance = Instantiate (prefab, new Vector3 (x, y, 0f), Quaternion.identity) as GameObject;
-		instance.transform.SetParent (playerTransform);						
+	public void UpdatePlayerLocation(int x, int y) {
+		// remove previous instance of player
+		Destroy(instance);
+		// create new instance of player
+		instance = Instantiate (playerPrefab, new Vector3 (x, y, 0f), Quaternion.identity) as GameObject;						
 	}
 }
