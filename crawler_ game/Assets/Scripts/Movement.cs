@@ -7,9 +7,9 @@ public class Movement : MonoBehaviour {
 	private Vector3 position; 
 	private float speed;
 	
-	public void initMovement() {
-		speed = 3f;
-		position = transform.position;          // Take the initial position
+	public void setVariables(float s, Vector3 currentPosition) {
+		speed = s;
+		position = currentPosition;          // Take the initial position
 	}
 	
 
@@ -21,19 +21,19 @@ public class Movement : MonoBehaviour {
 		
 		
 		
-		public void moveOnKeys(){  /// this is for the keyboard 
+	public void moveOnKeys(){  /// this is for the keyboard 
 			
-			if(Input.GetKey(KeyCode.A) && transform.position == position) 
-				position = checkMove(position,(position += Vector3.left));
-			
-			else if(Input.GetKey(KeyCode.D) && transform.position == position)     
-				position = checkMove(position, (position += Vector3.right));		
+		if(Input.GetKey(KeyCode.A) && transform.position == position) 
+			position = checkMove(position,(position += Vector3.left));
+				
+		else if(Input.GetKey(KeyCode.D) && transform.position == position)     
+			position = checkMove(position, (position += Vector3.right));		
 		
-			else if(Input.GetKey(KeyCode.W) && transform.position == position)         
-				position = checkMove(position, (position += Vector3.up));		
+		else if(Input.GetKey(KeyCode.W) && transform.position == position)         
+			position = checkMove(position, (position += Vector3.up));		
 		
 		else if(Input.GetKey(KeyCode.S) && transform.position == position)        
-				position = checkMove(position, (position += Vector3.down));	
+			position = checkMove(position, (position += Vector3.down));	
 
 		transform.position = Vector3.MoveTowards(transform.position, position, Time.deltaTime * speed);
 

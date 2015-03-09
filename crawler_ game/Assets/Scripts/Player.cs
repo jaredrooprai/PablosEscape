@@ -8,7 +8,7 @@ public class Player : MonoBehaviour {
 
 	void Start () {
 		moveScript = gameObject.GetComponent<Movement> ();
-		moveScript.initMovement (); // setting speed and setting position
+		moveScript.setVariables (3f, transform.position); // setting speed and setting position
 	}
 
 	void Update (){
