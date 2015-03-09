@@ -21,7 +21,7 @@ public class Movement : MonoBehaviour {
 		
 		
 		
-	public void moveOnKeys(){  /// this is for the keyboard 
+	public Vector3 moveOnKeys(){  /// this is for the keyboard 
 			
 		if(Input.GetKey(KeyCode.A) && transform.position == position) 
 			position = checkMove(position,(position += Vector3.left));
@@ -35,7 +35,7 @@ public class Movement : MonoBehaviour {
 		else if(Input.GetKey(KeyCode.S) && transform.position == position)        
 			position = checkMove(position, (position += Vector3.down));	
 
-		transform.position = Vector3.MoveTowards(transform.position, position, Time.deltaTime * speed);
+		return Vector3.MoveTowards(transform.position, position, Time.deltaTime * speed);
 
 	}
 	

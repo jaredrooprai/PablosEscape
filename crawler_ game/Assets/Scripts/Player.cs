@@ -13,7 +13,7 @@ public class Player : MonoBehaviour {
 
 	void Update (){
 	#if UNITY_STANDALONE || UNITY_EDITOR
-		moveScript.moveOnKeys ();
+		transform.position = moveScript.moveOnKeys ();
 	#else
 		moveScript.moveOnSwipe();
 	#endif
