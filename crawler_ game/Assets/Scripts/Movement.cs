@@ -6,11 +6,11 @@ public class Movement : MonoBehaviour {
 	// current location
 	private Vector3 position; 
 	private float speed;
-<<<<<<< HEAD
+//<<<<<<< HEAD
 	private Vector2 touchOrigin = -Vector2.one;
-=======
+//=======
 	private Animator animator;
->>>>>>> 8e370b3b430142fe8e4f178d10385e2e2530c2cb
+//>>>>>>> 8e370b3b430142fe8e4f178d10385e2e2530c2cb
 	
 	public void setVariables(float s, Vector3 currentPosition) {
 		animator = GetComponent<Animator>();
