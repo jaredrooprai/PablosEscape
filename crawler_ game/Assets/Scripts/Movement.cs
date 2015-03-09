@@ -6,13 +6,6 @@ public class Movement : MonoBehaviour {
 	// current location
 	private Vector3 position; 
 	private float speed;
-
-	
-	public float minSwipeDistY;
-	
-	public float minSwipeDistX;
-	
-	private Vector2 startPos;
 	
 	public void initMovement() {
 		speed = 3f;
@@ -34,13 +27,14 @@ public class Movement : MonoBehaviour {
 				position = checkMove(position,(position += Vector3.left));
 			
 			else if(Input.GetKey(KeyCode.D) && transform.position == position)     
-			position = checkMove(position, (position += Vector3.right));		
+				position = checkMove(position, (position += Vector3.right));		
 		
-		else if(Input.GetKey(KeyCode.W) && transform.position == position)         
-			position = checkMove(position, (position += Vector3.up));		
+			else if(Input.GetKey(KeyCode.W) && transform.position == position)         
+				position = checkMove(position, (position += Vector3.up));		
 		
 		else if(Input.GetKey(KeyCode.S) && transform.position == position)        
-			position = checkMove(position, (position += Vector3.down));	
+				position = checkMove(position, (position += Vector3.down));	
+
 		transform.position = Vector3.MoveTowards(transform.position, position, Time.deltaTime * speed);
 
 	}
@@ -52,11 +46,6 @@ public class Movement : MonoBehaviour {
 		else 
 			return end;
 	}
-
-
-
-
-
 
 }
 
