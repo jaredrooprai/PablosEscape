@@ -12,7 +12,11 @@ public class Player : MonoBehaviour {
 	}
 
 	void Update (){
+	#if UNITY_STANDALONE || UNITY_EDITOR
 		moveScript.moveOnKeys ();
+	#else
+		moveScript.moveOnSwipe();
+	#endif
 	}
 
 }
