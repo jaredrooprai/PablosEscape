@@ -5,14 +5,12 @@ public class GameManager : MonoBehaviour {
 
 	public static GameManager instance = null;	// used in init game explanation is there
 	public MapOne mapscript;
-	public Player playerscript;
 
 
 
 	// Use this for initialization
 	void Awake () {
 		mapscript = GetComponent<MapOne> ();
-		playerscript = GetComponent<Player> ();
 		InitGame ();
 	}
 
@@ -21,7 +19,6 @@ public class GameManager : MonoBehaviour {
 		if (instance == null){
 			instance = this;
 			mapscript.setupScene ();
-			playerscript.SetupPlayer ();
 
 	}
 		else if (instance != this)
