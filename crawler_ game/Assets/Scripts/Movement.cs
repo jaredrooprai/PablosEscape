@@ -6,6 +6,7 @@ public class Movement : MonoBehaviour {
 	// current location
 	private Vector3 position; 
 	private float speed;
+	private Vector2 touchOrigin = -Vector2.one;
 	
 	public void setVariables(float s, Vector3 currentPosition) {
 		speed = s;
@@ -14,8 +15,32 @@ public class Movement : MonoBehaviour {
 	
 
 	
-	public void moveOnSwipe (){ // this is for the phone
-
+	public Vector3 moveOnSwipe (){ // this is for the phone
+		if (Input.touchCount == 0) {
+			Touch myTouch = Input.touches[0];
+			if (myTouch.phase == TouchPhase.Began) {
+				touchOrigin = myTouch.position;
+			}
+			else if (myTouch.phase == TouchPhase.Ended && touchOrigin.x >=0) {
+				Vector2 touchEnd = myTouch.position;
+				float x = touchEnd.x - touchOrigin.x;
+				float y = touchEnd.y - touchOrigin.y;
+				touchOrigin.x = -1;
+				if (Mathf.Abs(x) > Mathf.Abs(y)) {
+					if (x > 0)
+						position = checkMove(position, (position += Vector3.right));
+					else
+						position = checkMove(position, (position += Vector3.left));
+				}
+				else {
+					if (y > 0)
+						position = checkMove(position, (position += Vector3.up));
+					else 
+						position = checkMove(position, (position += Vector3.down));
+				}
+			}
+		}
+		return Vector3.MoveTowards(transform.position, position, Time.deltaTime * speed);
 	}
 	
 		
