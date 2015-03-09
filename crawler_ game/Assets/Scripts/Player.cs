@@ -17,7 +17,7 @@ public class Player : MonoBehaviour {
 	#if UNITY_STANDALONE || UNITY_EDITOR
 		transform.position = moveScript.moveOnKeys ();
 	#else
-		transform.position = smoveScript.moveOnSwipe();
+		transform.position = moveScript.moveOnSwipe();
 	#endif
 	}
 
