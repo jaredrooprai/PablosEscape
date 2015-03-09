@@ -6,8 +6,10 @@ public class Movement : MonoBehaviour {
 	// current location
 	private Vector3 position; 
 	private float speed;
+	private Animator animator;
 	
 	public void setVariables(float s, Vector3 currentPosition) {
+		animator = GetComponent<Animator>();
 		speed = s;
 		position = currentPosition;          // Take the initial position
 	}
@@ -40,11 +42,15 @@ public class Movement : MonoBehaviour {
 	}
 	
 	Vector3 checkMove(Vector3 start, Vector3 end) {
+		// shows linecase for debugging purposes,
+		//Debug.DrawLine (start, end, Color.green);
 		bool collide = Physics2D.Linecast (start, end, 1 << LayerMask.NameToLayer ("BlockingLayer"));
 		if (collide == true)
 			return start;
-		else 
+		else {
+			animator.SetTrigger("bonesWalking");
 			return end;
+		}
 	}
 
 }
