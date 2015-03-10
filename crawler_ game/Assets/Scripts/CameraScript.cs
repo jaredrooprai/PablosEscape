@@ -4,7 +4,6 @@ using System.Collections;
 public class CameraScript : MonoBehaviour 
 {
 	Transform target;
-	
 	Vector3 Orientation;
 	
 	
