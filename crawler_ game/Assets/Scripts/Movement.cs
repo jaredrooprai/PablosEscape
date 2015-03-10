@@ -21,32 +21,47 @@ public class Movement : MonoBehaviour {
 
 	
 	public Vector3 moveOnSwipe (){ // this is for the phone
-		if (Input.touchCount == 0) {
-			Touch myTouch = Input.touches[0];
-			if (myTouch.phase == TouchPhase.Began) {
-				touchOrigin = myTouch.position;
-			}
-			else if (myTouch.phase == TouchPhase.Ended && touchOrigin.x >=0) {
-				Vector2 touchEnd = myTouch.position;
-				float x = touchEnd.x - touchOrigin.x;
-				float y = touchEnd.y - touchOrigin.y;
-				touchOrigin.x = -1;
-				if (Mathf.Abs(x) > Mathf.Abs(y)) {
-					if (x > 0)
+		if (Input.touchCount > 0) {
+			Touch touch = Input.touches[0]; //The first touch is stored in touch
+			
+			switch(touch.phase)
+			{
+			case(TouchPhase.Began):
+				touchOrigin = touch.position;
+				break;
+				
+			case(TouchPhase.Ended):
+				float xSwipeDistance = (new Vector3(touch.position.x,0,0) - new Vector3(touchOrigin.x,0,0)).magnitude;
+				float ySwipeDistance = (new Vector3(0, touch.position.y,0) - new Vector3(0, touchOrigin.y,0)).magnitude;
+				
+				if ((xSwipeDistance - ySwipeDistance) > 0)
+				{
+					if (xSwipeDistance > 0) //Move Right
+					{
 						position = checkMove(position, (position += Vector3.right));
+					}
+					
 					else
-						position = checkMove(position, (position += Vector3.left));
+						position = checkMove(position,(position += Vector3.left)); //else move right
 				}
-				else {
-					if (y > 0)
-						position = checkMove(position, (position += Vector3.up));
-					else 
-						position = checkMove(position, (position += Vector3.down));
+				
+				else
+				{
+					if (ySwipeDistance > 0)
+					{
+						position = checkMove(position, (position += Vector3.up));	//move up
+					}
+					
+					else
+						position = checkMove(position, (position += Vector3.down));	
 				}
+				break;
 			}
 		}
-		return Vector3.MoveTowards(transform.position, position, Time.deltaTime * speed);
+		return Vector2.MoveTowards(transform.position, position, Time.deltaTime * speed);
 	}
+	
+
 	
 		
 		
