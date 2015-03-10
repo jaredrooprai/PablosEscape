@@ -36,7 +36,9 @@ public class Movement : MonoBehaviour {
 				
 				if ((xSwipeDistance - ySwipeDistance) > 0)
 				{
-					if (xSwipeDistance > 0) //Move Right
+
+					float horizontalDisplacement = touch.position.x- touchOrigin.x;
+					if (horizontalDisplacement > 0) //Move Right
 					{
 						position = checkMove(position, (position += Vector3.right));
 					}
@@ -47,7 +49,8 @@ public class Movement : MonoBehaviour {
 				
 				else
 				{
-					if (ySwipeDistance > 0)
+					float verticalDisplacement = touch.position.x- touchOrigin.x;
+					if (verticalDisplacement > 0)
 					{
 						position = checkMove(position, (position += Vector3.up));	//move up
 					}
