@@ -29,7 +29,7 @@ public class Player : MonoBehaviour {
 		movePlayer();
 	#else
 
-		direction = controllerScript.touchScreen(position);
+		newPosition = controllerScript.touchScreen(position);
 		movePlayer();
 	
 	#endif
