@@ -5,16 +5,14 @@ public class Player : MonoBehaviour {
 
 	private Animator animator;
 
-	public Movement moveScript;
+	public Controller controllerScript;
 
 
 	void Start () {
 		animator = gameObject.GetComponent<Animator> ();
-		moveScript = gameObject.GetComponent<Movement> ();
-
-		moveScript.RotateObject (180);
-
-		moveScript.setVariables (3f, transform.position, animator); // setting speed and setting position
+		controllerScript = gameObject.GetComponent<Controller> ();
+		
+		controllerScript.setVariables (2f,180f, transform.position, animator); // setting speed and setting position
 
 	}
 
@@ -22,9 +20,9 @@ public class Player : MonoBehaviour {
 
 
 	#if UNITY_STANDALONE || UNITY_EDITOR
-		transform.position = moveScript.moveOnKeys ();
+		transform.position = controllerScript.keyboard ();
 	#else
-		transform.position = moveScript.moveOnSwipe();
+		transform.position = controllerScript.touchScreen();
 	#endif
 
 	}
