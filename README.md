@@ -11,7 +11,7 @@ Open crawler folder in unity engine,
 #
 #
 #
-Android Immserive mode Plugin source: 
+Android immersive mode Plugin source: 
 #
 https://www.assetstore.unity3d.com/en/#!/content/21774
 #
@@ -25,7 +25,7 @@ Wall tile   : https://www.assetstore.unity3d.com/en/#!/content/19610
 #
 All other sprites were made with: http://www.piskelapp.com/
 #
-Swipe gesture code inspired(highly modified) from squidsquadstudios(youtube): https://dl.dropboxusercontent.com/u/97948256/SwipeDetctor.cs
+Gesture code inspired(highly modified) from squidsquadstudios(youtube): https://dl.dropboxusercontent.com/u/97948256/SwipeDetctor.cs
 #
 
 
