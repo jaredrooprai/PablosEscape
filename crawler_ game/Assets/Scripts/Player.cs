@@ -7,7 +7,7 @@ public class Player : MonoBehaviour {
 	private Animator animator;
 	private Controller controllerScript;
 	private Vector3 position;
-	private Vector3 direction;
+	private Vector3 newPosition;
 
 	// called on start up
 	void Start () {
@@ -15,7 +15,7 @@ public class Player : MonoBehaviour {
 		controllerScript = gameObject.GetComponent<Controller> ();
 
 		position = transform.position;
-		direction = transform.position;
+		newPosition = transform.position;
 
 		rotatePlayer (); // rotating him on start up to face the right way 
 		speed = 2f;
@@ -25,19 +25,21 @@ public class Player : MonoBehaviour {
 	// Called every frame
 	void Update (){
 	#if UNITY_STANDALONE || UNITY_EDITOR
-		direction = controllerScript.keyboard(position);
+		newPosition = controllerScript.keyboard(position);
 		movePlayer();
 	#else
+
 		direction = controllerScript.touchScreen(position);
 		movePlayer();
+	
 	#endif
 	}
 
 
 	// move the player towards destination
 	private void movePlayer(){
-		if (position != (direction))
-			position = checkCollider (position, direction);
+		if (position != (newPosition))
+			position = checkCollider (position, newPosition);
 
 		transform.position = Vector3.MoveTowards(transform.position, position, Time.deltaTime * speed);
 	}
@@ -52,32 +54,40 @@ public class Player : MonoBehaviour {
 		bool keyCollision = Physics2D.Linecast (start, end, 1 << LayerMask.NameToLayer ("KeyLayer"));	// cast a line and check if its a key
 
 		if (keyCollision == true) {
-			return start;
+			playerWalkAnim();
+			return end;
 		}
 
 		if (wallCollision == true) {
 			return start;
 		}else {
-			animator.SetTrigger("Walk");
+			playerWalkAnim();
 			return end;
 		}
 	}
+                         
+	                           
 
 
 	// rotating player to face direction of movement
 	private void rotatePlayer(){
-		if (((position.x) == (direction.x)) && ((position.y) == (direction.y))) {
+		if (((position.x) == (newPosition.x)) && ((position.y) == (newPosition.y))) {
 			transform.rotation = Quaternion.Euler (0, 0, 180f);
-		}else if ((position.x) > (direction.x)) {
+		}else if ((position.x) > (newPosition.x)) {
 			transform.rotation = Quaternion.Euler (0, 0, 270f);
-		} else if ((position.x) < (direction.x)) {
+		} else if ((position.x) < (newPosition.x)) {
 			transform.rotation = Quaternion.Euler (0, 0, 90f);
-		} else if ((position.y) < (direction.y)) {
+		} else if ((position.y) < (newPosition.y)) {
 			transform.rotation = Quaternion.Euler (0, 0, 180f);
-		} else if ((position.y) > (direction.y)) {
+		} else if ((position.y) > (newPosition.y)) {
 			transform.rotation = Quaternion.Euler (0, 0, 0f);
 		}
 	}
+
+	private void playerWalkAnim(){
+		animator.SetTrigger("Walk");
+	}
+
 }
 
 
