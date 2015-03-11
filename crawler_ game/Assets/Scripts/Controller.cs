@@ -25,13 +25,13 @@ public class Controller : MonoBehaviour {
 					Vector2 touchFacing = (initTouchPos - touch.position).normalized;
 					
 					if(Vector2.Dot (touchFacing, Vector2.up) > 0.8 && Vector2.Distance (initTouchPos, touch.position) > 20 && transform.position == position ){
-						position = position += Vector3.down;
+						position = (position+=Vector3.down);
 					} else if(Vector2.Dot (touchFacing, -Vector2.up) > 0.8 && Vector2.Distance (initTouchPos, touch.position) > 20 && transform.position == position ){
-						position = position += Vector3.up;
+						position = (position+=Vector3.up);
 					} else if(Vector2.Dot (touchFacing, Vector2.right) > 0.8 && Vector2.Distance (initTouchPos, touch.position) > 20 && transform.position == position ){
-						position = position += Vector3.left;
+						position = (position+=Vector3.left);
 					} else if(Vector2.Dot (touchFacing, -Vector2.right) > 0.8 && Vector2.Distance (initTouchPos, touch.position) > 20 && transform.position == position ){
-						position = position += Vector3.right;
+						position = (position+=Vector3.right);
 					}
 				}
 			}
@@ -46,13 +46,13 @@ public class Controller : MonoBehaviour {
 		position = pos;
 
 		if (Input.GetKey (KeyCode.A) && transform.position == position) {
-			position = position += Vector3.left;
+			position = (position+=Vector3.left);
 		} else if (Input.GetKey (KeyCode.D) && transform.position == position) {    
-			position = position += Vector3.right;
+			position = (position+=Vector3.right);
 		} else if (Input.GetKey (KeyCode.W) && transform.position == position) {        
-			position = position += Vector3.up;
+			position = (position+=Vector3.up);
 		} else if (Input.GetKey (KeyCode.S) && transform.position == position) { 
-			position = position += Vector3.down;
+			position = (position+=Vector3.down);
 		}
 		return position;
 	}

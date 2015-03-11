@@ -19,12 +19,9 @@ public class GameManager : MonoBehaviour {
 		if (instance == null){
 			instance = this;
 			mapscript.setupScene ();
-
-	}
-		else if (instance != this)
+	}	else if (instance != this)
 			Destroy(gameObject);    
-		
-		DontDestroyOnLoad(gameObject);
+			DontDestroyOnLoad(gameObject);
 	}
 	
 	// Update is called once per frame
