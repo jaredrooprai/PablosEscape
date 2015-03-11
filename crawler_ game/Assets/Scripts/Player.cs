@@ -9,6 +9,12 @@ public class Player : MonoBehaviour {
 	private Vector3 position;
 	private Vector3 newPosition;
 
+	private int keys;
+	private int health;
+	private bool wallCollision;
+	private bool keyCollision;
+
+
 	// called on start up
 	void Start () {
 		animator = gameObject.GetComponent<Animator> ();
@@ -27,6 +33,7 @@ public class Player : MonoBehaviour {
 	#if UNITY_STANDALONE || UNITY_EDITOR
 		newPosition = controllerScript.keyboard(position);
 		movePlayer();
+
 	#else
 
 		newPosition = controllerScript.touchScreen(position);
@@ -34,6 +41,8 @@ public class Player : MonoBehaviour {
 	
 	#endif
 	}
+
+
 
 
 	// move the player towards destination
@@ -50,15 +59,16 @@ public class Player : MonoBehaviour {
 		rotatePlayer ();
 		//Debug.DrawLine (start, end, Color.green); 										// shows linecast for debugging purposes
 		
-		bool wallCollision = Physics2D.Linecast (start, end, 1 << LayerMask.NameToLayer ("WallLayer"));	// cast a line and check if its a wall
-		bool keyCollision = Physics2D.Linecast (start, end, 1 << LayerMask.NameToLayer ("KeyLayer"));	// cast a line and check if its a key
+		wallCollision = Physics2D.Linecast (start, end, 1 << LayerMask.NameToLayer ("WallLayer"));	// cast a line and check if its a wall
+		keyCollision = Physics2D.Linecast (start, end, 1 << LayerMask.NameToLayer ("KeyLayer"));	// cast a line and check if its a key
 
-		if (keyCollision == true) {
+		if (keyCollision != false) {
 			playerWalkAnim();
+			Destroy (GameObject.Find ("Key(Clone)"));
 			return end;
-		}
 
-		if (wallCollision == true) {
+			
+		} else if (wallCollision == true) {
 			return start;
 		}else {
 			playerWalkAnim();
@@ -67,8 +77,6 @@ public class Player : MonoBehaviour {
 	}
                          
 	                           
-
-
 	// rotating player to face direction of movement
 	private void rotatePlayer(){
 		if (((position.x) == (newPosition.x)) && ((position.y) == (newPosition.y))) {

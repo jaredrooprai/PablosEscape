@@ -60,9 +60,13 @@ public class MapOne : Map
 
 	// Method to add items into the map using parent spawnItem method
 	void setupItems(){
-		spawnPrefab (3, 3, keyPrefab);				
+		spawnPrefab (3, 3, keyPrefab);
 	}
 
+	public void destroykey(){
+		Destroy (GameObject.Find ("Key(Clone)"));
+	}
 
+	
 }
 
