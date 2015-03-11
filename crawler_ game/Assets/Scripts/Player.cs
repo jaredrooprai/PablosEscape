@@ -30,11 +30,12 @@ public class Player : MonoBehaviour {
 
 	// Called every frame
 	void Update (){
-	#if UNITY_STANDALONE || UNITY_EDITOR
+
+	#if UNITY_STANDALONE || UNITY_EDITOR 
 		newPosition = controllerScript.keyboard(position);
 		movePlayer();
 
-	#else
+	# elif UNITY_ANDROID
 
 		newPosition = controllerScript.touchScreen(position);
 		movePlayer();
