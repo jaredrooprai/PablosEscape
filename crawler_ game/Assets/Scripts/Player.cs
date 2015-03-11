@@ -23,6 +23,9 @@ public class Player : MonoBehaviour {
 		position = transform.position;
 		newPosition = transform.position;
 
+		health = 0;
+		keys = 0;
+
 		rotatePlayer (); // rotating him on start up to face the right way 
 		speed = 2f;
 	}
@@ -33,15 +36,18 @@ public class Player : MonoBehaviour {
 
 	#if UNITY_STANDALONE || UNITY_EDITOR 
 		newPosition = controllerScript.keyboard(position);
-		movePlayer();
-
 	# elif UNITY_ANDROID
-
 		newPosition = controllerScript.touchScreen(position);
-		movePlayer();
-	
 	#endif
+		movePlayer();
 	}
+
+
+
+
+
+
+
 
 
 
@@ -54,7 +60,12 @@ public class Player : MonoBehaviour {
 		transform.position = Vector3.MoveTowards(transform.position, position, Time.deltaTime * speed);
 	}
 
-	
+
+
+
+
+
+
 	// check for player hitting colliders
 	private Vector3 checkCollider(Vector3 start, Vector3 end) {
 		rotatePlayer ();
@@ -92,6 +103,12 @@ public class Player : MonoBehaviour {
 			transform.rotation = Quaternion.Euler (0, 0, 0f);
 		}
 	}
+
+
+
+
+
+
 
 	private void playerWalkAnim(){
 		animator.SetTrigger("Walk");
