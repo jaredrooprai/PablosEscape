@@ -3,28 +3,38 @@ using System.Collections;
 
 public class Player : MonoBehaviour {
 
+	private GameObject heart1;
+	private GameObject heart2;
+	private GameObject heart3;
+	private GameObject heart4;
+	private GameObject heart5;
+
 	private float speed;
 	private Animator animator;
 	private Controller controllerScript;
 	private Vector3 position;
 	private Vector3 newPosition;
+	
 
-	private int keys;
-	private int health;
 	private bool wallCollision;
 	private bool keyCollision;
 
 
+
+
+
 	// called on start up
 	void Start () {
+		heart1 = GameObject.Find ("heart20");
+		heart2 = GameObject.Find ("heart40");
+		heart3= GameObject.Find ("heart60");
+		heart4 = GameObject.Find ("heart80");
+		heart5 = GameObject.Find ("heart100");
+
 		animator = gameObject.GetComponent<Animator> ();
 		controllerScript = gameObject.GetComponent<Controller> ();
-
 		position = transform.position;
 		newPosition = transform.position;
-
-		health = 100;
-		keys = 0;
 
 		rotatePlayer (); // rotating him on start up to face the right way 
 		speed = 2f;
@@ -46,12 +56,6 @@ public class Player : MonoBehaviour {
 
 
 
-
-
-
-
-
-
 	// move the player towards destination
 	private void movePlayer(){
 		if (position != (newPosition))
@@ -59,10 +63,6 @@ public class Player : MonoBehaviour {
 
 		transform.position = Vector3.MoveTowards(transform.position, position, Time.deltaTime * speed);
 	}
-
-
-
-
 
 
 
@@ -77,10 +77,12 @@ public class Player : MonoBehaviour {
 		if (keyCollision != false) {
 			playerWalkAnim();
 			Destroy (GameObject.Find ("Key(Clone)"));
+			heart5.SetActive(false);
 			return end;
 
 			
 		} else if (wallCollision == true) {
+			heart5.SetActive(true);
 			return start;
 		}else {
 			playerWalkAnim();
@@ -114,11 +116,8 @@ public class Player : MonoBehaviour {
 		animator.SetTrigger("Walk");
 	}
 
-	void OnGUI(){
-		GUI.skin.label.fontSize = GUI.skin.box.fontSize = 50;
-		GUI.Box(new Rect(0,0,420,80), "Health Points: " + health);
-	}
 
+	
 }
 
 
