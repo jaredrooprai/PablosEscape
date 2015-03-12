@@ -23,7 +23,7 @@ public class Player : MonoBehaviour {
 		position = transform.position;
 		newPosition = transform.position;
 
-		health = 0;
+		health = 100;
 		keys = 0;
 
 		rotatePlayer (); // rotating him on start up to face the right way 
@@ -112,6 +112,11 @@ public class Player : MonoBehaviour {
 
 	private void playerWalkAnim(){
 		animator.SetTrigger("Walk");
+	}
+
+	void OnGUI(){
+		GUI.skin.label.fontSize = GUI.skin.box.fontSize = 50;
+		GUI.Box(new Rect(0,0,420,80), "Health Points: " + health);
 	}
 
 }
