@@ -9,6 +9,12 @@ public class Player : MonoBehaviour {
 	private GameObject heart4;
 	private GameObject heart5;
 
+	private GameObject key1;
+	private GameObject key2;
+	private GameObject key3;
+	private GameObject key4;
+
+
 	private float speed;
 	private Animator animator;
 	private Controller controllerScript;
@@ -30,6 +36,17 @@ public class Player : MonoBehaviour {
 		heart3= GameObject.Find ("heart60");
 		heart4 = GameObject.Find ("heart80");
 		heart5 = GameObject.Find ("heart100");
+		key1 = GameObject.Find ("key1");
+		key2 = GameObject.Find ("key2");
+		key3 = GameObject.Find ("key3");
+		key4 = GameObject.Find ("key4");
+
+		key1.SetActive(false);
+		key2.SetActive(false);
+		key3.SetActive(false);
+		key4.SetActive(false);
+
+
 
 		animator = gameObject.GetComponent<Animator> ();
 		controllerScript = gameObject.GetComponent<Controller> ();
@@ -77,12 +94,11 @@ public class Player : MonoBehaviour {
 		if (keyCollision != false) {
 			playerWalkAnim();
 			Destroy (GameObject.Find ("Key(Clone)"));
-			heart5.SetActive(false);
+			key1.SetActive(true);
 			return end;
 
 			
 		} else if (wallCollision == true) {
-			heart5.SetActive(true);
 			return start;
 		}else {
 			playerWalkAnim();
