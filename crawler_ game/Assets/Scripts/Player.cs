@@ -210,10 +210,10 @@ public class Player : MonoBehaviour {
 		if (other.tag == "WhiteKey" && hasWhiteKey == false) {
 			Destroy (other.gameObject);
 			foundWhiteKey ();
-		} else if (other.tag == "TealKey" && hasWhiteKey == false) {
+		} else if (other.tag == "TealKey" && hasTealKey == false) {
 			Destroy (other.gameObject);
 			foundTealKey ();
-		} else if (other.tag == "GoldKey" && hasWhiteKey == false) {
+		} else if (other.tag == "GoldKey" && hasGoldKey == false) {
 			Destroy (other.gameObject);
 			foundGoldKey ();
 
