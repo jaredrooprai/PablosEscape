@@ -11,12 +11,13 @@ public class Player : MonoBehaviour {
 	private Vector3 newPosition;	// future position
 
 	private float speed;			// speed of movement, will be multiplied by time.delta time
-
+	private int health;
 	// booleans for colliding with objects
 	private bool wallCollision;		
 	private bool whiteKeyCollision, whiteGateCollision,	hasWhiteKey;
 	private bool tealKeyCollision, tealGateCollision,	hasTealKey;
 	private bool goldKeyCollision, goldGateCollision,	hasGoldKey;
+	private bool spiderWebCollision;
 
 
 
@@ -34,6 +35,7 @@ public class Player : MonoBehaviour {
 
 		rotatePlayer (); // rotating him on start up to face the right way 
 		speed = 2f;
+		health = 100;
 
 		hasWhiteKey = false;
 		hasTealKey = false;
@@ -51,6 +53,7 @@ public class Player : MonoBehaviour {
 		newPosition = controllerScript.touchScreen(position); 	// get input from the touchscreen fucntion in controller
 	#endif
 		movePlayer();// attempt to move player to correct grid position
+		checkHealth ();
 	}
 
 	private void initHUD (){ 		//initializeing Heads up display
@@ -62,6 +65,48 @@ public class Player : MonoBehaviour {
 		HUDScript.toggleKey_1(false);
 		HUDScript.toggleKey_2(false);
 		HUDScript.toggleKey_3(false);
+	}
+
+	private void checkHealth(){
+		if (health > 100) {
+			health = 100;
+		}
+		if (health == 100) {
+			HUDScript.toggleHeart_1(true);
+			HUDScript.toggleHeart_2(true);
+			HUDScript.toggleHeart_3(true);
+			HUDScript.toggleHeart_4(true);
+			HUDScript.toggleHeart_5(true);
+		} else if (health == 80) {
+			HUDScript.toggleHeart_1(true);
+      		HUDScript.toggleHeart_2(true);
+      		HUDScript.toggleHeart_3(true);
+      		HUDScript.toggleHeart_4(true);
+			HUDScript.toggleHeart_5(false);
+		} else if (health == 60) {
+			HUDScript.toggleHeart_1(true);
+			HUDScript.toggleHeart_2(true);
+			HUDScript.toggleHeart_3(true);
+			HUDScript.toggleHeart_4(false);
+			HUDScript.toggleHeart_5(false);
+		} else if (health == 40) {
+			HUDScript.toggleHeart_1(true);
+			HUDScript.toggleHeart_2(true);
+			HUDScript.toggleHeart_3(false);
+			HUDScript.toggleHeart_4(false);
+			HUDScript.toggleHeart_5(false);
+		} else if (health == 20) {
+			HUDScript.toggleHeart_1(true);
+			HUDScript.toggleHeart_2(false);
+			HUDScript.toggleHeart_3(false);
+			HUDScript.toggleHeart_4(false);
+			HUDScript.toggleHeart_5(false);
+		} else {
+		}
+	}
+
+	private void decreaseHealth(){
+		health = health - 20;
 	}
 
 	//object interaction methods**************************************
@@ -127,29 +172,30 @@ public class Player : MonoBehaviour {
 		whiteGateCollision = Physics2D.Linecast (start, end, 1 << LayerMask.NameToLayer ("whiteGateLayer"));	// cast a line and check if its a key
 		tealGateCollision = Physics2D.Linecast (start, end, 1 << LayerMask.NameToLayer ("tealGateLayer"));	// cast a line and check if its a key
 		goldGateCollision = Physics2D.Linecast (start, end, 1 << LayerMask.NameToLayer ("goldGateLayer"));	// cast a line and check if its a key
+		spiderWebCollision = Physics2D.Linecast (start, end, 1 << LayerMask.NameToLayer ("webLayer"));	// cast a line and check if its a key
 
 		if (whiteGateCollision == true && hasWhiteKey == false) { 
 			return start;
 		} else if (whiteGateCollision == true && hasWhiteKey == true) {
-			unlockWhiteGate();
+			unlockWhiteGate ();
 			return end;
 
 		} else if (tealGateCollision == true && hasTealKey == false) {
 			return start;
-		}else if (tealGateCollision == true && hasTealKey == true) {
-			unlockTealGate();
+		} else if (tealGateCollision == true && hasTealKey == true) {
+			unlockTealGate ();
 			return end;
 
 		} else if (goldGateCollision == true && hasGoldKey == false) {
 			return start;
 		} else if (goldGateCollision == true && hasGoldKey == true) {
-			unlockGoldGate();
+			unlockGoldGate ();
 			return end;
 
 		} else if (tealGateCollision == true && hasTealKey == false) {
 			return start;
-		}else if (tealGateCollision == true && hasTealKey == true) {
-			unlockTealGate();
+		} else if (tealGateCollision == true && hasTealKey == true) {
+			unlockTealGate ();
 			return end;
 		
 		} else if (wallCollision == true) {
@@ -163,7 +209,11 @@ public class Player : MonoBehaviour {
 		} else if (goldKeyCollision == true && hasGoldKey == false) {
 			foundGoldKey ();
 			return end;
-		}else {
+		} else if (spiderWebCollision == true) {
+			playerWalkAnim();
+			decreaseHealth();
+			return end;
+		} else {
 			playerWalkAnim();
 			return end;
 		}

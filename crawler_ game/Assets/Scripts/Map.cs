@@ -14,6 +14,7 @@ public class Map : MonoBehaviour {
 	public GameObject trapTile;
 	public GameObject doorPrefab;
 	public GameObject foodPrefab;
+	public GameObject spiderWeb;
 
 	public GameObject whiteKeyPrefab;
 	public GameObject whiteGatePrefab;
