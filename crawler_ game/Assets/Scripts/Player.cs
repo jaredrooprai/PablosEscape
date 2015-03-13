@@ -6,7 +6,7 @@ public class Player : MonoBehaviour {
 	private Animator animator;
 	private Controller controllerScript;
 	private PlayerHUD HUDScript;
-	
+
 	private Vector3 position;
 	private Vector3 newPosition;
 
@@ -22,6 +22,7 @@ public class Player : MonoBehaviour {
 		animator = gameObject.GetComponent<Animator> ();
 		controllerScript = gameObject.GetComponent<Controller> ();
 		HUDScript = gameObject.GetComponent<PlayerHUD> ();
+
 		initHUD ();
 
 		position = transform.position;
@@ -32,21 +33,19 @@ public class Player : MonoBehaviour {
 	}
 
 
-	// Called every frame
+	// Called every frame**********************************************************
 	void Update (){
-
 	// if game is running in the editor or on Mac Linux Pc. use keyboard controller
 	#if UNITY_STANDALONE || UNITY_EDITOR 
-		newPosition = controllerScript.keyboard(position);
+		newPosition = controllerScript.keyboard(position); 		// get input from the keyboard fucntion in controller
 	// if game is running on android use touchscreen controller
 	# elif UNITY_ANDROID
-		newPosition = controllerScript.touchScreen(position);
+		newPosition = controllerScript.touchScreen(position); 	// get input from the touchscreen fucntion in controller
 	#endif
-		movePlayer();
+		movePlayer();// attempt to move player to correct grid position
 	}
 
-	private void initHUD (){
-		//initializeing Heads up display
+	private void initHUD (){ 		//initializeing Heads up display
 		HUDScript.toggleHeart_1(true);
 		HUDScript.toggleHeart_2(true);
 		HUDScript.toggleHeart_3(true);
@@ -56,12 +55,20 @@ public class Player : MonoBehaviour {
 		HUDScript.toggleKey_2(false);
 		HUDScript.toggleKey_3(false);
 		HUDScript.toggleKey_4(false);
+		HUDScript.toggleKey_5(false);
+	}
 
+	//object interaction methods**************************************
+	private void whiteKey(){						
+		playerWalkAnim ();
+		Destroy (GameObject.Find ("Key(Clone)"));
+		HUDScript.toggleKey_1(true);
+	
 	}
 
 
 
-	// move the player towards destination
+	// move the player towards destination****************************
 	private void movePlayer(){
 		if (position != (newPosition))
 			position = checkCollider (position, newPosition);
@@ -71,31 +78,28 @@ public class Player : MonoBehaviour {
 
 
 
-	// check for player hitting colliders
+	// check for player hitting colliders*****************************
 	private Vector3 checkCollider(Vector3 start, Vector3 end) {
 		rotatePlayer ();
-		//Debug.DrawLine (start, end, Color.green); 										// shows linecast for debugging purposes
+		//Debug.DrawLine (start, end, Color.green); // shows linecast for debugging purposes
 		
 		wallCollision = Physics2D.Linecast (start, end, 1 << LayerMask.NameToLayer ("WallLayer"));	// cast a line and check if its a wall
 		keyCollision = Physics2D.Linecast (start, end, 1 << LayerMask.NameToLayer ("KeyLayer"));	// cast a line and check if its a key
 
-		if (keyCollision != false) {
-			playerWalkAnim();
-			Destroy (GameObject.Find ("Key(Clone)"));
-			HUDScript.toggleKey_1(true);
-			return end;
-
-			
-		} else if (wallCollision == true) {
+		if (wallCollision == true) {
 			return start;
+		} else if (keyCollision == true) {
+			whiteKey ();
+			return end;
 		}else {
 			playerWalkAnim();
 			return end;
 		}
 	}
+
                          
 	                           
-	// rotating player to face direction of movement
+	// rotating player to face direction of movement******************
 	private void rotatePlayer(){
 		if (((position.x) == (newPosition.x)) && ((position.y) == (newPosition.y))) {
 			transform.rotation = Quaternion.Euler (0, 0, 180f);
@@ -111,7 +115,7 @@ public class Player : MonoBehaviour {
 	}
 	
 
-	private void playerWalkAnim(){
+	private void playerWalkAnim(){// walking animation ***************
 		animator.SetTrigger("Walk");
 	}
 
