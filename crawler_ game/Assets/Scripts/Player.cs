@@ -13,8 +13,9 @@ public class Player : MonoBehaviour {
 	private float speed;
 
 	private bool wallCollision;
-	private bool keyCollision;
-
+	private bool whiteKeyCollision;
+	private bool tealKeyCollision;
+	private bool goldKeyCollision;
 
 
 // initializing player 
@@ -54,16 +55,26 @@ public class Player : MonoBehaviour {
 		HUDScript.toggleKey_1(false);
 		HUDScript.toggleKey_2(false);
 		HUDScript.toggleKey_3(false);
-		HUDScript.toggleKey_4(false);
-		HUDScript.toggleKey_5(false);
 	}
 
 	//object interaction methods**************************************
-	private void whiteKey(){						
+	private void foundWhiteKey(){						
 		playerWalkAnim ();
-		Destroy (GameObject.Find ("Key(Clone)"));
+		Destroy (GameObject.Find ("whiteKey(Clone)"));
 		HUDScript.toggleKey_1(true);
 	
+	}
+	private void foundTealKey(){						
+		playerWalkAnim ();
+		Destroy (GameObject.Find ("tealKey(Clone)"));
+		HUDScript.toggleKey_2(true);
+		
+	}
+	private void foundGoldKey(){						
+		playerWalkAnim ();
+		Destroy (GameObject.Find ("goldKey(Clone)"));
+		HUDScript.toggleKey_3(true);
+		
 	}
 
 
@@ -84,14 +95,23 @@ public class Player : MonoBehaviour {
 		//Debug.DrawLine (start, end, Color.green); // shows linecast for debugging purposes
 		
 		wallCollision = Physics2D.Linecast (start, end, 1 << LayerMask.NameToLayer ("WallLayer"));	// cast a line and check if its a wall
-		keyCollision = Physics2D.Linecast (start, end, 1 << LayerMask.NameToLayer ("KeyLayer"));	// cast a line and check if its a key
+		whiteKeyCollision = Physics2D.Linecast (start, end, 1 << LayerMask.NameToLayer ("whiteKeyLayer"));	// cast a line and check if its a key
+		tealKeyCollision = Physics2D.Linecast (start, end, 1 << LayerMask.NameToLayer ("tealKeyLayer"));	// cast a line and check if its a key
+		goldKeyCollision = Physics2D.Linecast (start, end, 1 << LayerMask.NameToLayer ("goldKeyLayer"));	// cast a line and check if its a key
 
 		if (wallCollision == true) {
 			return start;
-		} else if (keyCollision == true) {
-			whiteKey ();
+		} else if (whiteKeyCollision == true) {
+			foundWhiteKey ();
 			return end;
-		}else {
+		}else if (tealKeyCollision == true) {
+			foundTealKey ();
+			return end;
+		}else if (goldKeyCollision == true) {
+			foundGoldKey ();
+			return end;
+		}
+		else {
 			playerWalkAnim();
 			return end;
 		}

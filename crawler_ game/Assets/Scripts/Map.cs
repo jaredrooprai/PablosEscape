@@ -13,8 +13,11 @@ public class Map : MonoBehaviour {
 	public GameObject woodBox; // same tile just edited for horizontal stacking
 	public GameObject trapTile;
 	public GameObject doorPrefab;
-	public GameObject keyPrefab;
 	public GameObject foodPrefab;
+
+	public GameObject whiteKeyPrefab;
+	public GameObject tealKeyPrefab;
+	public GameObject goldKeyPrefab;
 
 	[HideInInspector]public Transform mapTransform;
 	[HideInInspector]public List <Vector3> mapPositions = new List <Vector3>();	//list of grid locations

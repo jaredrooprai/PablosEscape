@@ -29,8 +29,7 @@ public class PlayerHUD : MonoBehaviour {
 		key1 = GameObject.Find ("key1");		//
 		key2 = GameObject.Find ("key2");		//
 		key3 = GameObject.Find ("key3");		//	
-		key4 = GameObject.Find ("key4");		//
-		key5 = GameObject.Find ("key5");		//
+
 		
 		// player won't have these game objects at the start,
 		// turned off 
@@ -64,10 +63,5 @@ public class PlayerHUD : MonoBehaviour {
 	public void toggleKey_3 (bool toggle){
 		key3.SetActive (toggle);
 	}
-	public void toggleKey_4 (bool toggle){
-		key4.SetActive (toggle);
-	}
-	public void toggleKey_5 (bool toggle){
-		key5.SetActive (toggle);
-	}
+
 }
