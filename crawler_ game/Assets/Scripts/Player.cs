@@ -36,7 +36,7 @@ public class Player : MonoBehaviour {
 
 		rotatePlayer (); // rotating him on start up to face the right way 
 		speed = 2f;
-		health = 100;
+		health = 5;
 
 		hasWhiteKey = false;
 		hasTealKey = false;
@@ -68,50 +68,64 @@ public class Player : MonoBehaviour {
 		HUDScript.toggleKey_3(false);
 	}
 
-	private void checkHealth(){
-		if (health > 100) {
-			health = 100;
+	void OnTriggerEnter2D (Collider2D other) {
+		if (other.tag == "key")
+			Destroy (other.gameObject);
+		else if (other.tag == "milk") {
+			increaseHealth();
+			Destroy (other.gameObject);
 		}
-		if (health == 100) {
+	}
+
+	private void checkHealth(){
+		if (health > 5) {
+			health = 5;
+		}
+		if (health == 5) {
 			HUDScript.toggleHeart_1(true);
 			HUDScript.toggleHeart_2(true);
 			HUDScript.toggleHeart_3(true);
 			HUDScript.toggleHeart_4(true);
 			HUDScript.toggleHeart_5(true);
-		} else if (health == 80) {
+		} 
+		else if (health == 4) {
 			HUDScript.toggleHeart_1(true);
       		HUDScript.toggleHeart_2(true);
       		HUDScript.toggleHeart_3(true);
       		HUDScript.toggleHeart_4(true);
 			HUDScript.toggleHeart_5(false);
-		} else if (health == 60) {
+		} 
+		else if (health == 3) {
 			HUDScript.toggleHeart_1(true);
 			HUDScript.toggleHeart_2(true);
 			HUDScript.toggleHeart_3(true);
 			HUDScript.toggleHeart_4(false);
 			HUDScript.toggleHeart_5(false);
-		} else if (health == 40) {
+		} 
+		else if (health == 2) {
 			HUDScript.toggleHeart_1(true);
 			HUDScript.toggleHeart_2(true);
 			HUDScript.toggleHeart_3(false);
 			HUDScript.toggleHeart_4(false);
 			HUDScript.toggleHeart_5(false);
-		} else if (health == 20) {
+		} 
+		else if (health == 1) {
 			HUDScript.toggleHeart_1(true);
 			HUDScript.toggleHeart_2(false);
 			HUDScript.toggleHeart_3(false);
 			HUDScript.toggleHeart_4(false);
 			HUDScript.toggleHeart_5(false);
-		} else {
+		} 
+		else {
 		}
 	}
 
 	private void increaseHealth(){
-		health += 20;
+		health += 1;
 	}
 
 	private void decreaseHealth(){
-		health -= 20;
+		health -= 1;
 	}
 
 	//object interaction methods**************************************
