@@ -35,7 +35,7 @@ public class Player : MonoBehaviour {
 		newPosition = transform.position;
 
 		rotatePlayer (); // rotating him on start up to face the right way 
-		speed = 2f;
+		speed = 4f;
 		health = 5;
 
 		hasWhiteKey = false;
