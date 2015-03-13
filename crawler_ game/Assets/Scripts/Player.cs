@@ -3,53 +3,27 @@ using System.Collections;
 
 public class Player : MonoBehaviour {
 
-	private GameObject heart1;
-	private GameObject heart2;
-	private GameObject heart3;
-	private GameObject heart4;
-	private GameObject heart5;
-
-	private GameObject key1;
-	private GameObject key2;
-	private GameObject key3;
-	private GameObject key4;
-
-
-	private float speed;
 	private Animator animator;
 	private Controller controllerScript;
+	private PlayerHUD HUDScript;
+	
 	private Vector3 position;
 	private Vector3 newPosition;
-	
+
+	private float speed;
 
 	private bool wallCollision;
 	private bool keyCollision;
 
 
 
-
-
-	// called on start up
+// initializing player 
 	void Start () {
-		heart1 = GameObject.Find ("heart20");
-		heart2 = GameObject.Find ("heart40");
-		heart3= GameObject.Find ("heart60");
-		heart4 = GameObject.Find ("heart80");
-		heart5 = GameObject.Find ("heart100");
-		key1 = GameObject.Find ("key1");
-		key2 = GameObject.Find ("key2");
-		key3 = GameObject.Find ("key3");
-		key4 = GameObject.Find ("key4");
-
-		key1.SetActive(false);
-		key2.SetActive(false);
-		key3.SetActive(false);
-		key4.SetActive(false);
-
-
-
 		animator = gameObject.GetComponent<Animator> ();
 		controllerScript = gameObject.GetComponent<Controller> ();
+		HUDScript = gameObject.GetComponent<PlayerHUD> ();
+		initHUD ();
+
 		position = transform.position;
 		newPosition = transform.position;
 
@@ -61,15 +35,29 @@ public class Player : MonoBehaviour {
 	// Called every frame
 	void Update (){
 
+	// if game is running in the editor or on Mac Linux Pc. use keyboard controller
 	#if UNITY_STANDALONE || UNITY_EDITOR 
 		newPosition = controllerScript.keyboard(position);
+	// if game is running on android use touchscreen controller
 	# elif UNITY_ANDROID
 		newPosition = controllerScript.touchScreen(position);
 	#endif
 		movePlayer();
 	}
 
+	private void initHUD (){
+		//initializeing Heads up display
+		HUDScript.toggleHeart_1(true);
+		HUDScript.toggleHeart_2(true);
+		HUDScript.toggleHeart_3(true);
+		HUDScript.toggleHeart_4(true);
+		HUDScript.toggleHeart_5(true);
+		HUDScript.toggleKey_1(false);
+		HUDScript.toggleKey_2(false);
+		HUDScript.toggleKey_3(false);
+		HUDScript.toggleKey_4(false);
 
+	}
 
 
 
@@ -94,7 +82,7 @@ public class Player : MonoBehaviour {
 		if (keyCollision != false) {
 			playerWalkAnim();
 			Destroy (GameObject.Find ("Key(Clone)"));
-			key1.SetActive(true);
+			HUDScript.toggleKey_1(true);
 			return end;
 
 			
@@ -121,12 +109,7 @@ public class Player : MonoBehaviour {
 			transform.rotation = Quaternion.Euler (0, 0, 0f);
 		}
 	}
-
-
-
-
-
-
+	
 
 	private void playerWalkAnim(){
 		animator.SetTrigger("Walk");
