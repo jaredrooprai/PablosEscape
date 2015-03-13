@@ -73,6 +73,8 @@ public class Player : MonoBehaviour {
 		if (health > 5) {
 			health = 5;
 		}
+		else if (health < 0)
+			health = 0;
 		if (health == 5) {
 			HUDScript.toggleHeart_1(true);
 			HUDScript.toggleHeart_2(true);
