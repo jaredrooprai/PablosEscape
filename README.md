@@ -17,13 +17,11 @@ https://www.assetstore.unity3d.com/en/#!/content/21774
 #
 Asset packs used :
 #
-Skeleton Sprite sheet : https://www.assetstore.unity3d.com/en/#!/content/12571
-#
-Floor tiles : https://www.assetstore.unity3d.com/en/#!/content/6025
+Skeleton Sprite sheet, Wooden box sprite, floor: https://www.assetstore.unity3d.com/en/#!/content/12571
 #
 Wall tile   : https://www.assetstore.unity3d.com/en/#!/content/19610
 #
-All other sprites were made with: http://www.piskelapp.com/
+All other sprites were made with: Adobe Photoshop and http://www.piskelapp.com/
 #
 Gesture code inspired(highly modified) from squidsquadstudios(youtube): https://dl.dropboxusercontent.com/u/97948256/SwipeDetctor.cs
 #
