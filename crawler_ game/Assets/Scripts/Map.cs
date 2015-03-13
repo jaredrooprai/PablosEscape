@@ -16,8 +16,13 @@ public class Map : MonoBehaviour {
 	public GameObject foodPrefab;
 
 	public GameObject whiteKeyPrefab;
+	public GameObject whiteGatePrefab;
+	
 	public GameObject tealKeyPrefab;
+	public GameObject tealGatePrefab;
+
 	public GameObject goldKeyPrefab;
+	public GameObject goldGatePrefab;
 
 	[HideInInspector]public Transform mapTransform;
 	[HideInInspector]public List <Vector3> mapPositions = new List <Vector3>();	//list of grid locations

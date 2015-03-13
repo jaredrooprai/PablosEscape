@@ -59,14 +59,27 @@ public class MapOne : Map
 
 	// Method to add items into the map using parent spawnItem method
 	void setupItems(){
-		spawnPrefab (3, 3, whiteKeyPrefab);
-		spawnPrefab (3, 1, tealKeyPrefab);
-		spawnPrefab (3, 2, goldKeyPrefab);
-
+		spawnPrefab (4, 0, whiteKeyPrefab);
+		spawnPrefab (0, 2, whiteGatePrefab);
+		spawnPrefab (1, 2, woodBox);
 		spawnPrefab (2, 2, woodBox);
-		spawnPrefab (4, 4, woodBox);
+		spawnPrefab (3, 2, woodBox);
+		spawnPrefab (4, 2, woodBox);
+
+		spawnPrefab (0, 3, tealKeyPrefab);
+		spawnPrefab (0, 4, woodBox);
+		spawnPrefab (1, 4, woodBox);
+		spawnPrefab (2, 4, woodBox);
 		spawnPrefab (3, 4, woodBox);
-		spawnPrefab (2, 5, woodBox);
+		spawnPrefab (4, 4, tealGatePrefab);
+
+		spawnPrefab (4, 5, goldKeyPrefab);
+		spawnPrefab (0, 6, goldGatePrefab);
+		spawnPrefab (1, 6, woodBox);
+		spawnPrefab (2, 6, woodBox);
+		spawnPrefab (3, 6, woodBox);
+		spawnPrefab (4, 6, woodBox);
+
 
 	}
 

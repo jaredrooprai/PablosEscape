@@ -23,7 +23,7 @@ public class PlayerHUD : MonoBehaviour {
 		// Finding the game objects 
 		heart1 = GameObject.Find ("heart20");	//
 		heart2 = GameObject.Find ("heart40");	//
-		heart3= GameObject.Find ("heart60");	//
+		heart3 = GameObject.Find ("heart60");	//
 		heart4 = GameObject.Find ("heart80");	//
 		heart5 = GameObject.Find ("heart100");	//
 		key1 = GameObject.Find ("key1");		//
