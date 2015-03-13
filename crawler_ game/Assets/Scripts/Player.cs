@@ -7,15 +7,16 @@ public class Player : MonoBehaviour {
 	private Controller controllerScript;
 	private PlayerHUD HUDScript;
 
-	private Vector3 position;
-	private Vector3 newPosition;
+	private Vector3 position;		// current position
+	private Vector3 newPosition;	// future position
 
-	private float speed;
+	private float speed;			// speed of movement, will be multiplied by time.delta time
 
-	private bool wallCollision;
-	private bool whiteKeyCollision, whiteGateCollision, hasWhiteKey;
-	private bool tealKeyCollision, tealGateCollision, hasTealKey;
-	private bool goldKeyCollision, goldGateCollision, hasGoldKey;
+	// booleans for colliding with objects
+	private bool wallCollision;		
+	private bool whiteKeyCollision, whiteGateCollision,	hasWhiteKey;
+	private bool tealKeyCollision, tealGateCollision,	hasTealKey;
+	private bool goldKeyCollision, goldGateCollision,	hasGoldKey;
 
 
 
