@@ -63,6 +63,7 @@ public class MapOne : Map
 		spawnPrefab (3, 0, tealKeyPrefab);
 		spawnPrefab (2, 0, goldKeyPrefab);
 		spawnPrefab (1, 1, spiderWeb);
+		spawnPrefab (0, 3, milkPrefab);
 
 
 		spawnPrefab (0, 2, whiteGatePrefab);

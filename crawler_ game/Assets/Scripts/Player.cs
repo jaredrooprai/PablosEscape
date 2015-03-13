@@ -18,6 +18,7 @@ public class Player : MonoBehaviour {
 	private bool tealKeyCollision, tealGateCollision,	hasTealKey;
 	private bool goldKeyCollision, goldGateCollision,	hasGoldKey;
 	private bool spiderWebCollision;
+	private bool milkCollision;
 
 
 
@@ -105,8 +106,12 @@ public class Player : MonoBehaviour {
 		}
 	}
 
+	private void increaseHealth(){
+		health += 20;
+	}
+
 	private void decreaseHealth(){
-		health = health - 20;
+		health -= 20;
 	}
 
 	//object interaction methods**************************************
@@ -151,8 +156,11 @@ public class Player : MonoBehaviour {
 
 	// move the player towards destination****************************
 	private void movePlayer(){
-		if (position != (newPosition))
+		if (position != (newPosition)) {
 			position = checkCollider (position, newPosition);
+	
+
+		}
 
 		transform.position = Vector3.MoveTowards(transform.position, position, Time.deltaTime * speed);
 	}
@@ -161,6 +169,7 @@ public class Player : MonoBehaviour {
 
 	// check for player hitting colliders*****************************
 	private Vector3 checkCollider(Vector3 start, Vector3 end) {
+
 		rotatePlayer ();
 		//Debug.DrawLine (start, end, Color.green); // shows linecast for debugging purposes
 		
@@ -173,6 +182,7 @@ public class Player : MonoBehaviour {
 		tealGateCollision = Physics2D.Linecast (start, end, 1 << LayerMask.NameToLayer ("tealGateLayer"));	// cast a line and check if its a key
 		goldGateCollision = Physics2D.Linecast (start, end, 1 << LayerMask.NameToLayer ("goldGateLayer"));	// cast a line and check if its a key
 		spiderWebCollision = Physics2D.Linecast (start, end, 1 << LayerMask.NameToLayer ("webLayer"));	// cast a line and check if its a key
+		milkCollision = Physics2D.Linecast (start, end, 1 << LayerMask.NameToLayer ("milkLayer"));
 
 		if (whiteGateCollision == true && hasWhiteKey == false) { 
 			return start;
@@ -197,6 +207,15 @@ public class Player : MonoBehaviour {
 		} else if (tealGateCollision == true && hasTealKey == true) {
 			unlockTealGate ();
 			return end;
+
+
+		
+		} else if (milkCollision == true){
+			Destroy (GameObject.Find ("Milk(Clone)"));
+			playerWalkAnim();
+			increaseHealth();
+			return end;
+		
 		
 		} else if (wallCollision == true) {
 			return start;
@@ -209,10 +228,15 @@ public class Player : MonoBehaviour {
 		} else if (goldKeyCollision == true && hasGoldKey == false) {
 			foundGoldKey ();
 			return end;
+
+
 		} else if (spiderWebCollision == true) {
+
 			playerWalkAnim();
 			decreaseHealth();
 			return end;
+
+
 		} else {
 			playerWalkAnim();
 			return end;
