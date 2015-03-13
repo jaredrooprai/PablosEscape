@@ -14,11 +14,10 @@ public class Player : MonoBehaviour {
 	private int health;
 	// booleans for colliding with objects
 	private bool wallCollision;		
-	private bool whiteKeyCollision, whiteGateCollision,	hasWhiteKey;
-	private bool tealKeyCollision, tealGateCollision,	hasTealKey;
-	private bool goldKeyCollision, goldGateCollision,	hasGoldKey;
-	private bool spiderWebCollision;
-	private bool milkCollision;
+	private bool whiteGateCollision, hasWhiteKey;
+	private bool tealGateCollision, hasTealKey;
+	private bool goldGateCollision,	hasGoldKey;
+
 
 
 
@@ -68,14 +67,7 @@ public class Player : MonoBehaviour {
 		HUDScript.toggleKey_3(false);
 	}
 
-	void OnTriggerEnter2D (Collider2D other) {
-		if (other.tag == "key")
-			Destroy (other.gameObject);
-		else if (other.tag == "milk") {
-			increaseHealth();
-			Destroy (other.gameObject);
-		}
-	}
+
 
 	private void checkHealth(){
 		if (health > 5) {
@@ -131,37 +123,34 @@ public class Player : MonoBehaviour {
 	//object interaction methods**************************************
 	private void foundWhiteKey(){
 		hasWhiteKey = true;
-		playerWalkAnim ();
-		Destroy (GameObject.Find ("whiteKey(Clone)"));
 		HUDScript.toggleKey_1(true);
 	}
 	private void foundTealKey(){	
 		hasTealKey = true;
-		playerWalkAnim ();
-		Destroy (GameObject.Find ("tealKey(Clone)"));
 		HUDScript.toggleKey_2(true);
 	}
 	private void foundGoldKey(){	
 		hasGoldKey = true;
-		playerWalkAnim ();
-		Destroy (GameObject.Find ("goldKey(Clone)"));
 		HUDScript.toggleKey_3(true);
 	}
 
 
 	private void unlockWhiteGate(){
 		HUDScript.toggleKey_1 (false);
+		hasWhiteKey = false;
 		playerWalkAnim ();
 		Destroy (GameObject.Find ("whiteGate(Clone)"));	
 	}
 	private void unlockTealGate(){
 		HUDScript.toggleKey_2 (false);
+		hasWhiteKey = false;
 		playerWalkAnim ();
 		Destroy (GameObject.Find ("tealGate(Clone)"));
 		
 	}
 	private void unlockGoldGate(){
 		HUDScript.toggleKey_3 (false);
+		hasWhiteKey = false;
 		playerWalkAnim ();
 		Destroy (GameObject.Find ("goldGate(Clone)"));
 	}
@@ -172,10 +161,7 @@ public class Player : MonoBehaviour {
 	private void movePlayer(){
 		if (position != (newPosition)) {
 			position = checkCollider (position, newPosition);
-	
-
 		}
-
 		transform.position = Vector3.MoveTowards(transform.position, position, Time.deltaTime * speed);
 	}
 
@@ -188,15 +174,11 @@ public class Player : MonoBehaviour {
 		//Debug.DrawLine (start, end, Color.green); // shows linecast for debugging purposes
 		
 		wallCollision = Physics2D.Linecast (start, end, 1 << LayerMask.NameToLayer ("WallLayer"));	// cast a line and check if its a wall
-		whiteKeyCollision = Physics2D.Linecast (start, end, 1 << LayerMask.NameToLayer ("whiteKeyLayer"));	
-		tealKeyCollision = Physics2D.Linecast (start, end, 1 << LayerMask.NameToLayer ("tealKeyLayer"));	
-		goldKeyCollision = Physics2D.Linecast (start, end, 1 << LayerMask.NameToLayer ("goldKeyLayer"));
 
 		whiteGateCollision = Physics2D.Linecast (start, end, 1 << LayerMask.NameToLayer ("whiteGateLayer"));	// cast a line and check if its a key
 		tealGateCollision = Physics2D.Linecast (start, end, 1 << LayerMask.NameToLayer ("tealGateLayer"));	// cast a line and check if its a key
 		goldGateCollision = Physics2D.Linecast (start, end, 1 << LayerMask.NameToLayer ("goldGateLayer"));	// cast a line and check if its a key
-		spiderWebCollision = Physics2D.Linecast (start, end, 1 << LayerMask.NameToLayer ("webLayer"));	// cast a line and check if its a key
-		milkCollision = Physics2D.Linecast (start, end, 1 << LayerMask.NameToLayer ("milkLayer"));
+
 
 		if (whiteGateCollision == true && hasWhiteKey == false) { 
 			return start;
@@ -216,47 +198,34 @@ public class Player : MonoBehaviour {
 			unlockGoldGate ();
 			return end;
 
-		} else if (tealGateCollision == true && hasTealKey == false) {
-			return start;
-		} else if (tealGateCollision == true && hasTealKey == true) {
-			unlockTealGate ();
-			return end;
-
-
-		
-		} else if (milkCollision == true){
-			Destroy (GameObject.Find ("Milk(Clone)"));
-			playerWalkAnim();
-			increaseHealth();
-			return end;
-		
-		
 		} else if (wallCollision == true) {
 			return start;
-		} else if (whiteKeyCollision == true && hasWhiteKey == false) {
-			foundWhiteKey ();
-			return end;
-		} else if (tealKeyCollision == true && hasTealKey == false) {
-			foundTealKey ();
-			return end;
-		} else if (goldKeyCollision == true && hasGoldKey == false) {
-			foundGoldKey ();
-			return end;
-
-
-		} else if (spiderWebCollision == true) {
-
-			playerWalkAnim();
-			decreaseHealth();
-			return end;
-
-
 		} else {
 			playerWalkAnim();
 			return end;
 		}
 	}
 
+	void OnTriggerEnter2D (Collider2D other) {
+		if (other.tag == "WhiteKey" && hasWhiteKey == false) {
+			Destroy (other.gameObject);
+			foundWhiteKey ();
+		} else if (other.tag == "TealKey" && hasWhiteKey == false) {
+			Destroy (other.gameObject);
+			foundTealKey ();
+		} else if (other.tag == "GoldKey" && hasWhiteKey == false) {
+			Destroy (other.gameObject);
+			foundGoldKey ();
+
+
+		} else if (other.tag == "Milk") {
+			Destroy (other.gameObject);
+			increaseHealth ();
+		} else if (other.tag == "Trap") {
+			decreaseHealth(); 
+		}
+
+	}
                          
 	                           
 	// rotating player to face direction of movement******************
