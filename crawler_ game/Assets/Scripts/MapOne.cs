@@ -7,7 +7,7 @@ using System.Collections.Generic;
 public class MapOne : Map 
 { 
 	private int columns = 10;
-	private int rows = 15; 
+	private int rows = 20; 
 
 	// Main method that sets up the scene with items and tiles
 	public void setupScene () {
@@ -24,7 +24,8 @@ public class MapOne : Map
 	{
 			for (int y = -1; y <= rows + 1; y++) 			// adding column items to list
 			{
-				mapPositions.Add (new Vector3 (x, y, 0f));	// z coord is set to 0f because of 2d grid
+				if (x >= 0 && x <= 3 && y >= 5 && y <= 15)
+					mapPositions.Add (new Vector3 (x, y, 0f));	// z coord is set to 0f because of 2d grid
 			}
 		}
 	}
@@ -38,15 +39,18 @@ public class MapOne : Map
 		{ 
 			for (int y = -1; y <= rows + 1; y++)
 			{	
-			
-					// placing down a tile which represents the next room
+				if ( x >= 0 && x <= 3 && y >= 5 && y <= 15)
+					tile = cementWall;
+				else if ( x <= columns && x >= 7 && y >= 5 && y <= 15)
+					tile = cementWall;
+				// placing down a tile which represents the next room
 				/*
 				if (x == columns && y == rows)
 					tile = exitTile;
 					*/
 				// depening on where the tile is placed it will either spawn a
 				// horizontal brick pattern or vertical brick battern
-				if( x == -1 || x == columns + 1 || y == -1 || y == rows + 1){
+				else if( x == -1 || x == columns + 1 || y == -1 || y == rows + 1){
 					tile = cementWall;
 				}
 				else 		// else spawn floor normal floor tile
