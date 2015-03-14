@@ -70,48 +70,25 @@ public class Player : MonoBehaviour {
 
 
 	private void checkHealth(){
-		if (health > 5) {
+		if (health > 5) 
 			health = 5;
-		}
 		else if (health < 0)
 			health = 0;
-		if (health == 5) {
-			HUDScript.toggleHeart_1(true);
-			HUDScript.toggleHeart_2(true);
-			HUDScript.toggleHeart_3(true);
-			HUDScript.toggleHeart_4(true);
-			HUDScript.toggleHeart_5(true);
-		} 
-		else if (health == 4) {
-			HUDScript.toggleHeart_1(true);
-      		HUDScript.toggleHeart_2(true);
-      		HUDScript.toggleHeart_3(true);
-      		HUDScript.toggleHeart_4(true);
-			HUDScript.toggleHeart_5(false);
-		} 
-		else if (health == 3) {
-			HUDScript.toggleHeart_1(true);
-			HUDScript.toggleHeart_2(true);
-			HUDScript.toggleHeart_3(true);
-			HUDScript.toggleHeart_4(false);
-			HUDScript.toggleHeart_5(false);
-		} 
-		else if (health == 2) {
-			HUDScript.toggleHeart_1(true);
-			HUDScript.toggleHeart_2(true);
-			HUDScript.toggleHeart_3(false);
-			HUDScript.toggleHeart_4(false);
-			HUDScript.toggleHeart_5(false);
-		} 
-		else if (health == 1) {
-			HUDScript.toggleHeart_1(true);
-			HUDScript.toggleHeart_2(false);
-			HUDScript.toggleHeart_3(false);
-			HUDScript.toggleHeart_4(false);
-			HUDScript.toggleHeart_5(false);
-		} 
-		else {
-		}
+	
+		if (health >= 1){HUDScript.toggleHeart_1(true);}
+		else{ HUDScript.toggleHeart_1(false); }
+
+		if (health >= 2){HUDScript.toggleHeart_1(true);}
+		else{ HUDScript.toggleHeart_2(false); }
+
+		if (health >= 3){HUDScript.toggleHeart_1(true);}
+		else{ HUDScript.toggleHeart_3(false); }
+
+		if (health >= 4){HUDScript.toggleHeart_1(true);}
+		else{ HUDScript.toggleHeart_4(false); }
+
+		if (health >= 5){HUDScript.toggleHeart_1(true);}
+		else{ HUDScript.toggleHeart_5(false); }
 	}
 
 	private void increaseHealth(){
@@ -218,7 +195,6 @@ public class Player : MonoBehaviour {
 		} else if (other.tag == "GoldKey" && hasGoldKey == false) {
 			Destroy (other.gameObject);
 			foundGoldKey ();
-
 
 		} else if (other.tag == "Milk") {
 			Destroy (other.gameObject);
