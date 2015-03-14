@@ -10,7 +10,7 @@ public class CameraScript : MonoBehaviour
 	void Start () 
 	{
 		Orientation = new Vector3 (0, 0, -10f);
-		target = GameObject.Find ("Player").transform;
+		target = GameObject.Find ("Player(Clone)").transform;
 	}
 	
 	void LateUpdate () 

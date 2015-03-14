@@ -18,7 +18,7 @@ public class MapOne : Map
 
 
 	void setupGrid (){
-		mapTransform = new GameObject ("Board").transform;
+		mapTransform = new GameObject ("Map").transform;
 		mapPositions.Clear ();								// clear the list
 		for (int x = -1; x <= rows + 1; x++) 			// adding row items into list
 	{

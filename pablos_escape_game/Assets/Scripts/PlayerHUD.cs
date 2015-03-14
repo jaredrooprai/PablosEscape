@@ -27,9 +27,7 @@ public class PlayerHUD : MonoBehaviour {
 		heart5 = GameObject.Find ("heart100");	
 		key1 = GameObject.Find ("key1");		
 		key2 = GameObject.Find ("key2");		
-		key3 = GameObject.Find ("key3");			
-
-		
+		key3 = GameObject.Find ("key3");					
 		// player won't have these game objects at the start,
 		// turned off 
 	}
@@ -38,15 +36,19 @@ public class PlayerHUD : MonoBehaviour {
 	public void toggleHeart_1 (bool toggle){
 		heart1.SetActive (toggle);
 	}
+
 	public void toggleHeart_2 (bool toggle){
 		heart2.SetActive (toggle);
 	}
+
 	public void toggleHeart_3 (bool toggle){
 		heart3.SetActive (toggle);
 	}
+
 	public void toggleHeart_4 (bool toggle){
 		heart4.SetActive (toggle);
 	}
+
 	public void toggleHeart_5 (bool toggle){
 		heart5.SetActive (toggle);
 	}
@@ -56,9 +58,11 @@ public class PlayerHUD : MonoBehaviour {
 	public void toggleKey_1 (bool toggle){
 		key1.SetActive (toggle);
 	}
+
 	public void toggleKey_2 (bool toggle){
 		key2.SetActive (toggle);
 	}
+
 	public void toggleKey_3 (bool toggle){
 		key3.SetActive (toggle);
 	}
