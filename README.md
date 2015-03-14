@@ -1,5 +1,5 @@
 # Pablo's Escape
-Building a Dungeon Crawler like expierience for Android
+Building a Dungeon Crawler like game for Android
 
 
 How to Build .apk
