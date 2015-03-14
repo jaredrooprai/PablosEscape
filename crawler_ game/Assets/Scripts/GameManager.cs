@@ -25,15 +25,9 @@ public class GameManager : MonoBehaviour {
 			Destroy (gameObject);    
 			DontDestroyOnLoad (gameObject);
 		}
-
-
-
-		
 	}
-	
-	// Update is called once per frame
-	void Update () {
 
-	}
+
+
 
 }

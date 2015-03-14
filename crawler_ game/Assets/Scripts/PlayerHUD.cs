@@ -4,30 +4,30 @@ using System.Collections;
 public class PlayerHUD : MonoBehaviour {
 	
 	// health objects
-	private GameObject heart1;	//
-	private GameObject heart2;	//
-	private GameObject heart3;	//
-	private GameObject heart4;	//
-	private GameObject heart5;	//
+	private GameObject heart1;	
+	private GameObject heart2;	
+	private GameObject heart3;	
+	private GameObject heart4;	
+	private GameObject heart5;	
 	
 	// key objects 
-	private GameObject key1;	//
-	private GameObject key2;	//
-	private GameObject key3;	//
+	private GameObject key1;	
+	private GameObject key2;	
+	private GameObject key3;	
 
 	
 	
 	// Use this for initialization
 	void Awake () {
 		// Finding the game objects 
-		heart1 = GameObject.Find ("heart20");	//
-		heart2 = GameObject.Find ("heart40");	//
-		heart3 = GameObject.Find ("heart60");	//
-		heart4 = GameObject.Find ("heart80");	//
-		heart5 = GameObject.Find ("heart100");	//
-		key1 = GameObject.Find ("key1");		//
-		key2 = GameObject.Find ("key2");		//
-		key3 = GameObject.Find ("key3");		//	
+		heart1 = GameObject.Find ("heart20");	
+		heart2 = GameObject.Find ("heart40");	
+		heart3 = GameObject.Find ("heart60");	
+		heart4 = GameObject.Find ("heart80");	
+		heart5 = GameObject.Find ("heart100");	
+		key1 = GameObject.Find ("key1");		
+		key2 = GameObject.Find ("key2");		
+		key3 = GameObject.Find ("key3");			
 
 		
 		// player won't have these game objects at the start,
