@@ -21,6 +21,3 @@ All other sprites were made with Adobe Photoshop
 #
 
 
-Project Source can be donwloaded from https://github.com/jaredrooprai/PablosEscape
-----
-
