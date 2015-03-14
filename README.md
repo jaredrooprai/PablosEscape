@@ -11,17 +11,13 @@ Go to File > buildsettings > Android > Switch Platform > Build
 
 Assets Used:
 ------
-Android immersive mode Plugin source: 
+Android immersive mode Plugin source: https://www.assetstore.unity3d.com/en/#!/content/21774
 #
-https://www.assetstore.unity3d.com/en/#!/content/21774
+Skeleton Sprite Sheet, Wooden Box Sprite, Brick Floor: https://www.assetstore.unity3d.com/en/#!/content/12571
 #
-Asset packs used :
+Wall Tile: https://www.assetstore.unity3d.com/en/#!/content/19610
 #
-Skeleton Sprite sheet, Wooden box sprite, floor: https://www.assetstore.unity3d.com/en/#!/content/12571
-#
-Wall tile : https://www.assetstore.unity3d.com/en/#!/content/19610
-#
-All other sprites were made with: Adobe Photoshop
+All other sprites were made with Adobe Photoshop
 #
 
 
