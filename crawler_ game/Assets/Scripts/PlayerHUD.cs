@@ -14,8 +14,7 @@ public class PlayerHUD : MonoBehaviour {
 	private GameObject key1;	//
 	private GameObject key2;	//
 	private GameObject key3;	//
-	private GameObject key4;	//
-	private GameObject key5;	//
+
 	
 	
 	// Use this for initialization

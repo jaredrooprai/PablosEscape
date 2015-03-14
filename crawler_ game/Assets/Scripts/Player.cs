@@ -18,6 +18,8 @@ public class Player : MonoBehaviour {
 	private bool tealGateCollision, hasTealKey;
 	private bool goldGateCollision,	hasGoldKey;
 
+	private string[] arrayofKeys;
+
 
 
 
@@ -78,16 +80,16 @@ public class Player : MonoBehaviour {
 		if (health >= 1){HUDScript.toggleHeart_1(true);}
 		else{ HUDScript.toggleHeart_1(false); }
 
-		if (health >= 2){HUDScript.toggleHeart_1(true);}
+		if (health >= 2){HUDScript.toggleHeart_2(true);}
 		else{ HUDScript.toggleHeart_2(false); }
 
-		if (health >= 3){HUDScript.toggleHeart_1(true);}
+		if (health >= 3){HUDScript.toggleHeart_3(true);}
 		else{ HUDScript.toggleHeart_3(false); }
 
-		if (health >= 4){HUDScript.toggleHeart_1(true);}
+		if (health >= 4){HUDScript.toggleHeart_4(true);}
 		else{ HUDScript.toggleHeart_4(false); }
 
-		if (health >= 5){HUDScript.toggleHeart_1(true);}
+		if (health >= 5){HUDScript.toggleHeart_5(true);}
 		else{ HUDScript.toggleHeart_5(false); }
 	}
 
