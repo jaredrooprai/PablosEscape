@@ -138,19 +138,20 @@ public class Player : MonoBehaviour {
 
 
 	void OnTriggerEnter2D (Collider2D other) {
-		if (other.tag == "WhiteKey" && hasWhiteKey == false) {
-			Destroy (other.gameObject);
+		if (other.tag == "WhiteKey") {
 			foundWhiteKey ();
-		} else if (other.tag == "TealKey" && hasTealKey == false) {
 			Destroy (other.gameObject);
+		} else if (other.tag == "TealKey") {
 			foundTealKey ();
-		} else if (other.tag == "GoldKey" && hasGoldKey == false) {
 			Destroy (other.gameObject);
+
+		} else if (other.tag == "GoldKey" ) {
 			foundGoldKey ();
+			Destroy (other.gameObject);
 
 		} else if (other.tag == "Milk") {
-			Destroy (other.gameObject);
 			increaseHealth ();
+			Destroy (other.gameObject);
 		} else if (other.tag == "Trap") {
 			decreaseHealth(); 
 		}
@@ -162,11 +163,9 @@ public class Player : MonoBehaviour {
 	private void checkHealth(){
 		if (health > 5) 
 			health = 5;
-		else if (health < 0)
-			health = 0;
 		
 		if (health >= 1){HUDScript.toggleHeart_1(true);}
-		else{ HUDScript.toggleHeart_1(false); }
+		else{ HUDScript.toggleHeart_1(false); Application.LoadLevel(Application.loadedLevel);}
 		
 		if (health >= 2){HUDScript.toggleHeart_2(true);}
 		else{ HUDScript.toggleHeart_2(false); }
@@ -212,20 +211,17 @@ public class Player : MonoBehaviour {
 	
 	private void unlockWhiteGate(){
 		HUDScript.toggleKey_1 (false);
-		hasWhiteKey = false;
 		animator.SetTrigger("Walk");
 		Destroy (GameObject.Find ("whiteGate(Clone)"));	
 	}
 	private void unlockTealGate(){
 		HUDScript.toggleKey_2 (false);
-		hasWhiteKey = false;
 		animator.SetTrigger("Walk");
 		Destroy (GameObject.Find ("tealGate(Clone)"));
 		
 	}
 	private void unlockGoldGate(){
 		HUDScript.toggleKey_3 (false);
-		hasWhiteKey = false;
 		animator.SetTrigger("Walk");
 		Destroy (GameObject.Find ("goldGate(Clone)"));
 	}
