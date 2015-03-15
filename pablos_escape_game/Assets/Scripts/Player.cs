@@ -8,13 +8,13 @@ public class Player : MonoBehaviour {
 	// different classes
 	private Animator animator;
 	private Controller controllerScript;
-	//private PlayerHUD HUDScript;
+	private PlayerHUD HUDScript;
 	
 	private Vector3 position;		// current position
 	private Vector3 newPosition;	// future position
 
-	private float speed;			// speed of movement from one vector 3 to another
-	private int health;				// Health point value
+	public float speed;			// speed of movement from one vector 3 to another
+	public int health;				// Health point value
 
 	private bool wallCollision;				
 	private bool whiteGateCollision, tealGateCollision, goldGateCollision; 	// booleans for detecting if player is walking into a gate
@@ -28,8 +28,8 @@ public class Player : MonoBehaviour {
 
 		animator = gameObject.GetComponent<Animator> ();
 		controllerScript = gameObject.GetComponent<Controller> ();
-		//HUDScript = gameObject.GetComponent<PlayerHUD> ();
-
+		HUDScript = gameObject.GetComponent<PlayerHUD> ();
+		HUDScript.setVariables ();
 		initHUD ();													// initialize health and key gui
 		rotatePlayer (); 											// rotating him on start up to face the right way 
 
@@ -61,14 +61,14 @@ public class Player : MonoBehaviour {
 
 	// initializing players heads up display
 	private void initHUD (){ 		
-		//HUDScript.toggleHeart_1(true);
-		//HUDScript.toggleHeart_2(true);
-		//HUDScript.toggleHeart_3(true);
-		//HUDScript.toggleHeart_4(true);
-		//HUDScript.toggleHeart_5(true);
-		//HUDScript.toggleKey_1(false);
-		//HUDScript.toggleKey_2(false);
-		//HUDScript.toggleKey_3(false);
+		HUDScript.toggleHeart_1(true);
+		HUDScript.toggleHeart_2(true);
+		HUDScript.toggleHeart_3(true);
+		HUDScript.toggleHeart_4(true);
+		HUDScript.toggleHeart_5(true);
+		HUDScript.toggleKey_1(false);
+		HUDScript.toggleKey_2(false);
+		HUDScript.toggleKey_3(false);
 	}
 
 
@@ -78,23 +78,29 @@ public class Player : MonoBehaviour {
 		if (health > 5) 
 			health = 5;
 
-		if (health < 1)
+
+	
+		
+		if (health >= 1){HUDScript.toggleHeart_1(true);}
+		else{ HUDScript.toggleHeart_1(false); }
+		
+		if (health >= 2){HUDScript.toggleHeart_2(true);}
+		else{ HUDScript.toggleHeart_2(false); }
+		
+		if (health >= 3){HUDScript.toggleHeart_3(true);}
+		else{ HUDScript.toggleHeart_3(false); }
+		
+		if (health >= 4){HUDScript.toggleHeart_4(true);}
+		else{ HUDScript.toggleHeart_4(false); }
+		
+		if (health >= 5){HUDScript.toggleHeart_5(true);}
+		else{ HUDScript.toggleHeart_5(false); }
+
+		if (health < 1) {
+			HUDScript.activateAll();
 			GameManager.instance.playerDied ();
-		
-		//if (health >= 1){HUDScript.toggleHeart_1(true);}
-		//else{ HUDScript.toggleHeart_1(false); }
-		
-	//	if (health >= 2){HUDScript.toggleHeart_2(true);}
-		//else{ HUDScript.toggleHeart_2(false); }
-		
-	//	if (health >= 3){HUDScript.toggleHeart_3(true);}
-	//	else{ HUDScript.toggleHeart_3(false); }
-		
-	//	if (health >= 4){HUDScript.toggleHeart_4(true);}
-	//	else{ HUDScript.toggleHeart_4(false); }
-		
-		//if (health >= 5){HUDScript.toggleHeart_5(true);}
-		//else{ HUDScript.toggleHeart_5(false); }
+		}
+			
 	}
 
 
@@ -136,16 +142,17 @@ public class Player : MonoBehaviour {
 	void OnTriggerEnter2D (Collider2D other) {
 		if (other.tag == "WhiteKey") {
 			hasWhiteKey = true;
-		//	HUDScript.toggleKey_1(true);
+			HUDScript.toggleKey_1(true);
 			Destroy (other.gameObject);
 		} else if (other.tag == "TealKey") {
 			hasTealKey = true;
-		//	HUDScript.toggleKey_2(true);;
+			HUDScript.toggleKey_2(true);
+			HUDScript.toggleHeart_4(true); //****************************************
 			Destroy (other.gameObject);
 
 		} else if (other.tag == "GoldKey" ) {
 			hasGoldKey = true;
-		//	HUDScript.toggleKey_3(true);
+			HUDScript.toggleKey_3(true);
 			Destroy (other.gameObject);
 
 		} else if (other.tag == "Food") {
@@ -174,7 +181,7 @@ public class Player : MonoBehaviour {
 		if (whiteGateCollision == true && hasWhiteKey == false) { 
 			return start;
 		} else if (whiteGateCollision == true && hasWhiteKey == true) {
-			//HUDScript.toggleKey_1 (false);
+			HUDScript.toggleKey_1 (false);
 			animator.SetTrigger("Walk");
 			Destroy (GameObject.Find ("whiteGate(Clone)"));
 			return end;
@@ -182,7 +189,7 @@ public class Player : MonoBehaviour {
 		} else if (tealGateCollision == true && hasTealKey == false) {
 			return start;
 		} else if (tealGateCollision == true && hasTealKey == true) {
-			//HUDScript.toggleKey_2 (false);
+			HUDScript.toggleKey_2 (false);
 			animator.SetTrigger("Walk");
 			Destroy (GameObject.Find ("tealGate(Clone)"));
 			return end;
@@ -190,8 +197,9 @@ public class Player : MonoBehaviour {
 		} else if (goldGateCollision == true && hasGoldKey == false) {
 			return start;
 		} else if (goldGateCollision == true && hasGoldKey == true) {
-			//HUDScript.toggleKey_3 (false);
+			HUDScript.toggleKey_3 (false);
 			animator.SetTrigger("Walk");
+			GameManager.instance.finishedLevel();
 			Destroy (GameObject.Find ("goldGate(Clone)"));
 			return end;
 			

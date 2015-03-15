@@ -8,6 +8,12 @@ public class GameManager : MonoBehaviour {
 	public GameObject playerPrefab;
 
 	public MapOne mapOneScript;
+	public MapTwo mapTwoScript;
+	public MapThree mapThreeScript;
+	public MapFour mapFourScript;
+	public MapFive mapFiveScript;
+
+
 
 	[HideInInspector]public int level;
 
@@ -17,15 +23,22 @@ public class GameManager : MonoBehaviour {
 	// Use this for initialization
 	void Awake () {
 		mapOneScript = GetComponent<MapOne> ();
+		mapTwoScript = GetComponent<MapTwo> ();
+		mapThreeScript = GetComponent<MapThree> ();
+		mapFourScript = GetComponent<MapFour> ();
+		mapFiveScript = GetComponent<MapFive> ();
 		InitGame ();
 	}
 
+
+
 	void InitGame (){
-		level = 1;
+
 		// checks if this is not null so it won't make two game managers, or make two boards
 		if (instance == null) {
 			instance = this;
 			spawnPlayer();
+			level = 1;
 			loadLevel ();
 		} else if (instance != this) {
 			Destroy (gameObject);    
@@ -33,30 +46,46 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
+
+
 	public void loadLevel(){
 		Destroy (GameObject.Find ("Map"));
 		if (level == 1) {
 			mapOneScript.setupScene ();
-		} else
+		} else if (level == 2) {
+			mapTwoScript.setupScene ();
+		} else if (level == 3) {
+			mapThreeScript.setupScene ();
+		} else if (level == 4) {
+			mapFourScript.setupScene ();
+		} else if (level == 5) {
+			mapFiveScript.setupScene ();
+		}else
 			gameOver ();
 	}
 
-	
+
+	public void finishedLevel(){
+		Destroy (GameObject.Find ("Player(Clone)"));
+		spawnPlayer ();
+		level++;
+		loadLevel ();
+	}
+
+
 	public void spawnPlayer(){
 		Instantiate (playerPrefab, new Vector3 (0, 0, -10f), Quaternion.identity);
 
 	}
-	
+
 
 	public void playerDied(){
-
 		Destroy (GameObject.Find ("Player(Clone)"));
-
-
 		spawnPlayer ();
 		loadLevel ();
-
 	}
+
+
 
 
 

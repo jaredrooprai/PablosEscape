@@ -8,12 +8,10 @@ public class Map : MonoBehaviour {
 
 	//GameObjects are holding prefabs
 	public GameObject floorTile;
-	public GameObject exitTile;
 	public GameObject cementWall; 
 	public GameObject woodBox; // same tile just edited for horizontal stacking
 	public GameObject trapTile;
 	public GameObject doorPrefab;
-	public GameObject foodPrefab;
 	public GameObject spiderWeb;
 	public GameObject milkPrefab;
 
