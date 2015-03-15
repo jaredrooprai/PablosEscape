@@ -25,6 +25,8 @@ public class Map : MonoBehaviour {
 	public GameObject goldKeyPrefab;
 	public GameObject goldGatePrefab;
 
+	public GameObject buttonTilePrefab;
+
 	[HideInInspector]public Transform mapTransform;
 	[HideInInspector]public List <Vector3> mapPositions = new List <Vector3>();	//list of grid locations
 	// can't use Vector2 even though it uses 2d coord system, because of the Instantiate method.
