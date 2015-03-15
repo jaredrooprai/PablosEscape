@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour {
 
 
 
+
 	[HideInInspector]public int level;
 
 
@@ -22,28 +23,29 @@ public class GameManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
-		mapOneScript = GetComponent<MapOne> ();
-		mapTwoScript = GetComponent<MapTwo> ();
-		mapThreeScript = GetComponent<MapThree> ();
-		mapFourScript = GetComponent<MapFour> ();
-		mapFiveScript = GetComponent<MapFive> ();
-		InitGame ();
+		// checks if this is not null so it won't make two game managers, or make two boards
+		if (instance == null) {
+			instance = this;
+			InitGame ();
+		} else if (instance != this) {
+			Destroy (gameObject);    
+			DontDestroyOnLoad (gameObject);
+		}
 	}
 
 
 
 	void InitGame (){
+		mapOneScript = GetComponent<MapOne> ();
+		mapTwoScript = GetComponent<MapTwo> ();
+		mapThreeScript = GetComponent<MapThree> ();
+		mapFourScript = GetComponent<MapFour> ();
+		mapFiveScript = GetComponent<MapFive> ();
 
-		// checks if this is not null so it won't make two game managers, or make two boards
-		if (instance == null) {
-			instance = this;
-			level = 1;
-			loadLevel ();
-			spawnPlayer();
-		} else if (instance != this) {
-			Destroy (gameObject);    
-			DontDestroyOnLoad (gameObject);
-		}
+		
+		level = 1;
+		loadLevel ();
+		spawnPlayer();
 	}
 
 
