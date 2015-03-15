@@ -78,7 +78,8 @@ public class MapFour : Map
 		spawnPrefab (2, 3, milkPrefab);
 		spawnPrefab (3, 3, milkPrefab);
 
-		
+		spawnPrefab (5, 15, portalPrefab);
+
 		spawnPrefab (0, 2, whiteGatePrefab);
 		spawnPrefab (1, 2, woodBox);
 		spawnPrefab (2, 2, woodBox);

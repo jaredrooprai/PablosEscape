@@ -89,7 +89,8 @@ public class MapThree : Map
 		spawnPrefab (8, 2, woodBox);
 		spawnPrefab (9, 2, woodBox);
 		spawnPrefab (10, 2, woodBox);
-		
+		spawnPrefab (5, 15, portalPrefab);
+
 		//spawnPrefab (0, 4, woodBox);
 		//spawnPrefab (1, 4, woodBox);
 		spawnPrefab (4, 4, woodBox);

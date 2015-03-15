@@ -37,9 +37,9 @@ public class GameManager : MonoBehaviour {
 		// checks if this is not null so it won't make two game managers, or make two boards
 		if (instance == null) {
 			instance = this;
-			spawnPlayer();
 			level = 1;
 			loadLevel ();
+			spawnPlayer();
 		} else if (instance != this) {
 			Destroy (gameObject);    
 			DontDestroyOnLoad (gameObject);
@@ -67,9 +67,9 @@ public class GameManager : MonoBehaviour {
 
 	public void finishedLevel(){
 		Destroy (GameObject.Find ("Player(Clone)"));
-		spawnPlayer ();
 		level++;
 		loadLevel ();
+		spawnPlayer ();
 	}
 
 
@@ -81,8 +81,8 @@ public class GameManager : MonoBehaviour {
 
 	public void playerDied(){
 		Destroy (GameObject.Find ("Player(Clone)"));
-		spawnPlayer ();
 		loadLevel ();
+		spawnPlayer ();
 	}
 
 
