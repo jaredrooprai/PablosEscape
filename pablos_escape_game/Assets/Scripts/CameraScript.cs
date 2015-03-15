@@ -15,6 +15,10 @@ public class CameraScript : MonoBehaviour
 	
 	void LateUpdate () 
 	{
-		transform.position = target.position + Orientation;	
+		target = GameObject.Find ("Player(Clone)").transform;
+		if (target == GameObject.Find ("Player(Clone)").transform){
+				transform.position = target.position + Orientation;	
+		}else
+			Debug.Log("it worked i think");
 	}
 }

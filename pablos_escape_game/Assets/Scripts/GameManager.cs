@@ -6,7 +6,6 @@ public class GameManager : MonoBehaviour {
 	public static GameManager instance = null;	// used in init game explanation is there
 
 	public GameObject playerPrefab;
-	public GameObject cameraPrefab;
 
 	public MapOne mapOneScript;
 
@@ -45,13 +44,11 @@ public class GameManager : MonoBehaviour {
 	
 	public void spawnPlayer(){
 		Instantiate (playerPrefab, new Vector3 (0, 0, -10f), Quaternion.identity);
-		Instantiate (cameraPrefab, new Vector3 (0, 0, -10f), Quaternion.identity);
 
 	}
 	
 
 	public void playerDied(){
-				Destroy (GameObject.Find ("Camera(Clone)"));
 
 		Destroy (GameObject.Find ("Player(Clone)"));
 
