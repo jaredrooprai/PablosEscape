@@ -199,8 +199,9 @@ public class Player : MonoBehaviour {
 		} else if (goldGateCollision == true && hasGoldKey == true) {
 			HUDScript.toggleKey_3 (false);
 			animator.SetTrigger("Walk");
-			GameManager.instance.finishedLevel();
+			HUDScript.activateAll();
 			Destroy (GameObject.Find ("goldGate(Clone)"));
+			GameManager.instance.finishedLevel();
 			return end;
 			
 		} else if (wallCollision == true) {
