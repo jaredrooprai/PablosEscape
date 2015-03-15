@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour {
 		mapThreeScript = GetComponent<MapThree> ();
 		mapFourScript = GetComponent<MapFour> ();
 		mapFiveScript = GetComponent<MapFive> ();
-		levelindic.SetActive (true);
+		levelindic.SetActive (false);
 
 		
 		level = 1;
@@ -55,8 +55,6 @@ public class GameManager : MonoBehaviour {
 
 
 	public void loadLevel(){
-		delayit ();
-
 		Destroy (GameObject.Find ("Map"));
 		if (level == 1) {
 			mapOneScript.setupScene ();
@@ -74,6 +72,7 @@ public class GameManager : MonoBehaviour {
 
 	}
 
+	/*
 	public void delayit(){
 		float x = Time.realtimeSinceStartup + 4f;
 
@@ -82,6 +81,7 @@ public class GameManager : MonoBehaviour {
 		}
 		levelindic.SetActive (false);
 	}
+	*/
 
 	public void finishedLevel(){
 		Destroy (GameObject.Find ("Player(Clone)"));
