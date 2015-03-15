@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class GameManager : MonoBehaviour {
@@ -12,6 +13,7 @@ public class GameManager : MonoBehaviour {
 	public MapThree mapThreeScript;
 	public MapFour mapFourScript;
 	public MapFive mapFiveScript;
+	private GameObject levelindic;
 
 
 
@@ -35,12 +37,15 @@ public class GameManager : MonoBehaviour {
 
 
 
+
 	void InitGame (){
+		levelindic = GameObject.Find ("Image");
 		mapOneScript = GetComponent<MapOne> ();
 		mapTwoScript = GetComponent<MapTwo> ();
 		mapThreeScript = GetComponent<MapThree> ();
 		mapFourScript = GetComponent<MapFour> ();
 		mapFiveScript = GetComponent<MapFive> ();
+		levelindic.SetActive (true);
 
 		
 		level = 1;
@@ -49,8 +54,9 @@ public class GameManager : MonoBehaviour {
 	}
 
 
-
 	public void loadLevel(){
+		delayit ();
+
 		Destroy (GameObject.Find ("Map"));
 		if (level == 1) {
 			mapOneScript.setupScene ();
@@ -62,10 +68,20 @@ public class GameManager : MonoBehaviour {
 			mapFourScript.setupScene ();
 		} else if (level == 5) {
 			mapFiveScript.setupScene ();
-		}else
-			gameOver ();
+		} else {
+			Application.LoadLevel ("MainMenu");
+		}
+
 	}
 
+	public void delayit(){
+		float x = Time.realtimeSinceStartup + 4f;
+
+		while (x > Time.realtimeSinceStartup) {
+			print (Time.realtimeSinceStartup);
+		}
+		levelindic.SetActive (false);
+	}
 
 	public void finishedLevel(){
 		Destroy (GameObject.Find ("Player(Clone)"));
@@ -92,6 +108,7 @@ public class GameManager : MonoBehaviour {
 
 
 	public void gameOver(){
+		Application.LoadLevel ("MainMenu");
 	}
 
 

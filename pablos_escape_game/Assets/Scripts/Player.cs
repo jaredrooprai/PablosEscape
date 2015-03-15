@@ -23,6 +23,7 @@ public class Player : MonoBehaviour {
 
 // initializing player attributes
 	void Start() {
+
 		animator = gameObject.GetComponent<Animator> ();
 		controllerScript = gameObject.GetComponent<Controller> ();
 		HUDScript = gameObject.GetComponent<PlayerHUD> ();

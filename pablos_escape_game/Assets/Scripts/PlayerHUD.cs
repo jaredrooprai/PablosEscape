@@ -13,7 +13,7 @@ public class PlayerHUD : MonoBehaviour {
 	// key objects 
 	private GameObject key1;	
 	private GameObject key2;	
-	private GameObject key3;	
+	private GameObject key3;
 
 	
 	
@@ -27,8 +27,8 @@ public class PlayerHUD : MonoBehaviour {
 		heart5 = GameObject.Find ("heart5");	
 		key1 = GameObject.Find ("key1");		
 		key2 = GameObject.Find ("key2");		
-		key3 = GameObject.Find ("key3");					
-		// player won't have these game objects at the start,
+		key3 = GameObject.Find ("key3");	
+			// player won't have these game objects at the start,
 		// turned off 
 	}
 
@@ -43,7 +43,12 @@ public class PlayerHUD : MonoBehaviour {
 		toggleKey_1 (true);
 		toggleKey_2 (true);
 		toggleKey_3 (true);
+
 	}
+
+
+
+
 
 	// toggles to show or not show the heart health objects on the screen
 	public void toggleHeart_1 (bool toggle){
