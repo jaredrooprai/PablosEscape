@@ -96,6 +96,7 @@ public class MapOne : Map
 		spawnPrefab (4, 6, goldGatePrefab);
 		spawnPrefab (5, 6, woodBox);
 		spawnPrefab (6, 6, woodBox);
+		spawnPrefab (4, 7, buttonTilePrefab);
 		//spawnPrefab (3, 6, woodBox);
 		//spawnPrefab (4, 6, woodBox);
 
