@@ -5,6 +5,6 @@ public class Play : MonoBehaviour {
 
 
 	public void Play_button(){
-		Application.LoadLevel ("Game");
+		Application.LoadLevel ("NewGame");
 	}
 }

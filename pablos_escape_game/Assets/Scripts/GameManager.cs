@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.IO;
 
 public class GameManager : MonoBehaviour {
 
@@ -13,14 +14,24 @@ public class GameManager : MonoBehaviour {
 	public MapThree mapThreeScript;
 	public MapFour mapFourScript;
 	public MapFive mapFiveScript;
-	private GameObject levelindic;
-
-
-
 
 
 	[HideInInspector]public int level;
 
+	void Save ()
+	{
+		PlayerPrefs.SetInt("SavedLevel", level);
+	}
+
+
+	void Load ()
+	{
+		if (PlayerPrefs.GetInt ("SavedLevel") == 0) {
+			level = 1;
+		} else {
+			level = PlayerPrefs.GetInt ("SavedLevel");
+		}
+	}
 
 
 
@@ -38,24 +49,22 @@ public class GameManager : MonoBehaviour {
 
 
 
-
 	void InitGame (){
-		levelindic = GameObject.Find ("Image");
 		mapOneScript = GetComponent<MapOne> ();
 		mapTwoScript = GetComponent<MapTwo> ();
 		mapThreeScript = GetComponent<MapThree> ();
 		mapFourScript = GetComponent<MapFour> ();
 		mapFiveScript = GetComponent<MapFive> ();
-		levelindic.SetActive (false);
-
-		
-		level = 1;
-		loadLevel ();
+		Load ();
+		levelManager ();
 		spawnPlayer();
 	}
 
+	
 
-	public void loadLevel(){
+	
+	public void levelManager(){
+		Save ();
 		Destroy (GameObject.Find ("Map"));
 		if (level == 1) {
 			mapOneScript.setupScene ();
@@ -73,23 +82,17 @@ public class GameManager : MonoBehaviour {
 
 	}
 
-	/*
-	public void delayit(){
-		float x = Time.realtimeSinceStartup + 4f;
 
-		while (x > Time.realtimeSinceStartup) {
-			print (Time.realtimeSinceStartup);
-		}
-		levelindic.SetActive (false);
-	}
-	*/
+
 
 	public void finishedLevel(){
 		Destroy (GameObject.Find ("Player(Clone)"));
 		level++;
-		loadLevel ();
+		levelManager ();
 		spawnPlayer ();
 	}
+
+
 
 
 	public void spawnPlayer(){
@@ -98,9 +101,11 @@ public class GameManager : MonoBehaviour {
 	}
 
 
+
+
 	public void playerDied(){
 		Destroy (GameObject.Find ("Player(Clone)"));
-		loadLevel ();
+		levelManager ();
 		spawnPlayer ();
 	}
 
