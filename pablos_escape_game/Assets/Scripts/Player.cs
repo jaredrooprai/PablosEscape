@@ -159,6 +159,8 @@ public class Player : MonoBehaviour {
 		} else if (other.tag == "Portal") {
 			HUDScript.activateAll ();
 			GameManager.instance.finishedLevel ();
+		} else if (other.tag == "Button") {
+			Destroy(other);
 		}
 
 	}

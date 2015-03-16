@@ -24,8 +24,9 @@ public class Map : MonoBehaviour {
 
 	public GameObject goldKeyPrefab;
 	public GameObject goldGatePrefab;
-
-	public GameObject buttonTilePrefab;
+	
+	public GameObject buttonUpPrefab;
+	public GameObject buttonDownPrefab;
 
 	[HideInInspector]public Transform mapTransform;
 	[HideInInspector]public List <Vector3> mapPositions = new List <Vector3>();	//list of grid locations
