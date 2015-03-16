@@ -51,49 +51,14 @@ public class MapOne : Map
 	
 	// Method to add items into the map using parent spawnItem method
 	void setupItems(){
-<<<<<<< HEAD
-		spawnPrefab (4, 0, whiteKeyPrefab);
-		spawnPrefab (3, 0, tealKeyPrefab);
-		spawnPrefab (2, 0, goldKeyPrefab);
-		spawnPrefab (1, 1, spiderWeb);
-		spawnPrefab (0, 3, milkPrefab);
-
-		spawnPrefab (0, 2, whiteGatePrefab);
-		spawnPrefab (1, 2, woodBox);
-		spawnPrefab (2, 2, woodBox);
-		spawnPrefab (3, 2, woodBox);
-		spawnPrefab (4, 2, woodBox);
-		spawnPrefab (5, 2, woodBox);
-		spawnPrefab (6, 2, woodBox);
-		spawnPrefab (7, 2, woodBox);
-		spawnPrefab (8, 2, woodBox);
-		spawnPrefab (9, 2, woodBox);
-		spawnPrefab (10, 2, woodBox);
-		spawnPrefab (5, 15, portalPrefab);
-		//spawnPrefab (0, 4, woodBox);
-		//spawnPrefab (1, 4, woodBox);
-		spawnPrefab (4, 4, woodBox);
-		spawnPrefab (5, 4, woodBox);
-		spawnPrefab (6, 4, tealGatePrefab);
-
-		spawnPrefab (4, 6, goldGatePrefab);
-		spawnPrefab (5, 6, woodBox);
-		spawnPrefab (6, 6, woodBox);
-		spawnPrefab (4, 7, buttonUpPrefab);
-		//spawnPrefab (3, 6, woodBox);
-		//spawnPrefab (4, 6, woodBox);
-
-
-=======
+		// spawn white key in map
 		spawnPrefab (2, 8, whiteKeyPrefab);
 
 		spawnPrefab (4, 1, whiteGatePrefab);
 		spawnPrefab (3, 0, woodBox);
 		
 		spawnPrefab (4, 0, portalPrefab);
-		
-		
->>>>>>> ae388c0df50b0d46393788e249df197a120330e8
+
 	}
 	
 }
