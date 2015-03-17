@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MainMenu : MonoBehaviour {
+public class FinishedGameController : MonoBehaviour {
+
 	
-	
-	public void Main_Menu_button(){
+	public void MenuButton(){
 		Application.LoadLevel ("MainMenu");
 	}
+
 }

@@ -64,7 +64,6 @@ public class GameManager : MonoBehaviour {
 
 	
 	public void levelManager(){
-		Save ();
 		Destroy (GameObject.Find ("Map"));
 		if (level == 1) {
 			mapOneScript.setupScene ();
@@ -77,11 +76,12 @@ public class GameManager : MonoBehaviour {
 		} else if (level == 5) {
 			mapFiveScript.setupScene ();
 		} else {
-			Application.LoadLevel ("MainMenu");
-			level = 1;
-		}
-		Save ();
+			level =1;
+			Application.LoadLevel ("FinishedGame");
 
+		}
+
+		Save ();
 
 	}
 
@@ -91,6 +91,8 @@ public class GameManager : MonoBehaviour {
 	public void finishedLevel(){
 		Destroy (GameObject.Find ("Player(Clone)"));
 		level++;
+		Save ();
+		Application.LoadLevel ("NextLevel");
 		levelManager ();
 		spawnPlayer ();
 	}
