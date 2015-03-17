@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class ContinueButtonHide : MonoBehaviour {
@@ -10,7 +11,11 @@ public class ContinueButtonHide : MonoBehaviour {
 		if (PlayerPrefs.GetInt ("SavedLevel") == 1 || PlayerPrefs.GetInt ("SavedLevel") ==0) {
 			ContinueButton.SetActive (false);
 		}
-		else{ContinueButton.SetActive(true);}
+		else{
+			ContinueButton.SetActive(true);
+			GameObject.Find ("Continue").GetComponentInChildren<Text>().text = "Continue Level " + PlayerPrefs.GetInt("SavedLevel");
+
+		}
 
 	}
 

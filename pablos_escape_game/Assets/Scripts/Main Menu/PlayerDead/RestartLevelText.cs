@@ -4,7 +4,7 @@ using System.Collections;
 
 public class RestartLevelText : MonoBehaviour {
 
-	private GameObject levelText;
+
 	
 	// Update is called once per frame
 	void Update () {
