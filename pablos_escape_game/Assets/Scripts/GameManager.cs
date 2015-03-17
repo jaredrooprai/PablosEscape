@@ -104,6 +104,8 @@ public class GameManager : MonoBehaviour {
 
 
 	public void playerDied(){
+		Application.LoadLevel ("PlayerDead");
+
 		Destroy (GameObject.Find ("Player(Clone)"));
 		levelManager ();
 		spawnPlayer ();
