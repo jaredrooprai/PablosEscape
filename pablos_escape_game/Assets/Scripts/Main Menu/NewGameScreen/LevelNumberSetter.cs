@@ -13,7 +13,10 @@ public class LevelNumberSetter : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		levelNumber.text = "Level " + PlayerPrefs.GetInt("SavedLevel");
+		if (PlayerPrefs.GetInt ("SavedLevel") == 0) 
+			levelNumber.text = "Level 1";
+		else
+			levelNumber.text = "Level " + PlayerPrefs.GetInt("SavedLevel");
 
 	}
 }
