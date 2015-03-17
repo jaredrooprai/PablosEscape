@@ -78,7 +78,10 @@ public class GameManager : MonoBehaviour {
 			mapFiveScript.setupScene ();
 		} else {
 			Application.LoadLevel ("MainMenu");
+			level = 1;
 		}
+		Save ();
+
 
 	}
 
