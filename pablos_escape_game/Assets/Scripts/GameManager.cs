@@ -10,10 +10,10 @@ public class GameManager : MonoBehaviour {
 	public GameObject playerPrefab;
 
 	public Map1 mapOneScript;
-//	public Map2 mapTwoScript;
-//	public Map3 mapThreeScript;
-//	public Map4 mapFourScript;
-//	public Map5 mapFiveScript;
+	public Map2 mapTwoScript;
+	public Map3 mapThreeScript;
+	public Map4 mapFourScript;
+	public Map5 mapFiveScript;
 
 	[HideInInspector]public int level;
 
@@ -50,10 +50,10 @@ public class GameManager : MonoBehaviour {
 
 	void InitGame (){
 		mapOneScript = GetComponent<Map1> ();
-//		mapTwoScript = GetComponent<Map2> ();
-//		mapThreeScript = GetComponent<Map3> ();
-//		mapFourScript = GetComponent<Map4> ();
-//		mapFiveScript = GetComponent<Map5> ();s
+		mapTwoScript = GetComponent<Map2> ();
+		mapThreeScript = GetComponent<Map3> ();
+		mapFourScript = GetComponent<Map4> ();
+		mapFiveScript = GetComponent<Map5> ();
 
 		
 		Load ();
@@ -68,14 +68,14 @@ public class GameManager : MonoBehaviour {
 		Destroy (GameObject.Find ("Map"));
 		if (level == 1) {
 			mapOneScript.setupScene ();
-//		} else if (level == 2) {
-//			mapTwoScript.setupScene ();
-//		} else if (level == 3) {
-//			mapThreeScript.setupScene ();
-//		} else if (level == 4) {
-//			mapFourScript.setupScene ();
-//		} else if (level == 5) {
-//			mapFiveScript.setupScene ();
+		} else if (level == 2) {
+			mapTwoScript.setupScene ();
+		} else if (level == 3) {
+			mapThreeScript.setupScene ();
+		} else if (level == 4) {
+			mapFourScript.setupScene ();
+		} else if (level == 5) {
+			mapFiveScript.setupScene ();
 		}else {
 			level =1;
 			Application.LoadLevel ("FinishedGame");
