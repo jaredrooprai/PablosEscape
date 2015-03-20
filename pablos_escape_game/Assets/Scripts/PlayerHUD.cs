@@ -11,9 +11,11 @@ public static class PlayerHUD {
 	private static GameObject heart5;	
 	
 	// key objects 
-	private static GameObject key1;	
-	private static GameObject key2;	
-	private static GameObject key3;
+	private static GameObject whiteKey;	
+	private static GameObject redKey;	
+	private static GameObject blueKey;
+	private static GameObject goldKey;
+
 
 	
 	
@@ -25,28 +27,14 @@ public static class PlayerHUD {
 		heart3 = GameObject.Find ("heart3");	
 		heart4 = GameObject.Find ("heart4");	
 		heart5 = GameObject.Find ("heart5");	
-		key1 = GameObject.Find ("key1");		
-		key2 = GameObject.Find ("key2");		
-		key3 = GameObject.Find ("key3");	
+		whiteKey = GameObject.Find ("whiteKey");		
+		redKey = GameObject.Find ("redKey");		
+		blueKey = GameObject.Find ("blueKey");
+		goldKey = GameObject.Find ("goldKey");	
+
 			// player won't have these game objects at the start,
 		// turned off 
 	}
-
-
-	// right before player dies call this for some reason fixes issue
-	public static void activateAll (){
-		toggleHeart_1 (true);
-		toggleHeart_2 (true);
-		toggleHeart_3 (true);
-		toggleHeart_4 (true);
-		toggleHeart_5 (true);
-		toggleKey_1 (true);
-		toggleKey_2 (true);
-		toggleKey_3 (true);
-
-	}
-
-
 
 
 
@@ -79,21 +67,28 @@ public static class PlayerHUD {
 	
 	
 	// toggles to show or not show the key objects on the screen
-	public static void toggleKey_1 (bool toggle){
-		if (key1 != null){
-			key1.SetActive (toggle);
+	public static void toggleWhiteKey (bool toggle){
+		if (whiteKey != null){
+			whiteKey.SetActive (toggle);
 		}
 	}
 
-	public static void toggleKey_2 (bool toggle){
-		if (key2 != null){
-			key2.SetActive (toggle);
+	public static void toggleRedKey (bool toggle){
+		if (redKey != null){
+			redKey.SetActive (toggle);
+		}
+	}
+	
+
+	public static void toggleBlueKey (bool toggle){
+		if (blueKey != null){
+			blueKey.SetActive (toggle);
 		}
 	}
 
-	public static void toggleKey_3 (bool toggle){
-		if (key3 != null){
-			key3.SetActive (toggle);
+	public static void toggleGoldKey (bool toggle){
+		if (goldKey != null){
+			goldKey.SetActive (toggle);
 		}
 	}
 

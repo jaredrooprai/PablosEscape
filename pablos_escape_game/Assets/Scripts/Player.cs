@@ -17,7 +17,8 @@ public class Player : MonoBehaviour {
 
 
 	private bool hasWhiteKey ;
-	private bool hasTealKey;
+	private bool hasRedKey;
+	private bool hasBlueKey;
 	private bool hasGoldKey;						// determining if player has a key to unlock gate or not
 
 
@@ -36,7 +37,8 @@ public class Player : MonoBehaviour {
 		health = 5;
 
 		hasWhiteKey = false;
-		hasTealKey = false;
+		hasRedKey = false;
+		hasBlueKey = false;
 		hasGoldKey = false;
 	}
 
@@ -64,9 +66,10 @@ public class Player : MonoBehaviour {
 		PlayerHUD.toggleHeart_3(false);
 		PlayerHUD.toggleHeart_4(false);
 		PlayerHUD.toggleHeart_5(false);
-		PlayerHUD.toggleKey_1(false);
-		PlayerHUD.toggleKey_2(false);
-		PlayerHUD.toggleKey_3(false);
+		PlayerHUD.toggleWhiteKey(false);
+		PlayerHUD.toggleRedKey(false);
+		PlayerHUD.toggleBlueKey(false);
+		PlayerHUD.toggleGoldKey(false);
 	}
 
 
@@ -92,7 +95,6 @@ public class Player : MonoBehaviour {
 		else{ PlayerHUD.toggleHeart_5(false); }
 
 		if (health < 1) {
-			//PlayerHUD.activateAll ();
 			GameManager.instance.playerDied ();
 		}
 			
@@ -137,17 +139,23 @@ public class Player : MonoBehaviour {
 	void OnTriggerEnter2D (Collider2D other) {
 		if (other.tag == "WhiteKey") {
 			hasWhiteKey = true;
-			PlayerHUD.toggleKey_1 (true);
+			PlayerHUD.toggleWhiteKey (true);
 			Destroy (other.gameObject);
-		} else if (other.tag == "TealKey") {
-			hasTealKey = true;
-			PlayerHUD.toggleKey_2 (true);
-			PlayerHUD.toggleHeart_4 (true); //****************************************
+
+		} else if (other.tag == "RedKey") {
+			hasRedKey = true;
+			PlayerHUD.toggleRedKey (true);
+			PlayerHUD.toggleHeart_4 (true);
+			Destroy (other.gameObject);
+
+		} else if (other.tag == "BlueKey") {
+			hasBlueKey = true;
+			PlayerHUD.toggleBlueKey (true);
 			Destroy (other.gameObject);
 
 		} else if (other.tag == "GoldKey") {
 			hasGoldKey = true;
-			PlayerHUD.toggleKey_3 (true);
+			PlayerHUD.toggleGoldKey (true);
 			Destroy (other.gameObject);
 
 		} else if (other.tag == "Food") {
@@ -156,7 +164,6 @@ public class Player : MonoBehaviour {
 		} else if (other.tag == "Trap") {
 			health -= 1;
 		} else if (other.tag == "Portal") {
-			//PlayerHUD.activateAll ();
 			GameManager.instance.finishedLevel ();
 		} else if (other.tag == "Button") {
 			Destroy(other);
@@ -172,34 +179,43 @@ public class Player : MonoBehaviour {
 		rotatePlayer ();																					
 		//Debug.DrawLine (start, end, Color.green); 														// shows linecast for debugging purposes
 		
-		bool  wallCollision = Physics2D.Linecast (start, end, 1 << LayerMask.NameToLayer ("WallLayer"));			// cast a line and check if its a wall or gate..
+		bool wallCollision = Physics2D.Linecast (start, end, 1 << LayerMask.NameToLayer ("WallLayer"));			// cast a line and check if its a wall or gate..
 		bool whiteGateCollision = Physics2D.Linecast (start, end, 1 << LayerMask.NameToLayer ("whiteGateLayer"));// ..
-		bool tealGateCollision = Physics2D.Linecast (start, end, 1 << LayerMask.NameToLayer ("tealGateLayer"));	// ..
+		bool redGateCollision = Physics2D.Linecast (start, end, 1 << LayerMask.NameToLayer ("redGateLayer"));	// ..
+		bool blueGateCollision = Physics2D.Linecast (start, end, 1 << LayerMask.NameToLayer ("blueGateLayer"));	// ..
 		bool goldGateCollision = Physics2D.Linecast (start, end, 1 << LayerMask.NameToLayer ("goldGateLayer"));	// ..
 		
 		
 		if (whiteGateCollision == true && hasWhiteKey == false) { 
 			return start;
 		} else if (whiteGateCollision == true && hasWhiteKey == true) {
-			PlayerHUD.toggleKey_1 (false);
+			PlayerHUD.toggleWhiteKey (false);
 			animator.SetTrigger("Walk");
 			Destroy (GameObject.Find ("whiteGate(Clone)"));
 			return end;
 
 
-		} else if (tealGateCollision == true && hasTealKey == false) {
+		} else if (redGateCollision == true && hasRedKey == false) {
 			return start;
-		} else if (tealGateCollision == true && hasTealKey == true) {
-			PlayerHUD.toggleKey_2 (false);
+		} else if (redGateCollision == true && hasRedKey == true) {
+			PlayerHUD.toggleRedKey (false);
 			animator.SetTrigger("Walk");
-			Destroy (GameObject.Find ("tealGate(Clone)"));
+			Destroy (GameObject.Find ("redGate(Clone)"));
 			return end;
 
+		} else if (blueGateCollision == true && hasBlueKey == false) {
+			return start;
+		} else if (blueGateCollision == true && hasBlueKey == true) {
+			PlayerHUD.toggleBlueKey (false);
+			animator.SetTrigger("Walk");
+			
+			Destroy (GameObject.Find ("blueGate(Clone)"));
+			return end;
 
 		} else if (goldGateCollision == true && hasGoldKey == false) {
 			return start;
 		} else if (goldGateCollision == true && hasGoldKey == true) {
-			PlayerHUD.toggleKey_3 (false);
+			PlayerHUD.toggleGoldKey (false);
 			animator.SetTrigger("Walk");
 
 			Destroy (GameObject.Find ("goldGate(Clone)"));

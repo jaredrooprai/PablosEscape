@@ -11,16 +11,17 @@ public class Map : MonoBehaviour {
 	public GameObject cementWall; 
 	public GameObject woodBox; // same tile just edited for horizontal stacking
 	public GameObject trapTile;
-	public GameObject doorPrefab;
-	public GameObject spiderWeb;
 	public GameObject milkPrefab;
 	public GameObject portalPrefab;
 
 	public GameObject whiteKeyPrefab;
 	public GameObject whiteGatePrefab;
 	
-	public GameObject tealKeyPrefab;
-	public GameObject tealGatePrefab;
+	public GameObject redKeyPrefab;
+	public GameObject redGatePrefab;
+
+	public GameObject blueKeyPrefab;
+	public GameObject blueGatePrefab;
 
 	public GameObject goldKeyPrefab;
 	public GameObject goldGatePrefab;
