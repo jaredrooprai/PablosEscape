@@ -51,8 +51,14 @@ public class Map1 : Map
 	
 	// Method to add items into the map using parent spawnItem method
 	void setupItems(){
-		spawnPrefab (2, 3, blueKeyPrefab);
-		spawnPrefab (2, 4, blueGatePrefab);
+		spawnPrefab (4, 7, blueKeyPrefab);
+		spawnPrefab (2, 9, blueGatePrefab);
+
+		spawnPrefab (3, 7, redKeyPrefab);
+		spawnPrefab (3, 9, redGatePrefab);
+
+		spawnPrefab (2, 7, goldKeyPrefab);
+		spawnPrefab (4, 9, goldGatePrefab);
 
 		spawnPrefab (2, 8, whiteKeyPrefab);
 		spawnPrefab (4, 1, whiteGatePrefab);
