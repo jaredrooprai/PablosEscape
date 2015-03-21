@@ -2,7 +2,25 @@ fileFormatVersion: 2
 guid: 98d303da70eb8454b9aee5708638d751
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - floorTile: {instanceID: 0}
+  - cementWall: {instanceID: 0}
+  - woodBox: {instanceID: 0}
+  - trapTile: {instanceID: 0}
+  - spiderWeb: {instanceID: 0}
+  - milkPrefab: {instanceID: 0}
+  - portalPrefab: {instanceID: 0}
+  - whiteKeyPrefab: {instanceID: 0}
+  - whiteGatePrefab: {instanceID: 0}
+  - redKeyPrefab: {instanceID: 0}
+  - redGatePrefab: {instanceID: 0}
+  - blueKeyPrefab: {instanceID: 0}
+  - blueGatePrefab: {instanceID: 0}
+  - goldKeyPrefab: {instanceID: 0}
+  - goldGatePrefab: {instanceID: 0}
+  - buttonUpPrefab: {instanceID: 0}
+  - buttonDownPrefab: {instanceID: 0}
+  - mapTransform: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
