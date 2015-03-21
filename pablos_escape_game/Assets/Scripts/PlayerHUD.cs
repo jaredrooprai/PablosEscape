@@ -29,12 +29,10 @@ public static class PlayerHUD {
 		redKey = GameObject.Find ("redKey");		
 		blueKey = GameObject.Find ("blueKey");
 		goldKey = GameObject.Find ("goldKey");	
-
-			// player won't have these game objects at the start,
-		// turned off 
 	}
 
-	
+
+
 	// toggles to show or not show the heart health objects on the screen
 	public static void toggleHeart_1 (bool toggle){
 		if (heart1 != null) {
