@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 
 
-public class Map2 : Map 
+public class Map5 : Map 
 { 
 	private int columns = 4;
 	private int rows = 9; 
