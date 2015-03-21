@@ -4,10 +4,10 @@ using System.Collections.Generic;
 
 
 
-public class Map5 : Map 
+public class Map2 : Map 
 { 
-	private int columns = 55;
-	private int rows = 55; 
+	private int columns = 4;
+	private int rows = 9; 
 	
 	// Main method that sets up the scene with items and tiles
 	public void setupScene () {
@@ -32,63 +32,7 @@ public class Map5 : Map
 	//Sets up the floor and the walls
 	void setupTiles () {
 		GameObject tile;
-
-		// create horizontal hallways
-		for (int i = 0; i <= 5; i++) {
-			int temp = i%2;
-			if (temp != 0)
-				i++;
-			else {
-				for (int y = 1; y <= rows; y += 12){
-					int y2 = y+2;
-					for (int x = 6; x <= 10 ; x++) {
-						spawnPrefab(x, y, cementWall);
-						spawnPrefab(x, y2, cementWall);
-					}
-					for (int x = 18; x <= 22 ; x++) {
-						spawnPrefab(x, y, cementWall);
-						spawnPrefab(x, y2, cementWall);
-					}
-					for (int x = 30; x <= 34 ; x++) {
-						spawnPrefab(x, y, cementWall);
-						spawnPrefab(x, y2, cementWall);
-					}
-					for (int x = 42; x <= 46 ; x++) {
-						spawnPrefab(x, y, cementWall);
-						spawnPrefab(x, y2, cementWall);
-					}
-				}
-			}
-		}
 		
-		// create vertical walls
-		for (int i = 0; i <= 5; i++) {
-			int temp = i%2;
-			if (temp != 0)
-				i++;
-			else {
-				for (int x = 1; x <= rows; x += 12){
-					int x2 = x+2;
-					for (int y = 6; y <= 10 ; y++) {
-						spawnPrefab(x, y, cementWall);
-						spawnPrefab(x2, y, cementWall);
-					}
-					for (int y = 18; y <= 22 ; y++) {
-						spawnPrefab(x, y, cementWall);
-						spawnPrefab(x2, y, cementWall);
-					}
-					for (int y = 30; y <= 34 ; y++) {
-						spawnPrefab(x, y, cementWall);
-						spawnPrefab(x2, y, cementWall);
-					}
-					for (int y = 42; y <= 46 ; y++) {
-						spawnPrefab(x, y, cementWall);
-						spawnPrefab(x2, y, cementWall);
-					}
-				}
-			}
-		}
-
 		for (int x = -1; x <= columns + 1; x++) 
 		{ 
 			for (int y = -1; y <= rows + 1; y++)
