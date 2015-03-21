@@ -15,10 +15,14 @@ public class CameraScript : MonoBehaviour
 	
 	void LateUpdate () 
 	{
+	
+
 		if (target != null) {
 			transform.position = target.position + Orientation;	
 		} else {
 			//Debug.Log("Camera: Can't Find Player");
 		}
 	}
+
+
 }

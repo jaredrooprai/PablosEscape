@@ -17,20 +17,6 @@ public class GameManager : MonoBehaviour {
 
 	[HideInInspector]public int level;
 
-	void Save ()
-	{
-		PlayerPrefs.SetInt("SavedLevel", level);
-	}
-
-
-	void Load ()
-	{
-		if (PlayerPrefs.GetInt ("SavedLevel") == 0) {
-			level = 1;
-		} else {
-			level = PlayerPrefs.GetInt ("SavedLevel");
-		}
-	}
 
 
 
@@ -48,8 +34,7 @@ public class GameManager : MonoBehaviour {
 
 	}
 
-
-
+	
 	void InitGame (){
 		mapOneScript = GetComponent<Map1> ();
 		mapTwoScript = GetComponent<Map2> ();
@@ -108,8 +93,7 @@ public class GameManager : MonoBehaviour {
 	}
 
 
-
-
+	
 	public void spawnPlayer(){
 		Instantiate (playerPrefab, new Vector3 (0, 0, -10f), Quaternion.identity);
 
@@ -129,6 +113,20 @@ public class GameManager : MonoBehaviour {
 
 
 
+	void Save ()
+	{
+		PlayerPrefs.SetInt("SavedLevel", level);
+	}
+	
+	
+	void Load ()
+	{
+		if (PlayerPrefs.GetInt ("SavedLevel") == 0) {
+			level = 1;
+		} else {
+			level = PlayerPrefs.GetInt ("SavedLevel");
+		}
+	}
 
 
 

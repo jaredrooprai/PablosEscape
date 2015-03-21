@@ -9,10 +9,6 @@ public class Controller : MonoBehaviour {
 
 	
 	public Vector3 touchScreen (Vector3 pos){ // this is for the phone
-		if (Input.GetKeyDown (KeyCode.Escape)) {
-			Application.LoadLevel("MainMenu");
-		}
-
 		position = pos;
 		int fingercount = 0;
 		foreach (Touch touch in Input.touches) {
@@ -51,10 +47,6 @@ public class Controller : MonoBehaviour {
 
 
 	public Vector3 keyboard(Vector3 pos){  /// this is for the keyboard 
-		if (Input.GetKeyDown (KeyCode.Escape)) {
-			Application.LoadLevel("MainMenu");
-		}
-
 		position = pos;
 
 		if (Input.GetKey (KeyCode.A) && transform.position == position) {
