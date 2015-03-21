@@ -41,7 +41,7 @@ public class PlayController : MonoBehaviour {
 	public void NewGameButton(){
 		SoundManager.instance.playWalkingFx(click);
 		PlayerPrefs.SetInt("SavedLevel", 1);
-		Application.LoadLevel ("Game");
+		Application.LoadLevel ("IntroPage");
 		
 	}
 	
