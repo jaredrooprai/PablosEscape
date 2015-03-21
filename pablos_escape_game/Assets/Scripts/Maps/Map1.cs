@@ -63,7 +63,7 @@ public class Map1 : Map
 		spawnPrefab (2, 8, whiteKeyPrefab);
 		spawnPrefab (4, 1, whiteGatePrefab);
 		spawnPrefab (3, 0, woodBox);
-
+		spawnPrefab (4, 4, milkPrefab);
 		spawnPrefab (4, 0, portalPrefab);
 		spawnPrefab (1, 2, trapTile);
 		spawnPrefab (1, 2, spiderWeb);
