@@ -10,15 +10,15 @@ public class CameraScript : MonoBehaviour
 	void Start () 
 	{
 		Orientation = new Vector3 (0, 0, -10f);
+		target = GameObject.Find ("Player(Clone)").transform;
 	}
 	
 	void LateUpdate () 
 	{
-
-		target = GameObject.Find ("Player(Clone)").transform;
-		if (target == GameObject.Find ("Player(Clone)").transform){
-				transform.position = target.position + Orientation;	
-		}//else
+		if (target != null) {
+			transform.position = target.position + Orientation;	
+		} else {
 			//Debug.Log("Camera: Can't Find Player");
+		}
 	}
 }

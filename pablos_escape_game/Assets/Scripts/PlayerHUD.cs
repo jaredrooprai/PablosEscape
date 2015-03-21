@@ -16,6 +16,9 @@ public static class PlayerHUD {
 	private static GameObject blueKey;
 	private static GameObject goldKey;
 
+	private static GameObject curtain;
+
+
 
 	
 	
@@ -36,7 +39,13 @@ public static class PlayerHUD {
 		// turned off 
 	}
 
+	public static void toggleCurtain(bool toggle){
+		curtain = GameObject.Find ("curtain");	
 
+		if (curtain != null) {
+			curtain.SetActive(toggle);
+		}
+	}
 
 	// toggles to show or not show the heart health objects on the screen
 	public static void toggleHeart_1 (bool toggle){

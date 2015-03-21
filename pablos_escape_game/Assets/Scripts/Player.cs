@@ -208,7 +208,6 @@ public class Player : MonoBehaviour {
 		} else if (blueGateCollision == true && hasBlueKey == true) {
 			PlayerHUD.toggleBlueKey (false);
 			animator.SetTrigger("Walk");
-			
 			Destroy (GameObject.Find ("blueGate(Clone)"));
 			return end;
 
