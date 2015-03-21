@@ -16,14 +16,9 @@ public static class PlayerHUD {
 	private static GameObject blueKey;
 	private static GameObject goldKey;
 
-	private static GameObject curtain;
 
-
-
-	
-	
-	// Use this for initialization
-	public static void setVariables () {
+	// Call this method before other methods
+	public static void findGUIObjects () {
 		// Finding the game objects 
 		heart1 = GameObject.Find ("heart1");	
 		heart2 = GameObject.Find ("heart2");	
@@ -39,14 +34,7 @@ public static class PlayerHUD {
 		// turned off 
 	}
 
-	public static void toggleCurtain(bool toggle){
-		curtain = GameObject.Find ("curtain");	
-
-		if (curtain != null) {
-			curtain.SetActive(toggle);
-		}
-	}
-
+	
 	// toggles to show or not show the heart health objects on the screen
 	public static void toggleHeart_1 (bool toggle){
 		if (heart1 != null) {
@@ -87,7 +75,6 @@ public static class PlayerHUD {
 			redKey.SetActive (toggle);
 		}
 	}
-	
 
 	public static void toggleBlueKey (bool toggle){
 		if (blueKey != null){

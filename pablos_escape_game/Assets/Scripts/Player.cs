@@ -27,7 +27,7 @@ public class Player : MonoBehaviour {
 
 		animator = gameObject.GetComponent<Animator> ();
 		controllerScript = gameObject.GetComponent<Controller> ();
-		initHUD ();													// initialize health and key gui
+		PlayerHUD.findGUIObjects ();
 		rotatePlayer (); 											// rotating him on start up to face the right way 
 
 	
@@ -52,26 +52,33 @@ public class Player : MonoBehaviour {
 	# elif UNITY_ANDROID									// if game is running on android use touchscreen controller
 		newPosition = controllerScript.touchScreen(position); 	//get players input and new position from touchscreen controller
 	#endif
-
-		movePlayer();											// attempt to move player to correct grid position
+		movePlayer ();											// attempt to move player to correct grid position
 		checkHealth ();											// check if players health changed
-
+		checkKeys ();
 	}
 
-	// initializing players heads up display
-	private void initHUD (){ 
-		PlayerHUD.setVariables ();
-		PlayerHUD.toggleHeart_1(false);
-		PlayerHUD.toggleHeart_2(false);
-		PlayerHUD.toggleHeart_3(false);
-		PlayerHUD.toggleHeart_4(false);
-		PlayerHUD.toggleHeart_5(false);
-		PlayerHUD.toggleWhiteKey(false);
-		PlayerHUD.toggleRedKey(false);
-		PlayerHUD.toggleBlueKey(false);
-		PlayerHUD.toggleGoldKey(false);
-	}
 
+	private void checkKeys(){
+		if (hasWhiteKey == true)
+			PlayerHUD.toggleWhiteKey(true);
+		else 
+			PlayerHUD.toggleWhiteKey(false);
+
+		if (hasRedKey == true)
+			PlayerHUD.toggleRedKey(true);
+		else 
+			PlayerHUD.toggleRedKey(false);
+
+		if (hasBlueKey == true)
+			PlayerHUD.toggleBlueKey(true);
+		else 
+			PlayerHUD.toggleBlueKey(false);
+
+		if (hasGoldKey == true)
+			PlayerHUD.toggleGoldKey(true);
+		else 
+			PlayerHUD.toggleGoldKey(false);
+	}
 
 
 	//  updates health HUD in playerHUD class and makes sure that the health stays in bound. ( 0 <= health <= 5
@@ -97,7 +104,6 @@ public class Player : MonoBehaviour {
 		if (health < 1) {
 			GameManager.instance.playerDied ();
 		}
-			
 	}
 
 
@@ -139,23 +145,18 @@ public class Player : MonoBehaviour {
 	void OnTriggerEnter2D (Collider2D other) {
 		if (other.tag == "WhiteKey") {
 			hasWhiteKey = true;
-			PlayerHUD.toggleWhiteKey (true);
 			Destroy (other.gameObject);
 
 		} else if (other.tag == "RedKey") {
 			hasRedKey = true;
-			PlayerHUD.toggleRedKey (true);
-			PlayerHUD.toggleHeart_4 (true);
 			Destroy (other.gameObject);
 
 		} else if (other.tag == "BlueKey") {
 			hasBlueKey = true;
-			PlayerHUD.toggleBlueKey (true);
 			Destroy (other.gameObject);
 
 		} else if (other.tag == "GoldKey") {
 			hasGoldKey = true;
-			PlayerHUD.toggleGoldKey (true);
 			Destroy (other.gameObject);
 
 		} else if (other.tag == "Food") {
@@ -189,7 +190,7 @@ public class Player : MonoBehaviour {
 		if (whiteGateCollision == true && hasWhiteKey == false) { 
 			return start;
 		} else if (whiteGateCollision == true && hasWhiteKey == true) {
-			PlayerHUD.toggleWhiteKey (false);
+			hasWhiteKey = false;
 			animator.SetTrigger("Walk");
 			Destroy (GameObject.Find ("whiteGate(Clone)"));
 			return end;
@@ -198,7 +199,7 @@ public class Player : MonoBehaviour {
 		} else if (redGateCollision == true && hasRedKey == false) {
 			return start;
 		} else if (redGateCollision == true && hasRedKey == true) {
-			PlayerHUD.toggleRedKey (false);
+			hasRedKey = false;
 			animator.SetTrigger("Walk");
 			Destroy (GameObject.Find ("redGate(Clone)"));
 			return end;
@@ -206,7 +207,7 @@ public class Player : MonoBehaviour {
 		} else if (blueGateCollision == true && hasBlueKey == false) {
 			return start;
 		} else if (blueGateCollision == true && hasBlueKey == true) {
-			PlayerHUD.toggleBlueKey (false);
+			hasBlueKey = false;
 			animator.SetTrigger("Walk");
 			Destroy (GameObject.Find ("blueGate(Clone)"));
 			return end;
@@ -214,7 +215,7 @@ public class Player : MonoBehaviour {
 		} else if (goldGateCollision == true && hasGoldKey == false) {
 			return start;
 		} else if (goldGateCollision == true && hasGoldKey == true) {
-			PlayerHUD.toggleGoldKey (false);
+			hasGoldKey = false;
 			animator.SetTrigger("Walk");
 
 			Destroy (GameObject.Find ("goldGate(Clone)"));
