@@ -177,7 +177,7 @@ public class Player : MonoBehaviour {
 			Destroy (other.gameObject);
 
 		} else if (other.tag == "Food") {
-			SoundManager.instance.playVoiceFx (drink);
+			SoundManager.instance.playWalkingFx (drink);
 			health += 1;
 			Destroy (other.gameObject);
 
