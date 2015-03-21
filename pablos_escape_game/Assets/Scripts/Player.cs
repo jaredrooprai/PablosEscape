@@ -157,40 +157,39 @@ public class Player : MonoBehaviour {
 	// detecting for gates and walls is done with linecasting, but interactable items are done with triggers on the box colliders and their tags
 	void OnTriggerEnter2D (Collider2D other) {
 		if (other.tag == "WhiteKey") {
-			SoundManager.instance.randomVoiceFx(mine, shiny);
-
+			SoundManager.instance.randomVoiceFx (mine, shiny);
 			hasWhiteKey = true;
 			Destroy (other.gameObject);
 
 		} else if (other.tag == "RedKey") {
 			hasRedKey = true;
-			SoundManager.instance.randomVoiceFx(mine, shiny);
-
+			SoundManager.instance.randomVoiceFx (mine, shiny);
 			Destroy (other.gameObject);
 
 		} else if (other.tag == "BlueKey") {
-			SoundManager.instance.randomVoiceFx(mine, shiny);
-
+			SoundManager.instance.randomVoiceFx (mine, shiny);
 			hasBlueKey = true;
 			Destroy (other.gameObject);
 
 		} else if (other.tag == "GoldKey") {
-			SoundManager.instance.randomVoiceFx(mine, shiny);
-
+			SoundManager.instance.randomVoiceFx (mine, shiny);
 			hasGoldKey = true;
 			Destroy (other.gameObject);
 
 		} else if (other.tag == "Food") {
-			SoundManager.instance.playVoiceFx(drink);
+			SoundManager.instance.playVoiceFx (drink);
 			health += 1;
 			Destroy (other.gameObject);
+
 		} else if (other.tag == "Trap") {
-			SoundManager.instance.randomVoiceFx(hurt1, hurt2, hurt3, hurt4);
+			SoundManager.instance.randomVoiceFx (hurt1, hurt2, hurt3, hurt4);
 			health -= 1;
+
 		} else if (other.tag == "Portal") {
 			GameManager.instance.finishedLevel ();
-		} else if (other.tag == "Button") {
-			Destroy(other);
+
+		} else if (other.tag == "Gate") {
+			Destroy (other.gameObject);
 		}
 
 	}
@@ -214,10 +213,8 @@ public class Player : MonoBehaviour {
 			return start;
 		} else if (whiteGateCollision == true && hasWhiteKey == true) {
 			SoundManager.instance.playWalkingFx(door);
-
 			hasWhiteKey = false;
 			animator.SetTrigger("Walk");
-			Destroy (GameObject.Find ("whiteGate(Clone)"));
 			return end;
 
 
@@ -225,20 +222,16 @@ public class Player : MonoBehaviour {
 			return start;
 		} else if (redGateCollision == true && hasRedKey == true) {
 			SoundManager.instance.playWalkingFx(door);
-
 			hasRedKey = false;
 			animator.SetTrigger("Walk");
-			Destroy (GameObject.Find ("redGate(Clone)"));
 			return end;
 
 		} else if (blueGateCollision == true && hasBlueKey == false) {
 			return start;
 		} else if (blueGateCollision == true && hasBlueKey == true) {
 			SoundManager.instance.playWalkingFx(door);
-
 			hasBlueKey = false;
 			animator.SetTrigger("Walk");
-			Destroy (GameObject.Find ("blueGate(Clone)"));
 			return end;
 
 		} else if (goldGateCollision == true && hasGoldKey == false) {
@@ -247,8 +240,6 @@ public class Player : MonoBehaviour {
 			SoundManager.instance.playWalkingFx(door);
 			hasGoldKey = false;
 			animator.SetTrigger("Walk");
-
-			Destroy (GameObject.Find ("goldGate(Clone)"));
 			return end;
 			
 		} else if (wallCollision == true) {
