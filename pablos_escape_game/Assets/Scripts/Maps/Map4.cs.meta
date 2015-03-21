@@ -1,13 +1,12 @@
 fileFormatVersion: 2
-guid: 1dd741899872d7842a85a26ff5e155fc
+guid: 98d303da70eb8454b9aee5708638d751
 MonoImporter:
   serializedVersion: 2
   defaultReferences:
-  - floorTile: {fileID: 148334, guid: 258bb643fe6f26745a036f683449062c, type: 2}
-  - cementWall: {fileID: 176088, guid: 44da3ae24770898458e4d2438e3a7df7, type: 2}
-  - woodBox: {fileID: 127084, guid: 5074e54a16557fd4bbb06f1673d39441, type: 2}
-  - trapTile: {fileID: 175278, guid: 2e2b22f6961d34d4ca7016cb212f7b55, type: 2}
-  - doorPrefab: {instanceID: 0}
+  - floorTile: {instanceID: 0}
+  - cementWall: {instanceID: 0}
+  - woodBox: {instanceID: 0}
+  - trapTile: {instanceID: 0}
   - spiderWeb: {instanceID: 0}
   - milkPrefab: {instanceID: 0}
   - portalPrefab: {instanceID: 0}

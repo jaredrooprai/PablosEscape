@@ -40,10 +40,12 @@ public class GameManager : MonoBehaviour {
 		if (instance == null) {
 			instance = this;
 			InitGame ();
+
 		} else if (instance != this) {
 			Destroy (gameObject);    
-			DontDestroyOnLoad (gameObject);
 		}
+		DontDestroyOnLoad (gameObject);
+
 	}
 
 
@@ -55,10 +57,9 @@ public class GameManager : MonoBehaviour {
 		mapFourScript = GetComponent<Map4> ();
 		mapFiveScript = GetComponent<Map5> ();
 
-		
 		Load ();
 		levelManager ();
-		spawnPlayer();
+		spawnPlayer ();
 	}
 
 	
@@ -66,6 +67,7 @@ public class GameManager : MonoBehaviour {
 	
 	public void levelManager(){
 		Destroy (GameObject.Find ("Map"));
+
 		if (level == 1) {
 			mapOneScript.setupScene ();
 		} else if (level == 2) {
@@ -76,9 +78,6 @@ public class GameManager : MonoBehaviour {
 			mapFourScript.setupScene ();
 		} else if (level == 5) {
 			mapFiveScript.setupScene ();
-		}else {
-			level =1;
-			Application.LoadLevel ("FinishedGame");
 		}
 
 		Save ();
@@ -90,11 +89,22 @@ public class GameManager : MonoBehaviour {
 
 	public void finishedLevel(){
 		Destroy (GameObject.Find ("Player(Clone)"));
+	
 		level++;
+
+		if (level < 6) {
+			Application.LoadLevel ("NextLevel");
+		} else {
+			Application.LoadLevel ("FinishedGame");
+			level = 1;
+		}
+
 		Save ();
-		Application.LoadLevel ("NextLevel");
-		levelManager ();
-		spawnPlayer ();
+
+
+
+
+
 	}
 
 
@@ -106,21 +116,14 @@ public class GameManager : MonoBehaviour {
 	}
 
 
-
-
 	public void playerDied(){
 		Application.LoadLevel ("PlayerDead");
-
 		Destroy (GameObject.Find ("Player(Clone)"));
-		levelManager ();
-		spawnPlayer ();
 	}
 
 
-
-
-
 	public void gameOver(){
+
 		Application.LoadLevel ("MainMenu");
 	}
 

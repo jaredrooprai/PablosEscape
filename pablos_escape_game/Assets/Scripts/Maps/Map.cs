@@ -11,6 +11,7 @@ public class Map : MonoBehaviour {
 	public GameObject cementWall; 
 	public GameObject woodBox; // same tile just edited for horizontal stacking
 	public GameObject trapTile;
+	public GameObject spiderWeb;
 	public GameObject milkPrefab;
 	public GameObject portalPrefab;
 
