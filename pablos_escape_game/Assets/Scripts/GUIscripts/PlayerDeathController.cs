@@ -4,6 +4,9 @@ using System.Collections;
 
 public class PlayerDeathController : MonoBehaviour {
 	public AudioClip hurt1;
+	public AudioClip click;
+
+
 
 	
 	void Start(){
@@ -22,10 +25,12 @@ public class PlayerDeathController : MonoBehaviour {
 	
 	
 	public void MenuButton(){
+		SoundManager.instance.playWalkingFx(click);
 		Application.LoadLevel ("MainMenu");
 	}
 
 	public void RestartLevelButton(){
+		SoundManager.instance.playWalkingFx(click);
 		Application.LoadLevel ("Game");
 
 	}

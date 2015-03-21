@@ -5,7 +5,8 @@ using System.Collections;
 public class PlayController : MonoBehaviour {
 	
 	private GameObject resume_button;
-	
+	public AudioClip click;
+
 	
 	// Use this for initialization
 	void Start () {
@@ -26,22 +27,26 @@ public class PlayController : MonoBehaviour {
 	void Update () {
 		//android back button
 		if (Input.GetKeyDown (KeyCode.Escape)) {
+			SoundManager.instance.playWalkingFx(click);
 			Application.LoadLevel("MainMenu");
 		}
 				
 	}
 	
 	public void BackButton(){
+		SoundManager.instance.playWalkingFx(click);
 		Application.LoadLevel ("MainMenu");
 	}
 	
 	public void NewGameButton(){
+		SoundManager.instance.playWalkingFx(click);
 		PlayerPrefs.SetInt("SavedLevel", 1);
 		Application.LoadLevel ("Game");
 		
 	}
 	
 	public void ContinueButton(){
+		SoundManager.instance.playWalkingFx(click);
 		Application.LoadLevel ("Game");
 	}
 }
