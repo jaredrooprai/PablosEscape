@@ -66,6 +66,8 @@ public class Map1 : Map
 
 		spawnPrefab (4, 0, portalPrefab);
 		spawnPrefab (1, 2, trapTile);
+		spawnPrefab (1, 2, spiderWeb);
+
 
 
 	}
