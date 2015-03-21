@@ -95,25 +95,72 @@ public class Map5 : Map
 			if (temp != 0)
 				i++;
 			else {
-				for (int y = -rows/2 + 5; y <= rows/2; y += 12) {
+				for (int y = -rows/2 + 5; y <= rows/2 + 1; y += 12) {
 					for (int n = -columns/2 + 3; n <= columns/2; n += 12) {
-						for (int x = n; x <= n + 2; x++) {
+						spawnPrefab(n+2, y-1, cementWall);
+						spawnPrefab(n+2, y-2, cementWall);
+						for (int x = n; x <= n + 2; x++)
 							spawnPrefab(x, y, cementWall);
-						}
+					}
+				}
+			}
+		}
+
+		
+		// create bottom right corner of rooms
+		for (int i = 0; i <= 5; i++) {
+			int temp = i%2;
+			if (temp != 0)
+				i++;
+			else {
+				for (int y = -rows/2 - 1; y <= rows/2 + 1; y += 12) {
+					for (int n = -columns/2 + 3; n <= columns/2; n += 12) {
+						spawnPrefab(n + 2, y+1, cementWall);
+						spawnPrefab(n + 2, y+2, cementWall);
+						for (int x = n; x <= n + 2; x++)
+							spawnPrefab(x, y, cementWall);
 					}
 				}
 			}
 		}
 		
+		// create bottom left corner of rooms
+		for (int i = 0; i <= 5; i++) {
+			int temp = i%2;
+			if (temp != 0)
+				i++;
+			else {
+				for (int y = -rows/2 - 1; y <= rows/2 + 1; y += 12) {
+					for (int n = -columns/2 - 1; n <= columns/2; n += 12) {
+						spawnPrefab(n, y+1, cementWall);
+						spawnPrefab(n, y+2, cementWall);
+						for (int x = n; x <= n+2; x++)
+							spawnPrefab(x, y, cementWall);
+					}
+				}
+			}
+		}
+				
+		// create top left corner of rooms
+		for (int i = 0; i <= 5; i++) {
+			int temp = i%2;
+			if (temp != 0)
+				i++;
+			else {
+				for (int y = -rows/2 + 5; y <= rows/2 + 1; y += 12) {
+					for (int n = -columns/2 - 1; n <= columns/2; n += 12) {
+						spawnPrefab(n, y-1, cementWall);
+						spawnPrefab(n, y-2, cementWall);
+						for (int x = n; x <= n+2; x++)
+							spawnPrefab(x, y, cementWall);
+					}
+				}
+			}
+		}
+
 		
 		
-		
-		
-		
-		
-		
-		
-		
+		// outer boundaries of map
 		for (int x = -1-columns/2; x <= columns/2 + 1; x++) 
 		{ 
 			for (int y = -1-rows/2; y <= rows/2 + 1; y++)
