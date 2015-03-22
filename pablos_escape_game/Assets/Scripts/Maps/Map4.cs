@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -77,27 +77,43 @@ public class Map4: Map
 	void setupItems(){
 		
 		//First section of map
-		spawnPrefab (0, 1, trapTile);
-		spawnPrefab (0, 2, trapTile);
-		spawnPrefab (0, 3, trapTile);
-		
-		spawnPrefab(2, 1, trapTile);
-		spawnPrefab(2, 2, trapTile);
-		spawnPrefab(2, 3, trapTile);
-
-		
-		spawnPrefab (2, 2, redKeyPrefab); //First key
-		
+		spawnPrefab (1, 2, redKeyPrefab); //First key
 		spawnPrefab (1, 4, redGatePrefab);
-		
-		//spawnPrefab (1, 4, tealGatePrefab); //First gate of map
 		
 		//Second portion of map
 		spawnPrefab (8, 8, trapTile);
 		spawnPrefab (8, 9, trapTile);
 		
-		
-		spawnPrefab (1, 5, milkPrefab);
+
+	
+		spawnPrefab (1, 6, spiderWeb);
+		spawnPrefab (0, 6, spiderWeb);
+		spawnPrefab (0, 7, spiderWeb);
+		spawnPrefab (0, 8, spiderWeb);
+		spawnPrefab (1, 5, spiderWeb);
+		spawnPrefab (1, 8, spiderWeb);
+		spawnPrefab (2, 8, spiderWeb);
+		spawnPrefab (2, 9, spiderWeb);
+
+		spawnPrefab (3, 9, spiderWeb);
+		spawnPrefab (4, 8, spiderWeb);
+		spawnPrefab (4, 9, spiderWeb);
+		spawnPrefab (5, 8, spiderWeb);
+		spawnPrefab (6, 8, spiderWeb);
+		spawnPrefab (6, 9, spiderWeb);
+		spawnPrefab (7, 8, spiderWeb);
+		spawnPrefab (7, 9, spiderWeb);
+
+		spawnPrefab (0, 5, trapTile);
+		spawnPrefab (2, 5, trapTile);
+		spawnPrefab (2, 6, trapTile);
+		spawnPrefab (2, 7, trapTile);
+		spawnPrefab (1, 7, trapTile);
+		spawnPrefab (0, 9, trapTile);
+		spawnPrefab (1, 9, trapTile);
+		spawnPrefab (3, 8, trapTile);
+		spawnPrefab (5, 9, trapTile);
+		//spawnPrefab (1, 5, milkPrefab);
 		
 		//Third bottom portion of map
 		spawnPrefab (4, 0, trapTile);
@@ -171,6 +187,7 @@ public class Map4: Map
 		spawnPrefab (7, 20, redGatePrefab);
 		spawnPrefab (8, 28, goldGatePrefab);
 		spawnPrefab (20, 29, goldGatePrefab);
+
 		
 		//Troll Third Bottom portion of map
 		spawnPrefab (11, 1, goldGatePrefab);
@@ -184,23 +201,41 @@ public class Map4: Map
 		spawnPrefab (10, 4, goldKeyPrefab);
 		spawnPrefab (11, 4, goldKeyPrefab);
 		spawnPrefab (12, 4, goldKeyPrefab);
-		
+
+
 		//Last Section of the map
-		spawnPrefab (11, 9, portalPrefab);
+		spawnPrefab (12, 6, portalPrefab);
 
-
+		spawnPrefab (16, 6, whiteKeyPrefab);
 		spawnPrefab (22, 1, whiteKeyPrefab);
 		spawnPrefab (30, 0, redKeyPrefab);
+		spawnPrefab (26, 11, redKeyPrefab);
+		spawnPrefab (18, 10, goldKeyPrefab);
 		
-		
+
+		spawnPrefab (24, 8, redGatePrefab);
+		spawnPrefab (26, 8, redGatePrefab);
+		spawnPrefab (28, 8, redGatePrefab);
+		spawnPrefab (21, 4, blueGatePrefab);
+		spawnPrefab (21, 7, blueGatePrefab);
+		spawnPrefab (18, 2, blueGatePrefab);
+		spawnPrefab (13, 11, goldGatePrefab);
+		spawnPrefab (13, 7, whiteGatePrefab);
+
+
+		spawnPrefab (12, 11, woodBox);
+		spawnPrefab (11, 11, woodBox);
+		spawnPrefab (10, 11, woodBox);
 		spawnPrefab (25, 8, woodBox);
-		spawnPrefab (25, 8, woodBox);
+		spawnPrefab (25, 9, woodBox);
 		spawnPrefab (27, 9, woodBox);
 		spawnPrefab (27, 8, woodBox);
+		spawnPrefab (12, 7, woodBox);
+		spawnPrefab (11, 7, woodBox);
+		spawnPrefab (10, 7, woodBox);
 		spawnPrefab (29, 7, woodBox);
 		spawnPrefab (27, 7, woodBox);
 		spawnPrefab (25, 7, woodBox);
-		spawnPrefab (21, 7, woodBox);
 		spawnPrefab (19, 7, woodBox);
 		spawnPrefab (27, 6, woodBox);
 		spawnPrefab (25, 6, woodBox);
@@ -237,7 +272,9 @@ public class Map4: Map
 		spawnPrefab (26, 2, milkPrefab);
 		spawnPrefab (28, 1, milkPrefab);	
 		
-		
+
+		spawnPrefab (17, 10, trapTile);
+		spawnPrefab (16, 7, trapTile);
 		spawnPrefab (20, 6, trapTile);
 		spawnPrefab (19, 6, trapTile);
 		spawnPrefab (30, 5, trapTile);
@@ -246,9 +283,9 @@ public class Map4: Map
 		spawnPrefab (20, 4, trapTile);
 		spawnPrefab (19, 4, trapTile);
 		spawnPrefab (18, 4, trapTile);
+		spawnPrefab (24, 4, trapTile);
 		spawnPrefab (19, 3, trapTile);
 		spawnPrefab (24, 2, trapTile);
-		spawnPrefab (18, 2, trapTile);
 		spawnPrefab (30, 1, trapTile);
 		spawnPrefab (23, 1, trapTile);
 		spawnPrefab (29, 0, trapTile);
