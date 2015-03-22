@@ -39,23 +39,16 @@ public class Map5 : Map
 			if (temp != 0)
 				i++;
 			else {
-				for (int y = 1-rows/2; y <= rows/2; y += 12){
-					int y2 = y+2;
-					for (int x = 6-columns/2; x <= 10-columns/2 ; x++) {
-						spawnPrefab(x, y, cementWall);
-						spawnPrefab(x, y2, cementWall);
-					}
-					for (int x = 18-columns/2; x <= 22-columns/2 ; x++) {
-						spawnPrefab(x, y, cementWall);
-						spawnPrefab(x, y2, cementWall);
-					}
-					for (int x = 30-columns/2; x <= 34-columns/2 ; x++) {
-						spawnPrefab(x, y, cementWall);
-						spawnPrefab(x, y2, cementWall);
-					}
-					for (int x = 42-columns/2; x <= 46-columns/2 ; x++) {
-						spawnPrefab(x, y, cementWall);
-						spawnPrefab(x, y2, cementWall);
+				for (int y = -rows/2 + 1; y <= rows/2; y += 12){			// -rows/2 + 1 to create an offset from the left boarder
+					int y2 = y+2;											// the += 12 is taking into account the distance between rooms
+
+					for (int n = -columns/2 + 6; n <= columns/2; n += 12){	// -columns/2 + 6 to create an offset from the bottom boarder
+						for (int x = n; x <= n+4; x++) {					// make those parallel walls
+							if (x != n + 2) {
+								spawnPrefab(x, y, cementWall);
+								spawnPrefab(x, y2, cementWall);
+							}
+						}
 					}
 				}
 			}
@@ -67,23 +60,16 @@ public class Map5 : Map
 			if (temp != 0)
 				i++;
 			else {
-				for (int x = 1-columns/2; x <= columns/2; x += 12){
+				for (int x = -columns/2 + 1; x <= columns/2; x += 12){			// 
 					int x2 = x+2;
-					for (int y = 6-rows/2; y <= 10-rows/2 ; y++) {
-						spawnPrefab(x, y, cementWall);
-						spawnPrefab(x2, y, cementWall);
-					}
-					for (int y = 18-rows/2; y <= 22-rows/2 ; y++) {
-						spawnPrefab(x, y, cementWall);
-						spawnPrefab(x2, y, cementWall);
-					}
-					for (int y = 30-rows/2; y <= 34-rows/2 ; y++) {
-						spawnPrefab(x, y, cementWall);
-						spawnPrefab(x2, y, cementWall);
-					}
-					for (int y = 42-rows/2; y <= 46-rows/2 ; y++) {
-						spawnPrefab(x, y, cementWall);
-						spawnPrefab(x2, y, cementWall);
+					
+					for (int n = 6-columns/2; n <= columns/2; n += 12){
+						for (int y = n; y <= n+4; y++) {
+							if (y != n + 2) {
+								spawnPrefab(x, y, cementWall);
+								spawnPrefab(x2, y, cementWall);
+							}
+						}
 					}
 				}
 			}
