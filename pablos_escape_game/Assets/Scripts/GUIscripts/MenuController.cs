@@ -20,9 +20,4 @@ public class MenuController : MonoBehaviour {
 		SoundManager.instance.playVoiceFx(click);
 		Application.LoadLevel ("Play");
 	}
-	
-	public void LoreButton(){
-		SoundManager.instance.playVoiceFx(click);
-		Application.LoadLevel ("Lore");
-	}
 }
