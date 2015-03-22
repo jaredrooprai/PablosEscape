@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 39f179b09956eb64baba39a34e97e0c1
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - hurt1: {fileID: 8300000, guid: f2805cf8feb6543ebb46819e457a3b62, type: 3}
+  - hurt2: {fileID: 8300000, guid: 2de1a3a2dd2854605a93fca415642dad, type: 3}
+  - hurt3: {fileID: 8300000, guid: e6a5b3076b9a54fd6a81865309cf176a, type: 3}
+  - hurt4: {fileID: 8300000, guid: e6a5b3076b9a54fd6a81865309cf176a, type: 3}
+  - shiny: {fileID: 8300000, guid: c753d6fe1879f485eaf0b55b4d3115bc, type: 3}
+  - step1: {fileID: 8300000, guid: 94dbd4febab734210a43c84263f5e116, type: 3}
+  - step2: {fileID: 8300000, guid: 3ff9fcf8763db443d8c48710cdf9ab60, type: 3}
+  - step3: {fileID: 8300000, guid: a1382e4f297374edea614c369f31dcb2, type: 3}
+  - mine: {fileID: 8300000, guid: 6a9e4906192424e2db631b4b21bb2d20, type: 3}
+  - drink: {fileID: 8300000, guid: 1b4d24a2d4e8f1b498b82f545b9e7b4f, type: 3}
+  - door: {fileID: 8300000, guid: e99e6735482a2ef48b4ba13e5b5842a9, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
