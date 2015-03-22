@@ -162,9 +162,14 @@ public class Map5 : Map
 			}
 		}
 	}
+
+
 	
 	// Method to add items into the map using parent spawnItem method
 	void setupItems(){
+
+
+
 		spawnPrefab (0, 0, buttonDownPrefab);
 		spawnPrefab (3, 0, portalPrefab);
 	}
