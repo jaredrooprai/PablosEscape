@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SocialPlatforms;
+using GooglePlayGames;
 using System.Collections;
-using System.IO;
+
 
 public class GameManager : MonoBehaviour {
 
@@ -14,7 +16,7 @@ public class GameManager : MonoBehaviour {
 	public Map3 mapThreeScript;
 	public Map4 mapFourScript;
 	public Map5 mapFiveScript;
-
+	
 	[HideInInspector]public int level;
 
 
@@ -85,11 +87,6 @@ public class GameManager : MonoBehaviour {
 		}
 
 		Save ();
-
-
-
-
-
 	}
 
 
