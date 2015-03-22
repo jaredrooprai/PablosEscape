@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class IntroPage : MonoBehaviour {
+public class NewGameController : MonoBehaviour {
+	
 	public AudioClip click;
 	// Use this for initialization
 	void Start () {
-	
+		
 	}
-
+	
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyDown (KeyCode.Escape)) {
@@ -20,9 +21,9 @@ public class IntroPage : MonoBehaviour {
 		SoundManager.instance.playWalkingFx(click);
 		Application.LoadLevel ("Play");
 	}
-
 	
-	public void NewGameButton(){
+	
+	public void StartButton(){
 		SoundManager.instance.playWalkingFx(click);
 		PlayerPrefs.SetInt("SavedLevel", 1);
 		Application.LoadLevel ("Game");

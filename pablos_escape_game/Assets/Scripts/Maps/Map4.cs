@@ -162,7 +162,7 @@ public class Map4: Map
 		
 		
 		spawnPrefab (3, 13, redKeyPrefab);
-		spawnPrefab (7, 16, whiteKeyPrefab);
+		spawnPrefab (7, 14, whiteKeyPrefab);
 		spawnPrefab (7, 13, goldKeyPrefab);
 		spawnPrefab (9, 20, goldKeyPrefab);
 		spawnPrefab (19, 30, goldKeyPrefab);
@@ -170,7 +170,7 @@ public class Map4: Map
 		
 		
 		spawnPrefab (3, 15, trapTile);
-		spawnPrefab (7, 14, trapTile);
+		spawnPrefab (7, 15, trapTile);
 		spawnPrefab (5, 17, trapTile);
 		spawnPrefab (12, 18, trapTile);
 		spawnPrefab (7, 21, trapTile);
