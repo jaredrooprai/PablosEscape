@@ -94,56 +94,34 @@ public class Map5 : Map
 
 		
 		// create bottom right corner of rooms
-		for (int i = 0; i <= 5; i++) {
-			int temp = i%2;
-			if (temp != 0)
-				i++;
-			else {
-				for (int y = -rows/2 - 1; y <= rows/2 + 1; y += 12) {
-					for (int n = -columns/2 + 3; n <= columns/2; n += 12) {
-						spawnPrefab(n + 2, y+1, cementWall);
-						spawnPrefab(n + 2, y+2, cementWall);
-						for (int x = n; x <= n + 2; x++)
-							spawnPrefab(x, y, cementWall);
-					}
-				}
-			}
-		}
-		
-		// create bottom left corner of rooms
-		for (int i = 0; i <= 5; i++) {
-			int temp = i%2;
-			if (temp != 0)
-				i++;
-			else {
-				for (int y = -rows/2 - 1; y <= rows/2 + 1; y += 12) {
-					for (int n = -columns/2 - 1; n <= columns/2; n += 12) {
-						spawnPrefab(n, y+1, cementWall);
-						spawnPrefab(n, y+2, cementWall);
-						for (int x = n; x <= n+2; x++)
-							spawnPrefab(x, y, cementWall);
-					}
-				}
-			}
-		}
-				
-		// create top left corner of rooms
-		for (int i = 0; i <= 5; i++) {
-			int temp = i%2;
-			if (temp != 0)
-				i++;
-			else {
-				for (int y = -rows/2 + 5; y <= rows/2 + 1; y += 12) {
-					for (int n = -columns/2 - 1; n <= columns/2; n += 12) {
-						spawnPrefab(n, y-1, cementWall);
-						spawnPrefab(n, y-2, cementWall);
-						for (int x = n; x <= n+2; x++)
-							spawnPrefab(x, y, cementWall);
-					}
-				}
+		for (int y = -rows/2 - 1; y <= rows/2 + 1; y += 12) {
+			for (int n = -columns/2 + 3; n <= columns/2; n += 12) {
+				spawnPrefab(n + 2, y+1, cementWall);
+				spawnPrefab(n + 2, y+2, cementWall);
+				for (int x = n; x <= n + 2; x++)
+					spawnPrefab(x, y, cementWall);
 			}
 		}
 
+		// code to create bottom left
+		for (int y = -rows/2 - 1; y <= rows/2 + 1; y += 12) {
+			for (int n = -columns/2 - 1; n <= columns/2; n += 12) {
+				spawnPrefab(n, y+1, cementWall);
+				spawnPrefab(n, y+2, cementWall);
+				for (int x = n; x <= n+2; x++)
+					spawnPrefab(x, y, cementWall);
+			}
+		}
+
+		//Hello ;D hi :D
+		for (int y = -rows/2 + 5; y <= rows/2 + 1; y += 12) {
+			for (int n = -columns/2 - 1; n <= columns/2; n += 12) {
+				spawnPrefab(n, y-1, cementWall);
+				spawnPrefab(n, y-2, cementWall);
+				for (int x = n; x <= n+2; x++)
+					spawnPrefab(x, y, cementWall);
+			}
+		}
 		
 		
 		// outer boundaries of map
@@ -202,55 +180,41 @@ public class Map5 : Map
 				}
 			}
 		}
+
 		/*
-		// create purple locked doors
-		for (int i = 0; i <= 5; i++) {
+		// create top left corner of rooms
+		for (int i = 0; i <= 5; i++) { 		// 5 is for number of rooms in game
 			int temp = i%2;
 			if (temp != 0)
 				i++;
 			else {
-				for (int x = -columns/2 + 2; x <= columns/2; x += 12){	
-					spawnPrefab(x+2, 2, trapTile);
-					spawnPrefab(x+2, -2, trapTile);
-					spawnPrefab(x-2, 2, trapTile);
-					spawnPrefab(x-2, -2, trapTile);
-					spawnPrefab(x+1, 2, trapTile);
-					spawnPrefab(x+2, 1, trapTile);
-					spawnPrefab(x-1, -2, trapTile);
-					spawnPrefab(x-2, -1, trapTile);
-					spawnPrefab(x+1, -2, trapTile);
-					spawnPrefab(x+2, -1, trapTile);
-					spawnPrefab(x-1, 2, trapTile);
-					spawnPrefab(x-2, 1, trapTile);
+				for (int y = -rows/2 + 5; y <= rows/2 + 1; y += 12) {
+					for (int n = -columns/2 - 1; n <= columns/2; n += 12) {
+						spawnPrefab(n, y-1, cementWall);
+						spawnPrefab(n, y-2, cementWall);
+						for (int x = n; x <= n+2; x++)
+							spawnPrefab(x, y, cementWall);
+					}
 				}
 			}
-		}*/
-		spawnPrefab(2, 2, trapTile);
-		spawnPrefab(2, -2, trapTile);
-		spawnPrefab(-2, 2, trapTile);
-		spawnPrefab(-2, -2, trapTile);
-		spawnPrefab(1, 2, trapTile);
-		spawnPrefab(2, 1, trapTile);
-		spawnPrefab(-1, -2, trapTile);
-		spawnPrefab(-2, -1, trapTile);
-		spawnPrefab(1, -2, trapTile);
-		spawnPrefab(2, -1, trapTile);
-		spawnPrefab(-1, 2, trapTile);
-		spawnPrefab(-2, 1, trapTile);
-		spawnPrefab (1, 1, trapTile);
-		spawnPrefab (1, -1, trapTile);
-		spawnPrefab (-1, -1, trapTile);
-		spawnPrefab (-1, 1, trapTile);
-		//pawnPrefab (1, 2, spiderWeb);
-		//pawnPrefab (2, 1, spiderWeb);
+		}
+		*/
 
-		//spawnPrefab (2, -2, trapTile);
-		//spawnPrefab (-2, -2, trapTile);
-		//spawnPrefab (-2, 2, trapTile);
+
+		spawnPrefab(6, 0, milkPrefab);
+
+		spawnPrefab (0, 3, trapTile);
+		spawnPrefab (3, 0, trapTile);
+		spawnPrefab (0, -3, trapTile);
+		spawnPrefab (-3, 0, trapTile);
+		
+		spawnPrefab(0, 10, woodBox);
+		spawnPrefab(-10, 0, woodBox);
+		spawnPrefab(0, -10, woodBox);
+		spawnPrefab(24, 3, woodBox);
 		
 		spawnPrefab (3, 0, blueKeyPrefab);
-		spawnPrefab (2, 1, redKeyPrefab);
-		spawnPrefab (2, -1, goldKeyPrefab);
+		spawnPrefab (15, 0, redKeyPrefab);
 
 
 
