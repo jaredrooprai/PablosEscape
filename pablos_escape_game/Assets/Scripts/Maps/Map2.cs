@@ -6,8 +6,8 @@ using System.Collections.Generic;
 
 public class Map2 : Map 
 { 
-	private int columns = 20;
-	private int rows = 20; 
+	private int columns = 15;
+	private int rows = 15; 
 	
 	// Main method that sets up the scene with items and tiles
 	public void setupScene () {
@@ -37,13 +37,11 @@ public class Map2 : Map
 		{ 
 			for (int y = -1; y <= rows + 1; y++)
 			{	
-				
 				if( x == -1 || x == columns + 1 || y == -1 || y == rows + 1){
 					tile = cementWall;
 				}
 				else 		// else spawn floor normal floor tile
 					tile = floorTile; 
-				
 				spawnPrefab (x, y, tile);				
 			}
 		}
@@ -51,12 +49,37 @@ public class Map2 : Map
 	
 	// Method to add items into the map using parent spawnItem method
 	void setupItems(){
+		for (int x = 5; x <= 15; x++) 
+		{ 
+			for (int y = 5; y <= 15; y++)
+			{	
+				if (x == 5 || x == 15 || y == 5 || y == 15) {
+					if ( x==5 && y==11){	
+						spawnPrefab (x, y, trapTile);
+						spawnPrefab (x, y, spiderWeb);
+
+						spawnPrefab (4, 10, trapTile);
+					} else
+						spawnPrefab (x, y, woodBox);
+				}
+
+			}
+		}
+	
 		spawnPrefab (10, 10, portalPrefab);
 		// keys 
-		spawnPrefab (17, 5, blueKeyPrefab);
-		spawnPrefab (17, 7, redKeyPrefab);
-		spawnPrefab (17, 9, whiteKeyPrefab);
-		spawnPrefab (17, 11, goldKeyPrefab);
+		spawnPrefab (8, 2, blueKeyPrefab);
+		spawnPrefab (8, 2, spiderWeb);
+
+		spawnPrefab (4, 1, redKeyPrefab);
+		spawnPrefab (4, 1, spiderWeb);
+
+		spawnPrefab (2, 2, whiteKeyPrefab);
+		spawnPrefab (2, 2, spiderWeb);
+
+		spawnPrefab (2, 6, goldKeyPrefab);
+		spawnPrefab (2, 6, spiderWeb);
+
 
 
 		// blue locks
@@ -146,10 +169,15 @@ public class Map2 : Map
 		spawnPrefab (13,6,whiteGatePrefab);
 
 
-
+		// keys in lock
 		spawnPrefab (9,12, blueKeyPrefab);
 		spawnPrefab (10,12, goldKeyPrefab);
 		spawnPrefab (7,11, whiteKeyPrefab);
+
+		spawnPrefab (6,10, trapTile);
+		spawnPrefab (6,12, trapTile);
+
+
 
 
 
