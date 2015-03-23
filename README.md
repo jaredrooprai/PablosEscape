@@ -1,5 +1,5 @@
 # Pablo's Escape
-Building a Dungeon Adventure/Puzzle game for Android
+Dungeon Adventure/Puzzle game for Android
 
 
 
