@@ -202,7 +202,7 @@ public class Map5 : Map
 				}
 			}
 		}
-
+		/*
 		// create purple locked doors
 		for (int i = 0; i <= 5; i++) {
 			int temp = i%2;
@@ -224,9 +224,23 @@ public class Map5 : Map
 					spawnPrefab(x-2, 1, trapTile);
 				}
 			}
-		}
-		
-		//pawnPrefab (2, 2, trapTile);
+		}*/
+		spawnPrefab(2, 2, trapTile);
+		spawnPrefab(2, -2, trapTile);
+		spawnPrefab(-2, 2, trapTile);
+		spawnPrefab(-2, -2, trapTile);
+		spawnPrefab(1, 2, trapTile);
+		spawnPrefab(2, 1, trapTile);
+		spawnPrefab(-1, -2, trapTile);
+		spawnPrefab(-2, -1, trapTile);
+		spawnPrefab(1, -2, trapTile);
+		spawnPrefab(2, -1, trapTile);
+		spawnPrefab(-1, 2, trapTile);
+		spawnPrefab(-2, 1, trapTile);
+		spawnPrefab (1, 1, trapTile);
+		spawnPrefab (1, -1, trapTile);
+		spawnPrefab (-1, -1, trapTile);
+		spawnPrefab (-1, 1, trapTile);
 		//pawnPrefab (1, 2, spiderWeb);
 		//pawnPrefab (2, 1, spiderWeb);
 
