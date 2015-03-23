@@ -13,7 +13,7 @@ x86 version of Java JDK
 #
 Android SDK tools and Google Play Services packages from the Google SDK manager
 #
-Open pablos_escape_game in Unity Engine
+Open pablos_escape_game folder in Unity Engine
 #
 File - Build Settings - Android - Switch Platform - Build
 #
