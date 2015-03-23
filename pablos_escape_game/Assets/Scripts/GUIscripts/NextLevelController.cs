@@ -32,7 +32,10 @@ public class NextLevelController : MonoBehaviour {
 			Application.LoadLevel("MainMenu");
 		}
 
-		checkAchievements ();
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
+#elif UNITY_ANDROID		
+		checkAchievements();
+#endif
 	}
 
 	public void checkAchievements(){

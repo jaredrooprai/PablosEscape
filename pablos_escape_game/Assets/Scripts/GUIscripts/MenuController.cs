@@ -8,15 +8,23 @@ public class MenuController : MonoBehaviour {
 	public AudioClip click;
 
 	void Awake(){
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
+#elif UNITY_ANDROID
 		PlayGamesPlatform.DebugLogEnabled = true;
 		PlayGamesPlatform.Activate ();
+#endif
+
 	}
 
 	void Start(){
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
+#elif UNITY_ANDROID
 		Social.localUser.Authenticate (
 			(bool success) => {
 			// handle success or failure
 		});
+	
+#endif
 	}
 
 	void Update(){
