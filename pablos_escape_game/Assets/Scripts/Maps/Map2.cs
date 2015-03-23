@@ -55,7 +55,10 @@ public class Map2 : Map
 			{	
 				if (x == 5 || x == 15 || y == 5 || y == 15) {
 					if ( x==5 && y==11){	
-						// spawn Nothing;
+						spawnPrefab (x, y, trapTile);
+						spawnPrefab (x, y, spiderWeb);
+
+						spawnPrefab (4, 10, trapTile);
 					} else
 						spawnPrefab (x, y, woodBox);
 				}
@@ -66,9 +69,17 @@ public class Map2 : Map
 		spawnPrefab (10, 10, portalPrefab);
 		// keys 
 		spawnPrefab (8, 2, blueKeyPrefab);
+		spawnPrefab (8, 2, spiderWeb);
+
 		spawnPrefab (4, 1, redKeyPrefab);
+		spawnPrefab (4, 1, spiderWeb);
+
 		spawnPrefab (2, 2, whiteKeyPrefab);
+		spawnPrefab (2, 2, spiderWeb);
+
 		spawnPrefab (2, 6, goldKeyPrefab);
+		spawnPrefab (2, 6, spiderWeb);
+
 
 
 		// blue locks
@@ -162,6 +173,11 @@ public class Map2 : Map
 		spawnPrefab (9,12, blueKeyPrefab);
 		spawnPrefab (10,12, goldKeyPrefab);
 		spawnPrefab (7,11, whiteKeyPrefab);
+
+		spawnPrefab (6,10, trapTile);
+		spawnPrefab (6,12, trapTile);
+
+
 
 
 
