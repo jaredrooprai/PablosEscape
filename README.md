@@ -2,10 +2,12 @@
 Dungeon Adventure/Puzzle game for Android
 
 
-
-Open File with Unity Engine version 4.6.3:
+How to Build .apk:
 ------
+Open pablos_escape_game folder with Unity Engine version 4.6.3:
 https://unity3d.com/get-unity/download/archive
+#
+File - Build Settings - Android - Switch Platform - Build
 
 Plugins:
 ------
