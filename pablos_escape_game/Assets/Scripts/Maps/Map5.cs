@@ -63,7 +63,7 @@ public class Map5 : Map
 				for (int x = -columns/2 + 1; x <= columns/2; x += 12){			// 
 					int x2 = x+2;
 					
-					for (int n = 6-columns/2; n <= columns/2; n += 12){
+					for (int n = -columns/2 + 6; n <= columns/2; n += 12){
 						for (int y = n; y <= n+4; y++) {
 							if (y != n + 2) {
 								spawnPrefab(x, y, cementWall);
@@ -147,9 +147,9 @@ public class Map5 : Map
 		
 		
 		// outer boundaries of map
-		for (int x = -1-columns/2; x <= columns/2 + 1; x++) 
+		for (int x = -columns/2 - 1; x <= columns/2 + 1; x++) 
 		{ 
-			for (int y = -1-rows/2; y <= rows/2 + 1; y++)
+			for (int y = -rows/2 - 1; y <= rows/2 + 1; y++)
 			{	
 				
 				if( x == (-columns/2)-1 || x == columns/2 + 1 || y == (-rows/2)-1 || y == rows/2 + 1){
@@ -168,10 +168,81 @@ public class Map5 : Map
 	// Method to add items into the map using parent spawnItem method
 	void setupItems(){
 
+		// create green locked doors
+		for (int i = 0; i <= 5; i++) {
+			int temp = i%2;
+			if (temp != 0)
+				i++;
+			else {
+				for (int x = -columns/2 + 1; x <= columns/2; x += 12){			// 
+					int x2 = x+2;
+
+					for (int y = -columns/2 + 8; y <= columns/2; y += 12){
+							spawnPrefab(x, y, blueGatePrefab);
+							spawnPrefab(x2, y, blueGatePrefab);
+					}
+				}
+			}
+		}
+
+
+		// create purple locked doors
+		for (int i = 0; i <= 5; i++) {
+			int temp = i%2;
+			if (temp != 0)
+				i++;
+			else {
+				for (int y = -rows/2 + 1; y <= rows/2; y += 12){			// 
+					int y2 = y+2;
+					
+					for (int x = -columns/2 + 8; x <= columns/2; x += 12){
+							spawnPrefab(x, y, redGatePrefab);
+							spawnPrefab(x, y2, redGatePrefab);
+					}
+				}
+			}
+		}
+
+		// create purple locked doors
+		for (int i = 0; i <= 5; i++) {
+			int temp = i%2;
+			if (temp != 0)
+				i++;
+			else {
+				for (int x = -columns/2 + 2; x <= columns/2; x += 12){	
+					spawnPrefab(x+2, 2, trapTile);
+					spawnPrefab(x+2, -2, trapTile);
+					spawnPrefab(x-2, 2, trapTile);
+					spawnPrefab(x-2, -2, trapTile);
+					spawnPrefab(x+1, 2, trapTile);
+					spawnPrefab(x+2, 1, trapTile);
+					spawnPrefab(x-1, -2, trapTile);
+					spawnPrefab(x-2, -1, trapTile);
+					spawnPrefab(x+1, -2, trapTile);
+					spawnPrefab(x+2, -1, trapTile);
+					spawnPrefab(x-1, 2, trapTile);
+					spawnPrefab(x-2, 1, trapTile);
+				}
+			}
+		}
+		
+		//pawnPrefab (2, 2, trapTile);
+		//pawnPrefab (1, 2, spiderWeb);
+		//pawnPrefab (2, 1, spiderWeb);
+
+		//spawnPrefab (2, -2, trapTile);
+		//spawnPrefab (-2, -2, trapTile);
+		//spawnPrefab (-2, 2, trapTile);
+		
+		spawnPrefab (3, 0, blueKeyPrefab);
+		spawnPrefab (2, 1, redKeyPrefab);
+		spawnPrefab (2, -1, goldKeyPrefab);
+
+
 
 
 		spawnPrefab (0, 0, buttonDownPrefab);
-		spawnPrefab (3, 0, portalPrefab);
+		spawnPrefab (-columns/2, rows/2, portalPrefab);
 	}
 	
 }
