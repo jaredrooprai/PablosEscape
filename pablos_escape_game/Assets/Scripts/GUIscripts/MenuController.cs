@@ -19,11 +19,7 @@ public class MenuController : MonoBehaviour {
 	void Start(){
 #if UNITY_EDITOR || UNITY_STANDALONE_WIN
 #elif UNITY_ANDROID
-		Social.localUser.Authenticate (
-			(bool success) => {
-			// handle success or failure
-		});
-	
+		Social.localUser.Authenticate ( (bool success) => {});
 #endif
 	}
 
@@ -44,6 +40,11 @@ public class MenuController : MonoBehaviour {
 	}
 
 	public void GooglePlayAchievButton(){
+		Social.localUser.Authenticate (
+			(bool success) => {
+			// handle success or failure
+		});
+
 		SoundManager.instance.playVoiceFx(click);
 		Social.ShowAchievementsUI ();
 	}
