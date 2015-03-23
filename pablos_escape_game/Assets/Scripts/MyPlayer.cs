@@ -59,12 +59,12 @@ public class MyPlayer : MonoBehaviour {
 	
 	// Called once every frame
 	void Update (){
-		#if UNITY_STANDALONE || UNITY_EDITOR 					// if game is running in the editor or on Mac Linux Pc. use keyboard controller
+#if UNITY_STANDALONE || UNITY_EDITOR 							// if game is running in the editor or on Mac Linux Pc. use keyboard controller
 		newPosition = controllerScript.keyboard(position); 		// get players input and new position from keyboard controller
 		
-		# elif UNITY_ANDROID									// if game is running on android use touchscreen controller
+# elif UNITY_ANDROID											// if game is running on android use touchscreen controller
 		newPosition = controllerScript.touchScreen(position); 	//get players input and new position from touchscreen controller
-		#endif
+#endif
 		movePlayer ();											// attempt to move player to correct grid position
 		checkHealth ();											// check if players health changed
 		checkKeys ();
@@ -156,22 +156,22 @@ public class MyPlayer : MonoBehaviour {
 	
 	// detecting for gates and walls is done with linecasting, but interactable items are done with triggers on the box colliders and their tags
 	void OnTriggerEnter2D (Collider2D other) {
-		if (other.tag == "WhiteKey") {
+		if (other.tag == "WhiteKey"  && hasWhiteKey == false) {
 			SoundManager.instance.randomVoiceFx (mine, shiny);
 			hasWhiteKey = true;
 			Destroy (other.gameObject);
 			
-		} else if (other.tag == "RedKey") {
+		} else if (other.tag == "RedKey"  && hasRedKey == false) {
 			hasRedKey = true;
 			SoundManager.instance.randomVoiceFx (mine, shiny);
 			Destroy (other.gameObject);
 			
-		} else if (other.tag == "BlueKey") {
+		} else if (other.tag == "BlueKey"  && hasBlueKey == false) {
 			SoundManager.instance.randomVoiceFx (mine, shiny);
 			hasBlueKey = true;
 			Destroy (other.gameObject);
 			
-		} else if (other.tag == "GoldKey") {
+		} else if (other.tag == "GoldKey" && hasGoldKey == false) {
 			SoundManager.instance.randomVoiceFx (mine, shiny);
 			hasGoldKey = true;
 			Destroy (other.gameObject);
