@@ -299,6 +299,7 @@ public class Map3 : Map
 		
 		spawnPrefab ( -7, -12, milkPrefab);
 		spawnPrefab ( 1, -12, milkPrefab);
+		spawnPrefab (-3, -5, milkPrefab);
 		
 		spawnPrefab ( -6, -19, milkPrefab);
 		spawnPrefab ( -4, -19, milkPrefab);
