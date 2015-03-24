@@ -38,6 +38,9 @@ Skeleton Sprite Sheet, Spider & Spider Web Sprite, Wooden Box Sprite, Brick Floo
 Wall Tile: 
 https://www.assetstore.unity3d.com/en/#!/content/19610
 #
+Font:
+http://www.fontspace.com/pixel-sagas/anglodavek
+#
 All other sprites were made with Adobe Photoshop
 #
 
