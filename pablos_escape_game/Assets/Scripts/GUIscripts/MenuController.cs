@@ -8,20 +8,24 @@ public class MenuController : MonoBehaviour {
 	public AudioClip click;
 
 	void Awake(){
-#if UNITY_EDITOR || UNITY_STANDALONE_WIN
-#elif UNITY_ANDROID
+	#if UNITY_EDITOR || UNITY_STANDALONE_WIN
+	#elif UNITY_ANDROID
+
 		PlayGamesPlatform.DebugLogEnabled = true;
 		PlayGamesPlatform.Activate ();
-#endif
+
+		Social.localUser.Authenticate((bool success) => {
+			// handle success or failure
+			if (success) {
+			} else {
+				((PlayGamesPlatform) Social.Active).SignOut();
+			}
+		});
+	#endif
 
 	}
 
-	void Start(){
-#if UNITY_EDITOR || UNITY_STANDALONE_WIN
-#elif UNITY_ANDROID
-		Social.localUser.Authenticate ( (bool success) => {});
-#endif
-	}
+
 
 	void Update(){
 		// if android back button is pressed exit game
@@ -40,12 +44,18 @@ public class MenuController : MonoBehaviour {
 	}
 
 	public void GooglePlayAchievButton(){
-		Social.localUser.Authenticate (
-			(bool success) => {
+	#if UNITY_EDITOR || UNITY_STANDALONE_WIN
+	#elif UNITY_ANDROID
+		Social.localUser.Authenticate((bool success) => {
 			// handle success or failure
+			if (success) {
+			} else {
+				((PlayGamesPlatform) Social.Active).SignOut();
+			}
 		});
-
-		SoundManager.instance.playVoiceFx(click);
 		Social.ShowAchievementsUI ();
+	#endif
+		SoundManager.instance.playVoiceFx(click);
+
 	}
 }
