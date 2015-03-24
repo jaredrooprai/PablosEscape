@@ -19,9 +19,13 @@ public class NextLevelController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		SoundManager.instance.playVoiceFx(laugh);
+		saveHighestLevel ();
+		ButtonText ();
 
-		GameObject.Find ("NextLevel").GetComponentInChildren<Text>().text = "Level " + PlayerPrefs.GetInt("SavedLevel");
-			
+	#if UNITY_EDITOR || UNITY_STANDALONE_WIN
+	#elif UNITY_ANDROID		
+		checkAchievements();
+	#endif
 	}
 	
 	// Update is called once per frame
@@ -31,23 +35,34 @@ public class NextLevelController : MonoBehaviour {
 			SoundManager.instance.playWalkingFx(click);
 			Application.LoadLevel("MainMenu");
 		}
-
-#if UNITY_EDITOR || UNITY_STANDALONE_WIN
-#elif UNITY_ANDROID		
-		checkAchievements();
-#endif
 	}
 
+
+	public void ButtonText(){
+		if (PlayerPrefs.GetInt ("SavedLevel") == 2) 
+			GameObject.Find ("NextLevel").GetComponentInChildren<Text>().text = "Clausterphobia";
+
+	}
 	public void checkAchievements(){
 		if (PlayerPrefs.GetInt ("SavedLevel") == 2) {
 			Social.ReportProgress ( Achievement1ID, 100.0f, (bool success) =>{});
+		
 		} else if (PlayerPrefs.GetInt("SavedLevel") == 3) {
 			Social.ReportProgress ( Achievement2ID, 100.0f, (bool success) =>{});
+
 		} else if (PlayerPrefs.GetInt("SavedLevel") == 4) {
 			Social.ReportProgress ( Achievement3ID, 100.0f, (bool success) =>{});
+
 		} else if (PlayerPrefs.GetInt("SavedLevel") == 5) {
 			Social.ReportProgress ( Achievement4ID, 100.0f, (bool success) =>{});
+
 		}
+	}
+
+	public void saveHighestLevel(){
+		if (PlayerPrefs.GetInt("HighestLevel") < PlayerPrefs.GetInt("SavedLevel")){
+			PlayerPrefs.SetInt("HighestLevel", PlayerPrefs.GetInt("SavedLevel") );
+		} 
 	}
 
 	public void PlayNextLevelButon(){
