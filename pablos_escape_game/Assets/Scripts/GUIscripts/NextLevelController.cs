@@ -20,7 +20,9 @@ public class NextLevelController : MonoBehaviour {
 	void Start () {
 		SoundManager.instance.playVoiceFx(laugh);
 		saveHighestLevel ();
-		ButtonText ();
+
+		GameObject.Find ("NextLevel").GetComponentInChildren<Text>().text = ("Room " + (PlayerPrefs.GetInt("SavedLevel")) );
+
 
 	#if UNITY_EDITOR || UNITY_STANDALONE_WIN
 	#elif UNITY_ANDROID		
@@ -38,11 +40,6 @@ public class NextLevelController : MonoBehaviour {
 	}
 
 
-	public void ButtonText(){
-		if (PlayerPrefs.GetInt ("SavedLevel") == 2) 
-			GameObject.Find ("NextLevel").GetComponentInChildren<Text>().text = "Clausterphobia";
-
-	}
 	public void checkAchievements(){
 		if (PlayerPrefs.GetInt ("SavedLevel") == 2) {
 			Social.ReportProgress ( Achievement1ID, 100.0f, (bool success) =>{});

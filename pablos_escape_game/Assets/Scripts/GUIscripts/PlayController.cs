@@ -94,7 +94,7 @@ public class PlayController : MonoBehaviour {
 
 	}
 
-	void BackButton(){
+	public void BackButton(){
 		SoundManager.instance.playWalkingFx(click);
 		Application.LoadLevel ("MainMenu");
 	}
