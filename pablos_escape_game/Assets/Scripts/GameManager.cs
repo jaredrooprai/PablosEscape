@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour {
 	public Map5 mapFiveScript;
 	
 	[HideInInspector]public int level;
+	[HideInInspector]public int highestLevel;
+
 
 
 
@@ -66,7 +68,6 @@ public class GameManager : MonoBehaviour {
 		} else if (level == 5) {
 			mapFiveScript.setupScene ();
 		}
-
 		Save ();
 
 	}
@@ -108,8 +109,6 @@ public class GameManager : MonoBehaviour {
 		Application.LoadLevel ("MainMenu");
 	}
 
-
-
 	void Save ()
 	{
 		PlayerPrefs.SetInt("SavedLevel", level);
@@ -124,6 +123,11 @@ public class GameManager : MonoBehaviour {
 			level = PlayerPrefs.GetInt ("SavedLevel");
 		}
 	}
+
+
+	
+	
+
 
 
 
