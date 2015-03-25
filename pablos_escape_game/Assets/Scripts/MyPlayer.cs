@@ -126,7 +126,9 @@ public class MyPlayer : MonoBehaviour {
 	// move the player towards destination
 	private void movePlayer(){
 		if (position != (newPosition)) {																// if player is not standing still
-			position = checkCollider (position, newPosition);											// check players future positino for colliders
+			position = checkCollider (position, newPosition);	// check players future positino for colliders
+			PlayerHUD.toggleOptionsPanel (false);
+
 		}
 		transform.position = Vector3.MoveTowards(transform.position, position, Time.deltaTime * speed);	// move the player to his new or old position
 	}

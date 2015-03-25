@@ -16,6 +16,8 @@ public static class PlayerHUD {
 	private static GameObject blueKey;
 	private static GameObject goldKey;
 
+	private static GameObject OptionsPanel;
+
 
 	// Call this method before other methods
 	public static void findGUIObjects () {
@@ -28,10 +30,17 @@ public static class PlayerHUD {
 		whiteKey = GameObject.Find ("whiteKey");		
 		redKey = GameObject.Find ("redKey");		
 		blueKey = GameObject.Find ("blueKey");
-		goldKey = GameObject.Find ("goldKey");	
+		goldKey = GameObject.Find ("goldKey");
+
+
+		OptionsPanel = GameObject.Find ("OptionsPanel");
 	}
 
-
+	public static void toggleOptionsPanel(bool toggle){
+		if (OptionsPanel != null) {
+			OptionsPanel.SetActive(toggle);
+		}
+	}
 
 	// toggles to show or not show the heart health objects on the screen
 	public static void toggleHeart_1 (bool toggle){
