@@ -19,15 +19,21 @@ public class GameController : MonoBehaviour {
 
 	public void OptionsButton(){
 		if (WindowOpen == true) {
-			PlayerHUD.toggleOptionsPanel (true);
+			PlayerHUD.toggleOptionsPanel (false);
 			WindowOpen = false;
 		} else {
-			PlayerHUD.toggleOptionsPanel (false);
+			PlayerHUD.toggleOptionsPanel (true);
 			WindowOpen = true;
 		}
 	}
 
+	public void MenuButton(){
+		Application.LoadLevel ("MainMenu");
+	}
 
+	public void RestartLevelButton(){
+		Application.LoadLevel ("Game");
+	}
 
 
 

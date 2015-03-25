@@ -13,13 +13,13 @@ public class NewGameController : MonoBehaviour {
 	void Update () {
 		if (Input.GetKeyDown (KeyCode.Escape)) {
 			SoundManager.instance.playWalkingFx(click);
-			Application.LoadLevel("Play");
+			Application.LoadLevel("LevelSelect");
 		}	
 	}
 	
 	public void BackButton(){
 		SoundManager.instance.playWalkingFx(click);
-		Application.LoadLevel ("Play");
+		Application.LoadLevel ("LevelSelect");
 	}
 	
 	

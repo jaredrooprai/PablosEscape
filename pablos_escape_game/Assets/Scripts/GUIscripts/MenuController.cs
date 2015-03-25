@@ -40,7 +40,7 @@ public class MenuController : MonoBehaviour {
 	
 	public void PlayButton(){
 		SoundManager.instance.playVoiceFx(click);
-		Application.LoadLevel ("Play");
+		Application.LoadLevel ("LevelSelect");
 	}
 
 	public void GooglePlayAchievButton(){
