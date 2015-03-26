@@ -185,37 +185,87 @@ public class Map5 : Map
 		spawnPrefab(-1, 2, spiderWeb);
 		spawnPrefab(-2, 1, spiderWeb);
 		spawnPrefab(-2, 2, spiderWeb);
+
+		spawnPrefab(-2, 2, milkPrefab);
+		spawnPrefab(-1, 1, milkPrefab);
 		
-		spawnPrefab(6, 0, milkPrefab);
+		spawnPrefab(4, 0, milkPrefab);
+		spawnPrefab(8, 0, milkPrefab);
 		spawnPrefab(0, -6, milkPrefab);
-		spawnPrefab(-6, 0, milkPrefab);
+		spawnPrefab(-4, 0, milkPrefab);
+		spawnPrefab(-8, 0, milkPrefab);
 		spawnPrefab(0, 6, milkPrefab);
+		spawnPrefab(12, 3, milkPrefab);
+		spawnPrefab(12, -3, milkPrefab);
+		spawnPrefab(19, 2, milkPrefab);
+		spawnPrefab(19, 4, milkPrefab);
+		spawnPrefab(21, 4, milkPrefab);
+		spawnPrefab(24, 7, milkPrefab);
+		spawnPrefab(24, 5, milkPrefab);
+		spawnPrefab(26, 5, milkPrefab);
+		spawnPrefab(26, 7, milkPrefab);
 		
-		spawnPrefab (0, 3, trapTile);
-		spawnPrefab (3, 0, trapTile);
-		//spawnPrefab (4, 0, trapTile);
-		spawnPrefab (5, 0, trapTile);
-		spawnPrefab (7, 0, trapTile);
-		//spawnPrefab (8, 0, trapTile);
-		spawnPrefab (9, 0, trapTile);
-		spawnPrefab (0, -3, trapTile);
-		spawnPrefab (-3, 0, trapTile);
+		spawnPrefab(3, 0, trapTile);
+		spawnPrefab(0, 3, trapTile);
+		spawnPrefab(5, 0, trapTile);
+		spawnPrefab(0, 5, trapTile);
+		spawnPrefab(7, 0, trapTile);
+		spawnPrefab(0, 7, trapTile);
+		spawnPrefab(9, 0, trapTile);
+		spawnPrefab(0, 9, trapTile);
+		spawnPrefab(0, -3, trapTile);
+		spawnPrefab(-3, 0, trapTile);
+		spawnPrefab(-5, 0, trapTile);
+		spawnPrefab(0, -5, trapTile);
+		spawnPrefab(-7, 0, trapTile);
+		spawnPrefab(0, -7, trapTile);
+		spawnPrefab(-9, 0, trapTile);
+		spawnPrefab(0, -9, trapTile);
+		spawnPrefab(6, 12, trapTile);
+		spawnPrefab(6, -12, trapTile);
+		spawnPrefab(12, 6, trapTile);
+		spawnPrefab(12, -6, trapTile);
+		spawnPrefab(18, 2, trapTile);
+		spawnPrefab(18, 3, trapTile);
+		spawnPrefab(19, 3, trapTile);
+		spawnPrefab(20, 3, trapTile);
+		spawnPrefab(20, 4, trapTile);
+		spawnPrefab(20, 5, trapTile);
+		spawnPrefab(20, 6, trapTile);
+		spawnPrefab(21, 5, trapTile);
+		spawnPrefab(21, 6, trapTile);
+		spawnPrefab(21, 7, trapTile);
+		spawnPrefab(22, 4, trapTile);
+		spawnPrefab(22, 5, trapTile);
+		spawnPrefab(22, 6, trapTile);
+		spawnPrefab(22, 7, trapTile);
+		spawnPrefab(22, 8, trapTile);
+		spawnPrefab(24, 6, trapTile);
+		//spawnPrefab(24, 7, trapTile);
 		
 		spawnPrefab(0, 10, woodBox);
 		spawnPrefab(-10, 0, woodBox);
 		spawnPrefab(0, -10, woodBox);
 		spawnPrefab(24, 3, woodBox);
+		spawnPrefab(12, 4, woodBox);
+		spawnPrefab(12, -4, woodBox);
+		spawnPrefab(18, -2, woodBox);
+		spawnPrefab(21, 0, woodBox);
 		
-		spawnPrefab (3, 0, whiteKeyPrefab);
-		spawnPrefab (15, 0, goldKeyPrefab);
-		spawnPrefab (-columns/2 + 5, columns/2 - 2, blueGatePrefab);
-		spawnPrefab (-columns/2 + 2, columns/2 - 5, redGatePrefab);
-		spawnPrefab (-columns/2 + 2, columns/2 - 6, milkPrefab);
-		spawnPrefab (-columns/2 + 2, columns/2 - 7, milkPrefab);
-		spawnPrefab (-columns/2 + 2, columns/2 - 8, milkPrefab);
-		spawnPrefab (-columns/2 + 2, columns/2 - 9, milkPrefab);
-		spawnPrefab (-columns/2 + 2, columns/2 - 10, milkPrefab);
-		spawnPrefab (-columns/2 + 2, columns/2 - 11, redGatePrefab);
+		spawnPrefab(3, 0, blueKeyPrefab);
+		spawnPrefab(9, 0, whiteKeyPrefab);
+		spawnPrefab(15, 0, goldKeyPrefab);
+		spawnPrefab(24, 4, whiteKeyPrefab);
+		spawnPrefab(26, 6, goldKeyPrefab);
+
+		spawnPrefab(-columns/2 + 5, columns/2 - 2, blueGatePrefab);
+		spawnPrefab(-columns/2 + 2, columns/2 - 5, redGatePrefab);
+		spawnPrefab(-columns/2 + 2, columns/2 - 6, milkPrefab);
+		spawnPrefab(-columns/2 + 2, columns/2 - 7, milkPrefab);
+		spawnPrefab(-columns/2 + 2, columns/2 - 8, milkPrefab);
+		spawnPrefab(-columns/2 + 2, columns/2 - 9, milkPrefab);
+		spawnPrefab(-columns/2 + 2, columns/2 - 10, milkPrefab);
+		spawnPrefab(-columns/2 + 2, columns/2 - 11, redGatePrefab);
 
 
 
