@@ -21,7 +21,9 @@ public class NextLevelController : MonoBehaviour {
 		SoundManager.instance.playVoiceFx(laugh);
 		saveHighestLevel ();
 
-		GameObject.Find ("NextLevel").GetComponentInChildren<Text>().text = ("Room " + (PlayerPrefs.GetInt("SavedLevel")) );
+		GameObject.Find ("LevelComplete").GetComponent<Text>().text = ("Level " + (PlayerPrefs.GetInt("SavedLevel") - 1) ) + "\nComplete!";
+
+		GameObject.Find ("NextLevel").GetComponentInChildren<Text>().text = ("Level " + (PlayerPrefs.GetInt("SavedLevel")) );
 
 
 	#if UNITY_EDITOR || UNITY_STANDALONE_WIN
