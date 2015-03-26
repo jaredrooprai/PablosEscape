@@ -33,7 +33,7 @@ public class MyPlayer : MonoBehaviour {
 	
 	public AudioClip mine;
 	public AudioClip drink;
-	public AudioClip door;
+	public AudioClip gate1, gate2;
 	
 	// initializing player attributes
 	void Start() {
@@ -191,6 +191,8 @@ public class MyPlayer : MonoBehaviour {
 			GameManager.instance.finishedLevel ();
 			
 		} else if (other.tag == "Gate") {
+			SoundManager.instance.playGatefx(gate1, gate2);
+
 			Destroy (other.gameObject);
 		}
 		
@@ -214,7 +216,6 @@ public class MyPlayer : MonoBehaviour {
 		if (whiteGateCollision == true && hasWhiteKey == false) { 
 			return start;
 		} else if (whiteGateCollision == true && hasWhiteKey == true) {
-			SoundManager.instance.playWalkingFx(door);
 			hasWhiteKey = false;
 			animator.SetTrigger("Walk");
 			return end;
@@ -223,7 +224,6 @@ public class MyPlayer : MonoBehaviour {
 		} else if (redGateCollision == true && hasRedKey == false) {
 			return start;
 		} else if (redGateCollision == true && hasRedKey == true) {
-			SoundManager.instance.playWalkingFx(door);
 			hasRedKey = false;
 			animator.SetTrigger("Walk");
 			return end;
@@ -231,7 +231,6 @@ public class MyPlayer : MonoBehaviour {
 		} else if (blueGateCollision == true && hasBlueKey == false) {
 			return start;
 		} else if (blueGateCollision == true && hasBlueKey == true) {
-			SoundManager.instance.playWalkingFx(door);
 			hasBlueKey = false;
 			animator.SetTrigger("Walk");
 			return end;
@@ -239,7 +238,6 @@ public class MyPlayer : MonoBehaviour {
 		} else if (goldGateCollision == true && hasGoldKey == false) {
 			return start;
 		} else if (goldGateCollision == true && hasGoldKey == true) {
-			SoundManager.instance.playWalkingFx(door);
 			hasGoldKey = false;
 			animator.SetTrigger("Walk");
 			return end;

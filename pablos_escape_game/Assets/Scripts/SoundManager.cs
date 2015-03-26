@@ -9,6 +9,8 @@ public class SoundManager : MonoBehaviour {
 	public AudioSource voicefx;
 	public AudioSource walkingfx;
 	public AudioSource music;
+	public AudioSource ambfx;
+	public AudioSource gatefx;
 
 	void Awake () {
 		// checks if this is not null so it won't make two game managers, or make two boards
@@ -33,7 +35,6 @@ public class SoundManager : MonoBehaviour {
 		walkingfx.Play();
 	}
 	                                         
-
 	public void playVoiceFx (AudioClip clip){
 		voicefx.clip = clip;
 		voicefx.Play ();
@@ -43,5 +44,16 @@ public class SoundManager : MonoBehaviour {
 		int randomSound = Random.Range (0, clips.Length);
 		voicefx.clip = clips[randomSound];
 		voicefx.Play();
+	}
+
+	public void playAmbFx (AudioClip clip){
+		ambfx.clip = clip;
+		ambfx.Play ();
+	}
+
+	public void playGatefx (params AudioClip [] clips){
+		int randomSound = Random.Range (0, clips.Length);
+		gatefx.clip = clips[randomSound];
+		gatefx.Play();
 	}
 }

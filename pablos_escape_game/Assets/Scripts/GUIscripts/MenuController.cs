@@ -34,12 +34,12 @@ public class MenuController : MonoBehaviour {
 		}
 	}
 	public void AboutGameButton(){
-		SoundManager.instance.playVoiceFx(click);
+		SoundManager.instance.playWalkingFx(click);
 		Application.LoadLevel ("AboutGame");
 	}
 	
 	public void PlayButton(){
-		SoundManager.instance.playVoiceFx(click);
+		SoundManager.instance.playWalkingFx(click);
 		Application.LoadLevel ("LevelSelect");
 	}
 
@@ -55,7 +55,7 @@ public class MenuController : MonoBehaviour {
 		});
 		Social.ShowAchievementsUI ();
 	#endif
-		SoundManager.instance.playVoiceFx(click);
+		SoundManager.instance.playWalkingFx(click);
 
 	}
 }

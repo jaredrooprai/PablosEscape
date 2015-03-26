@@ -7,7 +7,7 @@ using GooglePlayGames;
 public class NextLevelController : MonoBehaviour {
 	
 	//private GameObject nextLevelButton;
-	public AudioClip laugh;
+	public AudioClip achievement;
 	public AudioClip click;
 
 	public string Achievement1ID;
@@ -18,7 +18,7 @@ public class NextLevelController : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		SoundManager.instance.playVoiceFx(laugh);
+		SoundManager.instance.playAmbFx(achievement);
 		saveHighestLevel ();
 
 		GameObject.Find ("LevelComplete").GetComponent<Text>().text = ("Level " + (PlayerPrefs.GetInt("SavedLevel") - 1) ) + "\nComplete!";

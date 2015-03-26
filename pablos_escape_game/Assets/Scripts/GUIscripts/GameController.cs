@@ -6,6 +6,7 @@ public class GameController : MonoBehaviour {
 
 
 	private bool WindowOpen;
+	public AudioClip click;
 
 
 
@@ -18,6 +19,8 @@ public class GameController : MonoBehaviour {
 
 
 	public void OptionsButton(){
+		SoundManager.instance.playWalkingFx(click);
+
 		if (WindowOpen == true) {
 			PlayerHUD.toggleOptionsPanel (false);
 			WindowOpen = false;
@@ -28,10 +31,14 @@ public class GameController : MonoBehaviour {
 	}
 
 	public void MenuButton(){
+		SoundManager.instance.playWalkingFx(click);
+
 		Application.LoadLevel ("MainMenu");
 	}
 
 	public void RestartLevelButton(){
+		SoundManager.instance.playWalkingFx(click);
+
 		Application.LoadLevel ("Game");
 	}
 
