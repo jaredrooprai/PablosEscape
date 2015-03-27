@@ -3,25 +3,25 @@ using System.Collections;
 
 public class LevelSelectController : MonoBehaviour {
 
-	private GameObject level2;
-	private GameObject level3;
-	private GameObject level4;
-	private GameObject level5;
+	private GameObject level2lock;
+	private GameObject level3lock;
+	private GameObject level4lock;
+	private GameObject level5lock;
 	
 	public AudioClip click;
 	
 	
 	// Use this for initialization
 	void Start () {
-		level2 = GameObject.Find ("level2");
-		level3 = GameObject.Find ("level3");
-		level4 = GameObject.Find ("level4");
-		level5 = GameObject.Find ("level5");
+		level2lock = GameObject.Find ("level2lock");
+		level3lock = GameObject.Find ("level3lock");
+		level4lock = GameObject.Find ("level4lock");
+		level5lock = GameObject.Find ("level5lock");
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		showCorrectButtons ();
+		disableLocks ();
 		//android back button
 		if (Input.GetKeyDown (KeyCode.Escape)) {
 			SoundManager.instance.playWalkingFx(click);
@@ -30,32 +30,36 @@ public class LevelSelectController : MonoBehaviour {
 	}
 	
 	
-	
-	public void showCorrectButtons(){
-		
-		if (PlayerPrefs.GetInt ("HighestLevel") > 1)
-			level2.SetActive (true);
+
+	public void disableLocks(){
+		if (PlayerPrefs.GetInt ("HighestLevel") >= 2)
+			level2lock.SetActive (false);
 		else
-			level2.SetActive (false);
-		
-		
-		if (PlayerPrefs.GetInt ("HighestLevel") > 2)
-			level3.SetActive (true);
+			level2lock.SetActive (true);
+
+		if (PlayerPrefs.GetInt ("HighestLevel") >= 3)
+			level3lock.SetActive (false);
 		else
-			level3.SetActive (false);
-		
-		
-		if (PlayerPrefs.GetInt ("HighestLevel") > 3)
-			level4.SetActive (true);
+			level3lock.SetActive (true);
+
+
+		if (PlayerPrefs.GetInt ("HighestLevel") >= 4)
+			level4lock.SetActive (false);
 		else
-			level4.SetActive (false);
-		
-		if (PlayerPrefs.GetInt ("HighestLevel") > 4)
-			level5.SetActive (true);
+			level4lock.SetActive (true);
+
+
+		if (PlayerPrefs.GetInt ("HighestLevel") >= 5)
+			level5lock.SetActive (false);
 		else
-			level5.SetActive (false);
+			level5lock.SetActive (true);
+
+		
+
+
 		
 	}
+
 	
 
 	public void TutorialButton(){
@@ -66,28 +70,37 @@ public class LevelSelectController : MonoBehaviour {
 	
 	
 	public void level2Button(){
-		SoundManager.instance.playWalkingFx(click);
-		PlayerPrefs.SetInt("SavedLevel", 2);
-		Application.LoadLevel ("Game");
+		if (PlayerPrefs.GetInt ("HighestLevel") >= 2) {
+			SoundManager.instance.playWalkingFx (click);
+			PlayerPrefs.SetInt ("SavedLevel", 2);
+			Application.LoadLevel ("Game");
+		}
 	}
 	
 	public void level3Button(){
-		SoundManager.instance.playWalkingFx(click);
-		PlayerPrefs.SetInt("SavedLevel", 3);
-		Application.LoadLevel ("Game");
+		if (PlayerPrefs.GetInt ("HighestLevel") >= 3) {
+			SoundManager.instance.playWalkingFx (click);
+			PlayerPrefs.SetInt ("SavedLevel", 3);
+			Application.LoadLevel ("Game");
+		}
 	}
 	
 	public void level4Button(){
-		SoundManager.instance.playWalkingFx(click);
-		PlayerPrefs.SetInt("SavedLevel", 4);
-		Application.LoadLevel ("Game");
+		if (PlayerPrefs.GetInt ("HighestLevel") >= 4) {
+
+			SoundManager.instance.playWalkingFx (click);
+			PlayerPrefs.SetInt ("SavedLevel", 4);
+			Application.LoadLevel ("Game");
+		}
 	}
 	
 	
 	public void level5Button(){
-		SoundManager.instance.playWalkingFx(click);
-		PlayerPrefs.SetInt("SavedLevel", 5);
-		Application.LoadLevel ("Game");
+		if (PlayerPrefs.GetInt ("HighestLevel") >= 5) {
+			SoundManager.instance.playWalkingFx (click);
+			PlayerPrefs.SetInt ("SavedLevel", 5);
+			Application.LoadLevel ("Game");
+		}
 		
 	}
 	

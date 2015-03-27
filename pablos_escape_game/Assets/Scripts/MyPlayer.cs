@@ -179,7 +179,7 @@ public class MyPlayer : MonoBehaviour {
 			Destroy (other.gameObject);
 			
 		} else if (other.tag == "Food") {
-			SoundManager.instance.playWalkingFx (drink);
+			SoundManager.instance.playGatefx (drink);
 			health += 1;
 			Destroy (other.gameObject);
 			
