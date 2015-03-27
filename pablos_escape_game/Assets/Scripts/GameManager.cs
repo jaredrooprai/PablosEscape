@@ -29,7 +29,9 @@ public class GameManager : MonoBehaviour {
 		// checks if this is not null so it won't make two game managers, or make two boards
 		if (instance == null) {
 			instance = this;
-			InitGame ();
+			loadGame ();
+			levelManager ();
+			spawnPlayer ();
 
 		} else if (instance != this) {
 			Destroy (gameObject);    
@@ -39,68 +41,49 @@ public class GameManager : MonoBehaviour {
 	}
 
 	
-	void InitGame (){
-		mapOneScript = GetComponent<Map1> ();
-		mapTwoScript = GetComponent<Map2> ();
-		mapThreeScript = GetComponent<Map3> ();
-		mapFourScript = GetComponent<Map4> ();
-		mapFiveScript = GetComponent<Map5> ();
 
-		Load ();
-		levelManager ();
-		spawnPlayer ();
-	}
-
-	
-
-	
-	public void levelManager(){
-		Destroy (GameObject.Find ("Map"));
-
+	private void levelManager(){
 		if (level == 1) {
+			mapOneScript = GetComponent<Map1> ();
 			mapOneScript.setupScene ();
 		} else if (level == 2) {
+			mapTwoScript = GetComponent<Map2> ();
 			mapTwoScript.setupScene ();
 		} else if (level == 3) {
+			mapThreeScript = GetComponent<Map3> ();
 			mapThreeScript.setupScene ();
 		} else if (level == 4) {
+			mapFourScript = GetComponent<Map4> ();
 			mapFourScript.setupScene ();
 		} else if (level == 5) {
+			mapFiveScript = GetComponent<Map5> ();
 			mapFiveScript.setupScene ();
 		}
-		Save ();
-
 	}
 
 
 
 
 	public void finishedLevel(){
-		Destroy (GameObject.Find ("Player(Clone)"));
-	
 		level++;
-
 		if (level < 6) {
 			Application.LoadLevel ("NextLevel");
 		} else {
 			Application.LoadLevel ("FinishedGame");
 			level = 1;
 		}
-
-		Save ();
+		saveGame ();
 	}
 
 
 	
-	public void spawnPlayer(){
+	private void spawnPlayer(){
 		Instantiate (playerPrefab, new Vector3 (0, 0, -10f), Quaternion.identity);
-
 	}
 
 
 	public void playerDied(){
 		Application.LoadLevel ("PlayerDead");
-		Destroy (GameObject.Find ("Player(Clone)"));
 	}
 
 
@@ -109,19 +92,18 @@ public class GameManager : MonoBehaviour {
 		Application.LoadLevel ("MainMenu");
 	}
 
-	void Save ()
+	private void saveGame ()
 	{
 		PlayerPrefs.SetInt("SavedLevel", level);
 	}
 	
 	
-	void Load ()
+	private void loadGame ()
 	{
-		if (PlayerPrefs.GetInt ("SavedLevel") == 0) {
+		if (PlayerPrefs.GetInt ("SavedLevel") == 0)
 			level = 1;
-		} else {
+		else
 			level = PlayerPrefs.GetInt ("SavedLevel");
-		}
 	}
 
 
