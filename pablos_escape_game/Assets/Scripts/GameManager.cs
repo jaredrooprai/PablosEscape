@@ -95,6 +95,7 @@ public class GameManager : MonoBehaviour {
 	private void saveGame ()
 	{
 		PlayerPrefs.SetInt("SavedLevel", level);
+
 	}
 	
 	

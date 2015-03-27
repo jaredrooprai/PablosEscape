@@ -14,13 +14,19 @@ public class MenuController : MonoBehaviour {
 		PlayGamesPlatform.DebugLogEnabled = true;
 		PlayGamesPlatform.Activate ();
 
-		Social.localUser.Authenticate((bool success) => {
-			// handle success or failure
-			if (success) {
-			} else {
-				((PlayGamesPlatform) Social.Active).SignOut();
-			}
-		});
+		if (PlayerPrefs.GetInt ("LogIn") == 0) {
+
+			Social.localUser.Authenticate((bool success) => {
+				// handle success or failure
+				if (success) {
+				} else {
+					((PlayGamesPlatform) Social.Active).SignOut();
+				}
+				PlayerPrefs.SetInt ("LogIn", 1);
+			});
+		}
+
+
 	#endif
 
 	}
@@ -56,6 +62,5 @@ public class MenuController : MonoBehaviour {
 		Social.ShowAchievementsUI ();
 	#endif
 		SoundManager.instance.playWalkingFx(click);
-
 	}
 }
