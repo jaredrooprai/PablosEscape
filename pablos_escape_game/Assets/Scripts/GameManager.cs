@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
+		DontDestroyOnLoad (gameObject);
+
 		// checks if this is not null so it won't make two game managers, or make two boards
 		if (instance == null) {
 			instance = this;
@@ -36,7 +38,6 @@ public class GameManager : MonoBehaviour {
 		} else if (instance != this) {
 			Destroy (gameObject);    
 		}
-		DontDestroyOnLoad (gameObject);
 
 	}
 
@@ -60,6 +61,8 @@ public class GameManager : MonoBehaviour {
 			mapFiveScript.setupScene ();
 		}
 	}
+
+
 
 
 

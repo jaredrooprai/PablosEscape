@@ -10,25 +10,10 @@ public class MenuController : MonoBehaviour {
 	void Awake(){
 	#if UNITY_EDITOR || UNITY_STANDALONE_WIN
 	#elif UNITY_ANDROID
-
 		PlayGamesPlatform.DebugLogEnabled = true;
 		PlayGamesPlatform.Activate ();
-
-		if (PlayerPrefs.GetInt ("LogIn") == 0) {
-
-			Social.localUser.Authenticate((bool success) => {
-				// handle success or failure
-				if (success) {
-				} else {
-					((PlayGamesPlatform) Social.Active).SignOut();
-				}
-				PlayerPrefs.SetInt ("LogIn", 1);
-			});
-		}
-
-
+		Authenticate();
 	#endif
-
 	}
 
 
@@ -39,19 +24,10 @@ public class MenuController : MonoBehaviour {
 			Application.Quit();
 		}
 	}
-	public void AboutGameButton(){
-		SoundManager.instance.playWalkingFx(click);
-		Application.LoadLevel ("AboutGame");
-	}
-	
-	public void PlayButton(){
-		SoundManager.instance.playWalkingFx(click);
-		Application.LoadLevel ("LevelSelect");
-	}
 
-	public void GooglePlayAchievButton(){
-	#if UNITY_EDITOR || UNITY_STANDALONE_WIN
-	#elif UNITY_ANDROID
+
+	
+	private void Authenticate(){
 		Social.localUser.Authenticate((bool success) => {
 			// handle success or failure
 			if (success) {
@@ -59,8 +35,29 @@ public class MenuController : MonoBehaviour {
 				((PlayGamesPlatform) Social.Active).SignOut();
 			}
 		});
+	}
+
+
+	public void AboutGameButton(){
+		SoundManager.instance.playWalkingFx(click);
+		Application.LoadLevel ("AboutGame");
+	}
+
+
+	public void PlayButton(){
+		SoundManager.instance.playWalkingFx(click);
+		Application.LoadLevel ("LevelSelect");
+	}
+
+
+	public void GooglePlayAchievButton(){
+	#if UNITY_EDITOR || UNITY_STANDALONE_WIN
+	#elif UNITY_ANDROID
+		Authenticate();
 		Social.ShowAchievementsUI ();
 	#endif
 		SoundManager.instance.playWalkingFx(click);
 	}
+
+
 }
