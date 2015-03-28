@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 
 
-public class Map2 : Map 
+public class JaredsMap : Map 
 { 
 	private int columns = 15;
 	private int rows = 15; 
@@ -57,31 +57,31 @@ public class Map2 : Map
 					if ( x==5 && y==11){	
 						spawnPrefab (x, y, trapTile);
 						spawnPrefab (x, y, spiderWeb);
-
+						
 						spawnPrefab (4, 10, trapTile);
 					} else
 						spawnPrefab (x, y, woodBox);
 				}
-
+				
 			}
 		}
-	
+		
 		spawnPrefab (10, 10, portalPrefab);
 		// keys 
 		spawnPrefab (8, 2, blueKeyPrefab);
 		spawnPrefab (8, 2, spiderWeb);
-
+		
 		spawnPrefab (4, 1, redKeyPrefab);
 		spawnPrefab (4, 1, spiderWeb);
-
+		
 		spawnPrefab (2, 2, whiteKeyPrefab);
 		spawnPrefab (2, 2, spiderWeb);
-
+		
 		spawnPrefab (2, 6, goldKeyPrefab);
 		spawnPrefab (2, 6, spiderWeb);
-
-
-
+		
+		
+		
 		// blue locks
 		spawnPrefab (10, 14, blueGatePrefab);
 		spawnPrefab (7, 13, blueGatePrefab);
@@ -104,7 +104,7 @@ public class Map2 : Map
 		spawnPrefab (9,6, blueGatePrefab);
 		spawnPrefab (12,6, blueGatePrefab);
 		spawnPrefab (14,6, blueGatePrefab);
-
+		
 		// purple locks
 		spawnPrefab (7, 14, redGatePrefab);
 		spawnPrefab (9, 14, redGatePrefab);
@@ -125,7 +125,7 @@ public class Map2 : Map
 		spawnPrefab (9, 7, redGatePrefab);
 		spawnPrefab (12, 7, redGatePrefab);
 		spawnPrefab (14, 7, redGatePrefab);
-
+		
 		spawnPrefab (6, 14,goldGatePrefab);
 		spawnPrefab (8, 14,goldGatePrefab);
 		spawnPrefab (11, 14,goldGatePrefab);
@@ -146,7 +146,7 @@ public class Map2 : Map
 		spawnPrefab (11,7,goldGatePrefab);
 		spawnPrefab (13,7,goldGatePrefab);
 		spawnPrefab (10,6,goldGatePrefab);
-
+		
 		spawnPrefab (6,13,whiteGatePrefab);
 		spawnPrefab (8,13,whiteGatePrefab);
 		spawnPrefab (11,13,whiteGatePrefab);
@@ -167,23 +167,23 @@ public class Map2 : Map
 		spawnPrefab (8,6,whiteGatePrefab);
 		spawnPrefab (11,6,whiteGatePrefab);
 		spawnPrefab (13,6,whiteGatePrefab);
-
-
+		
+		
 		// keys in lock
 		spawnPrefab (9,12, blueKeyPrefab);
 		spawnPrefab (10,12, goldKeyPrefab);
 		spawnPrefab (7,11, whiteKeyPrefab);
-
+		
 		spawnPrefab (6,10, trapTile);
 		spawnPrefab (6,12, trapTile);
-
-
-
-
-
-
-
-
+		
+		
+		
+		
+		
+		
+		
+		
 	}
 	
 }

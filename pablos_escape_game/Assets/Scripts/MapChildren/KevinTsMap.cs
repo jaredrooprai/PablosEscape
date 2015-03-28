@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 
 
-public class Map3 : Map 
+public class KevinTsMap : Map 
 { 
 	private int rows = 22;
 	private int columns = 15; 
@@ -258,7 +258,7 @@ public class Map3 : Map
 		spawnPrefab (15, 0, milkPrefab);
 		spawnPrefab (15, -1, milkPrefab);
 		spawnPrefab (15, -2, milkPrefab);
-
+		
 		spawnPrefab (13, 1, milkPrefab);
 		spawnPrefab (13, 0, milkPrefab);
 		spawnPrefab (13, -1, milkPrefab);
@@ -300,12 +300,12 @@ public class Map3 : Map
 		spawnPrefab ( -7, -12, milkPrefab);
 		spawnPrefab ( 1, -12, milkPrefab);
 		spawnPrefab (-3, -5, milkPrefab);
-
+		
 		spawnPrefab (-11, -9, milkPrefab);
 		spawnPrefab (-11, -11,milkPrefab);
 		spawnPrefab (-10, -10,milkPrefab);
 		spawnPrefab (-12, -10,milkPrefab);
-
+		
 		spawnPrefab ( -6, -19, milkPrefab);
 		spawnPrefab ( -4, -19, milkPrefab);
 		spawnPrefab ( -2, -19, milkPrefab);
@@ -332,7 +332,7 @@ public class Map3 : Map
 		spawnPrefab ( -8, 4,  milkPrefab);
 		spawnPrefab ( -8, 5,  milkPrefab);
 		spawnPrefab ( -8, 6,  milkPrefab);
-
+		
 		spawnPrefab (-5, 1, milkPrefab);
 		spawnPrefab (-6, -1, milkPrefab);
 		spawnPrefab (-5, 0, milkPrefab);

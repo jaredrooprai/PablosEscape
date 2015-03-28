@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 
 
-public class Map5 : Map 
+public class KevinGsMap : Map 
 { 
 	private int columns = 52;
 	private int rows = 52; 
@@ -45,7 +45,7 @@ public class Map5 : Map
 				}
 			}
 		}
-				
+		
 		
 		// create vertical walls
 		for (int x = -columns/2 + 1; x <= columns/2; x += 12){			// 
@@ -59,7 +59,7 @@ public class Map5 : Map
 				}
 			}
 		}
-
+		
 		
 		// create top right corner of rooms
 		for (int y = -rows/2 + 5; y <= rows/2 + 1; y += 12) {
@@ -70,9 +70,9 @@ public class Map5 : Map
 					spawnPrefab(x, y, cementWall);
 			}
 		}
-	
-
-
+		
+		
+		
 		
 		// create bottom right corner of rooms
 		for (int y = -rows/2 - 1; y <= rows/2 + 1; y += 12) {
@@ -83,7 +83,7 @@ public class Map5 : Map
 					spawnPrefab(x, y, cementWall);
 			}
 		}
-
+		
 		// code to create bottom left
 		for (int y = -rows/2 - 1; y <= rows/2 + 1; y += 12) {
 			for (int n = -columns/2 - 1; n <= columns/2; n += 12) {
@@ -93,7 +93,7 @@ public class Map5 : Map
 					spawnPrefab(x, y, cementWall);
 			}
 		}
-
+		
 		//Hello ;D hi :D
 		for (int y = -rows/2 + 5; y <= rows/2 + 1; y += 12) {
 			for (int n = -columns/2 - 1; n <= columns/2; n += 12) {
@@ -121,32 +121,32 @@ public class Map5 : Map
 			}
 		}
 	}
-
-
+	
+	
 	
 	// Method to add items into the map using parent spawnItem method
 	void setupItems(){
-
+		
 		// create green locked doors
 		for (int x = -columns/2 + 1; x <= columns/2; x += 12){			// 
 			int x2 = x+2;
 			for (int y = -columns/2 + 8; y <= columns/2; y += 12){
-					spawnPrefab(x, y, whiteGatePrefab);
-					spawnPrefab(x2, y, whiteGatePrefab);
+				spawnPrefab(x, y, whiteGatePrefab);
+				spawnPrefab(x2, y, whiteGatePrefab);
 			}
 		}
-
-
+		
+		
 		// create purple locked doors
 		for (int y = -rows/2 + 1; y <= rows/2; y += 12){			// 
 			int y2 = y+2;
 			for (int x = -columns/2 + 8; x <= columns/2; x += 12){
-					spawnPrefab(x, y, goldGatePrefab);
-					spawnPrefab(x, y2, goldGatePrefab);
+				spawnPrefab(x, y, goldGatePrefab);
+				spawnPrefab(x, y2, goldGatePrefab);
 			}
 		}
-
-
+		
+		
 		/*
 		// create top left corner of rooms
 		for (int i = 0; i <= 5; i++) { 		// 5 is for number of rooms in game
@@ -170,7 +170,7 @@ public class Map5 : Map
 		spawnPrefab(1, 2, spiderWeb);
 		spawnPrefab(2, 1, spiderWeb);
 		spawnPrefab(2, 2, spiderWeb);
-
+		
 		spawnPrefab(1, -1, spiderWeb);
 		spawnPrefab(1, -2, spiderWeb);
 		spawnPrefab(2, -1, spiderWeb);
@@ -185,7 +185,7 @@ public class Map5 : Map
 		spawnPrefab(-1, 2, spiderWeb);
 		spawnPrefab(-2, 1, spiderWeb);
 		spawnPrefab(-2, 2, spiderWeb);
-
+		
 		spawnPrefab(-2, 2, milkPrefab);
 		spawnPrefab(-1, 1, milkPrefab);
 		
@@ -266,7 +266,7 @@ public class Map5 : Map
 		spawnPrefab(15, 0, goldKeyPrefab);
 		spawnPrefab(24, 4, whiteKeyPrefab);
 		spawnPrefab(26, 6, goldKeyPrefab);
-
+		
 		spawnPrefab(-columns/2 + 5, columns/2 - 2, blueGatePrefab);
 		spawnPrefab(-columns/2 + 2, columns/2 - 5, redGatePrefab);
 		spawnPrefab(-columns/2 + 2, columns/2 - 6, milkPrefab);

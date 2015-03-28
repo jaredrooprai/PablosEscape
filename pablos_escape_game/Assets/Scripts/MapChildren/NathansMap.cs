@@ -1,10 +1,10 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
 
 
-public class Map4: Map 
+public class NathansMap: Map 
 { 
 	private int rows = 30;
 	private int columns = 30; 

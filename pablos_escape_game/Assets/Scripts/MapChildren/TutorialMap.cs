@@ -1,11 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
 
+public class TutorialMap : Map {
 
-
-public class Map1 : Map 
-{ 
 	private int columns = 4;
 	private int rows = 9; 
 	
@@ -51,29 +48,9 @@ public class Map1 : Map
 	
 	// Method to add items into the map using parent spawnItem method
 	void setupItems(){
-		spawnPrefab (4, 7, blueKeyPrefab);
-		spawnPrefab (3, 3, whiteKeyPrefab);
-
-
-		spawnPrefab (2, 9, blueGatePrefab);
-
-		spawnPrefab (3, 7, redKeyPrefab);
-		spawnPrefab (3, 9, redGatePrefab);
-
-		spawnPrefab (2, 7, goldKeyPrefab);
-		spawnPrefab (4, 9, goldGatePrefab);
-
 		spawnPrefab (2, 8, whiteKeyPrefab);
 		spawnPrefab (4, 1, whiteGatePrefab);
 		spawnPrefab (3, 0, woodBox);
-		spawnPrefab (4, 4, milkPrefab);
 		spawnPrefab (4, 0, portalPrefab);
-		spawnPrefab (1, 2, trapTile);
-		spawnPrefab (1, 2, spiderWeb);
-
-
-
 	}
-	
 }
-

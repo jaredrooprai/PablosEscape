@@ -11,14 +11,15 @@ public class GameManager : MonoBehaviour {
 
 	public GameObject playerPrefab;
 
-	public Map1 mapOneScript;
-	public Map2 mapTwoScript;
-	public Map3 mapThreeScript;
-	public Map4 mapFourScript;
-	public Map5 mapFiveScript;
+
+	private TutorialMap tutoraialMap;
+	private JaredsMap jaredsMap;
+	private KevinTsMap kevinTsMap;
+	private NathansMap nathansMap;
+	private KevinGsMap kevinGsMap;
 	
-	[HideInInspector]public int level;
-	[HideInInspector]public int highestLevel;
+	private int level;
+	private int highestLevel;
 
 
 
@@ -38,27 +39,50 @@ public class GameManager : MonoBehaviour {
 		} else if (instance != this) {
 			Destroy (gameObject);    
 		}
-
 	}
 
 	
 
 	private void levelManager(){
 		if (level == 1) {
-			mapOneScript = GetComponent<Map1> ();
-			mapOneScript.setupScene ();
+			tutoraialMap = GetComponent<TutorialMap> ();
+			tutoraialMap.setupScene ();
+
 		} else if (level == 2) {
-			mapTwoScript = GetComponent<Map2> ();
-			mapTwoScript.setupScene ();
+			tutoraialMap = GetComponent<TutorialMap> ();
+			tutoraialMap.setupScene ();
+
 		} else if (level == 3) {
-			mapThreeScript = GetComponent<Map3> ();
-			mapThreeScript.setupScene ();
+			tutoraialMap = GetComponent<TutorialMap> ();
+			tutoraialMap.setupScene ();
+
 		} else if (level == 4) {
-			mapFourScript = GetComponent<Map4> ();
-			mapFourScript.setupScene ();
+			tutoraialMap = GetComponent<TutorialMap> ();
+			tutoraialMap.setupScene ();
+
 		} else if (level == 5) {
-			mapFiveScript = GetComponent<Map5> ();
-			mapFiveScript.setupScene ();
+			tutoraialMap = GetComponent<TutorialMap> ();
+			tutoraialMap.setupScene ();
+
+		} else if (level == 6) {
+			tutoraialMap = GetComponent<TutorialMap> ();
+			tutoraialMap.setupScene ();
+
+		} else if (level == 7) {
+			jaredsMap = GetComponent<JaredsMap> ();
+			jaredsMap.setupScene ();
+
+		} else if (level == 8) {
+			nathansMap = GetComponent<NathansMap> ();
+			nathansMap.setupScene ();
+
+		} else if (level == 9) {
+			kevinTsMap = GetComponent<KevinTsMap> ();
+			kevinTsMap.setupScene ();
+
+		} else if (level == 10) {
+			kevinGsMap = GetComponent<KevinGsMap> ();
+			kevinGsMap.setupScene ();
 		}
 	}
 
@@ -69,11 +93,10 @@ public class GameManager : MonoBehaviour {
 
 	public void finishedLevel(){
 		level++;
-		if (level < 6) {
+		if (level <= 10) {
 			Application.LoadLevel ("NextLevel");
 		} else {
 			Application.LoadLevel ("FinishedGame");
-			level = 1;
 		}
 		saveGame ();
 	}
@@ -91,7 +114,6 @@ public class GameManager : MonoBehaviour {
 
 
 	public void gameOver(){
-
 		Application.LoadLevel ("MainMenu");
 	}
 
@@ -99,9 +121,7 @@ public class GameManager : MonoBehaviour {
 	{
 		PlayerPrefs.SetInt("SavedLevel", level);
 
-	}
-	
-	
+	}	
 	private void loadGame ()
 	{
 		if (PlayerPrefs.GetInt ("SavedLevel") == 0)
