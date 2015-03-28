@@ -4,16 +4,18 @@ Dungeon Adventure/Puzzle game for Android
 
 How to Build .apk:
 ------
-You will need:
+Install:
 #
-Unity Engine version 4.6.3:
+Unity Engine version 4.6.4:
 https://unity3d.com/get-unity/download/archive
-#
-x86 version of Java JDK
 #
 Android SDK tools and Google Play Services packages from the Google SDK manager
 #
+Java JDK
+#
 Open pablos_escape_game folder in Unity Engine
+#
+Attach Android SDK and Java JDK to unity
 #
 File - Build Settings - Android - Switch Platform - Build
 #
