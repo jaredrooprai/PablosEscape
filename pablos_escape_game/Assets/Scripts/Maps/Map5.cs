@@ -275,11 +275,6 @@ public class Map5 : Map
 		spawnPrefab(-columns/2 + 2, columns/2 - 9, milkPrefab);
 		spawnPrefab(-columns/2 + 2, columns/2 - 10, milkPrefab);
 		spawnPrefab(-columns/2 + 2, columns/2 - 11, redGatePrefab);
-
-
-
-
-		spawnPrefab (0, 0, buttonDownPrefab);
 		spawnPrefab (-columns/2, rows/2, portalPrefab);
 	}
 	

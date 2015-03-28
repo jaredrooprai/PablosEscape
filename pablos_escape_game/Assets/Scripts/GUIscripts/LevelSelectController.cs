@@ -65,7 +65,7 @@ public class LevelSelectController : MonoBehaviour {
 	public void TutorialButton(){
 		SoundManager.instance.playWalkingFx(click);
 		PlayerPrefs.SetInt("SavedLevel", 1);
-		Application.LoadLevel ("NewGame");
+		Application.LoadLevel ("Tutorial");
 	}
 	
 	
