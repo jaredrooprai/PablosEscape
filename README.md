@@ -4,7 +4,6 @@ Dungeon Adventure/Puzzle game for Android
 
 How to Build .apk:
 ------
-Install:
 #
 Unity Engine version 4.6.4:
 https://unity3d.com/get-unity/download/archive
