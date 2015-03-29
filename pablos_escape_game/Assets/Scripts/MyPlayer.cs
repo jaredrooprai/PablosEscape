@@ -34,6 +34,8 @@ public class MyPlayer : MonoBehaviour {
 	public AudioClip mine;
 	public AudioClip drink;
 	public AudioClip gate1, gate2;
+
+	public AudioClip alert;
 	
 	// initializing player attributes
 	void Start() {
@@ -158,25 +160,42 @@ public class MyPlayer : MonoBehaviour {
 	
 	// detecting for gates and walls is done with linecasting, but interactable items are done with triggers on the box colliders and their tags
 	void OnTriggerEnter2D (Collider2D other) {
-		if (other.tag == "WhiteKey"  && hasWhiteKey == false) {
-			SoundManager.instance.randomVoiceFx (mine, shiny);
-			hasWhiteKey = true;
-			Destroy (other.gameObject);
+		if (other.tag == "WhiteKey" ) {
+			if (hasWhiteKey == false){
+				SoundManager.instance.randomVoiceFx (mine, shiny);
+				hasWhiteKey = true;
+				Destroy (other.gameObject);
+			} else {
+				SoundManager.instance.playAlertFx(alert);
+			}
 			
-		} else if (other.tag == "RedKey"  && hasRedKey == false) {
-			hasRedKey = true;
-			SoundManager.instance.randomVoiceFx (mine, shiny);
-			Destroy (other.gameObject);
+		} else if (other.tag == "RedKey") {
+			if (hasRedKey == false) {
+				hasRedKey = true;
+				SoundManager.instance.randomVoiceFx (mine, shiny);
+				Destroy (other.gameObject);
+			} else {
+				SoundManager.instance.playAlertFx(alert);
+			}
 			
-		} else if (other.tag == "BlueKey"  && hasBlueKey == false) {
+		} else if (other.tag == "BlueKey") {
+			if (hasBlueKey == false){
 			SoundManager.instance.randomVoiceFx (mine, shiny);
 			hasBlueKey = true;
 			Destroy (other.gameObject);
+			} else {
+				SoundManager.instance.playAlertFx(alert);
+
+			}
 			
-		} else if (other.tag == "GoldKey" && hasGoldKey == false) {
-			SoundManager.instance.randomVoiceFx (mine, shiny);
-			hasGoldKey = true;
-			Destroy (other.gameObject);
+		} else if (other.tag == "GoldKey") {
+			if (hasGoldKey == false){
+				SoundManager.instance.randomVoiceFx (mine, shiny);
+				hasGoldKey = true;
+				Destroy (other.gameObject);
+			} else {
+				SoundManager.instance.playAlertFx(alert);
+			}
 			
 		} else if (other.tag == "Food") {
 			SoundManager.instance.playGatefx (drink);

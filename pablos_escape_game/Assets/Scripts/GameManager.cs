@@ -13,8 +13,13 @@ public class GameManager : MonoBehaviour {
 
 
 	private TutorialMap tutoraialMap;
-	private ThreeGateMap threeGateMap;
+	private EZPZMap easyMap;
 
+	private ThreeGateMap threeGateMap;
+	private FourStoryMap fourStoryMap;
+	private TheFiveFXMap fiveFxMap;
+
+	
 	private JaredsMap jaredsMap;
 	private KevinTsMap kevinTsMap;
 	private NathansMap nathansMap;
@@ -52,20 +57,20 @@ public class GameManager : MonoBehaviour {
 			tutoraialMap.setupScene ();
 
 		} else if (level == 2) {
-			tutoraialMap = GetComponent<TutorialMap> ();
-			tutoraialMap.setupScene ();
+			easyMap = GetComponent<EZPZMap> ();
+			easyMap.setupScene ();
 
 		} else if (level == 3) {
 			threeGateMap = GetComponent<ThreeGateMap> ();
 			threeGateMap.setupScene ();
 
 		} else if (level == 4) {
-			tutoraialMap = GetComponent<TutorialMap> ();
-			tutoraialMap.setupScene ();
+			fourStoryMap = GetComponent<FourStoryMap> ();
+			fourStoryMap.setupScene ();
 
 		} else if (level == 5) {
-			tutoraialMap = GetComponent<TutorialMap> ();
-			tutoraialMap.setupScene ();
+			fiveFxMap = GetComponent<TheFiveFXMap> ();
+			fiveFxMap.setupScene ();
 
 		} else if (level == 6) {
 			spiderGroundMap = GetComponent<SpiderGroundMap> ();

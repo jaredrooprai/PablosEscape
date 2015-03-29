@@ -55,30 +55,63 @@ public class JaredsMap : Map
 			{	
 				if (x == 5 || x == 15 || y == 5 || y == 15) {
 					if ( x==5 && y==11){	
-						spawnPrefab (x, y, trapTile);
-						spawnPrefab (x, y, spiderWeb);
-						
-						spawnPrefab (4, 10, trapTile);
-					} else
-						spawnPrefab (x, y, woodBox);
+						spawnPrefab (x, y, whiteGatePrefab);
+					} else 
+						spawnPrefab(x, y, woodBox);
 				}
 				
 			}
 		}
+
+		spawnPrefab (3, 1, milkPrefab);
+		spawnPrefab (2, 13, milkPrefab);
+		spawnPrefab (7, 3, milkPrefab);
+		spawnPrefab (14, 6, milkPrefab);
+		spawnPrefab (0,7, milkPrefab);
+		spawnPrefab (15, 0, milkPrefab);
+
+
 		
 		spawnPrefab (10, 10, portalPrefab);
 		// keys 
-		spawnPrefab (8, 2, blueKeyPrefab);
-		spawnPrefab (8, 2, spiderWeb);
-		
-		spawnPrefab (4, 1, redKeyPrefab);
-		spawnPrefab (4, 1, spiderWeb);
-		
-		spawnPrefab (2, 2, whiteKeyPrefab);
-		spawnPrefab (2, 2, spiderWeb);
-		
-		spawnPrefab (2, 6, goldKeyPrefab);
-		spawnPrefab (2, 6, spiderWeb);
+		spawnPrefab (4, 15, blueKeyPrefab);
+		spawnPrefab (4, 15, spiderWeb);
+		spawnPrefab (4, 14, trapTile);
+		spawnPrefab (3, 14, trapTile);
+		spawnPrefab (2, 15, trapTile);
+		spawnPrefab (3, 13, trapTile);
+		spawnPrefab (4, 13, trapTile);
+		spawnPrefab (3, 15, trapTile);
+
+
+		spawnPrefab (4, 5, trapTile);
+		spawnPrefab (3, 5, trapTile);
+		spawnPrefab (3, 4, trapTile);
+		spawnPrefab (3, 3, trapTile);
+		spawnPrefab (5, 3, trapTile);
+		spawnPrefab (4, 3, trapTile);
+		spawnPrefab (5, 4, trapTile);
+		spawnPrefab (4, 4, redKeyPrefab);
+		spawnPrefab (4, 4, spiderWeb);
+
+
+		spawnPrefab (9, 0, trapTile);
+		spawnPrefab (11, 0, trapTile);
+		spawnPrefab (9, 1, trapTile);
+		spawnPrefab (10, 1, trapTile);
+		spawnPrefab (11, 1, trapTile);
+		spawnPrefab (15, 4, whiteKeyPrefab);
+		spawnPrefab (0, 8, whiteKeyPrefab);
+
+		spawnPrefab (15, 4, spiderWeb);
+
+
+		spawnPrefab (14, 3, trapTile);
+		spawnPrefab (14, 4, trapTile);
+		spawnPrefab (15, 3, trapTile);
+
+		spawnPrefab (10, 0, goldKeyPrefab);
+		spawnPrefab (10, 0, spiderWeb);
 		
 		
 		
@@ -171,11 +204,20 @@ public class JaredsMap : Map
 		
 		// keys in lock
 		spawnPrefab (9,12, blueKeyPrefab);
+		spawnPrefab (9,12, spiderWeb);
+
 		spawnPrefab (10,12, goldKeyPrefab);
+		spawnPrefab (10,12, spiderWeb);
+		spawnPrefab (7,11, spiderWeb);
+
 		spawnPrefab (7,11, whiteKeyPrefab);
+
 		
 		spawnPrefab (6,10, trapTile);
 		spawnPrefab (6,12, trapTile);
+		spawnPrefab (15, 3, milkPrefab);
+
+
 		
 		
 		

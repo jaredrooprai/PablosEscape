@@ -11,6 +11,7 @@ public class SoundManager : MonoBehaviour {
 	public AudioSource music;
 	public AudioSource ambfx;
 	public AudioSource gatefx;
+	public AudioSource alertfx;
 
 	void Awake () {
 		// checks if this is not null so it won't make two game managers, or make two boards
@@ -22,6 +23,11 @@ public class SoundManager : MonoBehaviour {
 		}
 		DontDestroyOnLoad (gameObject);
 
+	}
+
+	public void playAlertFx (AudioClip clip){
+		alertfx.clip = clip;
+		alertfx.Play ();
 	}
 
 	public void playWalkingFx (AudioClip clip){
