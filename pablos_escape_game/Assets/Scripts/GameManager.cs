@@ -13,11 +13,14 @@ public class GameManager : MonoBehaviour {
 
 
 	private TutorialMap tutoraialMap;
+	private ThreeGateMap threeGateMap;
+
 	private JaredsMap jaredsMap;
 	private KevinTsMap kevinTsMap;
 	private NathansMap nathansMap;
 	private KevinGsMap kevinGsMap;
-	
+	private SpiderGroundMap spiderGroundMap;
+
 	private int level;
 	private int highestLevel;
 
@@ -53,16 +56,16 @@ public class GameManager : MonoBehaviour {
 			tutoraialMap.setupScene ();
 
 		} else if (level == 3) {
-			tutoraialMap = GetComponent<TutorialMap> ();
-			tutoraialMap.setupScene ();
+			threeGateMap = GetComponent<ThreeGateMap> ();
+			threeGateMap.setupScene ();
 
 		} else if (level == 4) {
 			tutoraialMap = GetComponent<TutorialMap> ();
 			tutoraialMap.setupScene ();
 
 		} else if (level == 5) {
-			tutoraialMap = GetComponent<TutorialMap> ();
-			tutoraialMap.setupScene ();
+			spiderGroundMap = GetComponent<SpiderGroundMap> ();
+			spiderGroundMap.setupScene ();
 
 		} else if (level == 6) {
 			tutoraialMap = GetComponent<TutorialMap> ();
