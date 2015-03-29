@@ -46,7 +46,7 @@ public class SpiderGroundMap : Map {
 						spawnPrefab (x, y, redGatePrefab);
 						spawnPrefab (x, y, portalPrefab);
 
-					} else if ( x == 0 && (y == 1 || y == 2 || y == 3 || y == 4 || y == 5) ){
+					} else if ( x == 0 && (y == 1 || y == 2 || y == 3 || y == 5)){
 						spawnPrefab (x, y, milkPrefab);
 
 					} else if ( x == 2 && y == 3 ){
@@ -57,6 +57,7 @@ public class SpiderGroundMap : Map {
 						spawnPrefab (x, y, milkPrefab);
 					} else if ( x == 5 && y == 0 ){
 						spawnPrefab (x, y, milkPrefab);
+
 					} else if ( x == 0 && y == 6){
 						spawnPrefab (x, y, redKeyPrefab);
 					} else if ( x == 8 && y == 1){
