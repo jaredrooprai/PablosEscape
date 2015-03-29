@@ -66,7 +66,6 @@ public class JaredsMap : Map
 		spawnPrefab (3, 1, milkPrefab);
 		spawnPrefab (2, 13, milkPrefab);
 		spawnPrefab (7, 3, milkPrefab);
-		spawnPrefab (14, 6, milkPrefab);
 		spawnPrefab (0,7, milkPrefab);
 		spawnPrefab (15, 0, milkPrefab);
 

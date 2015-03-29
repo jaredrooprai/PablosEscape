@@ -261,7 +261,6 @@ public class KevinGsMap : Map
 		spawnPrefab(18, -2, woodBox);
 		spawnPrefab(21, 0, woodBox);
 		
-		spawnPrefab(3, 0, blueKeyPrefab);
 		spawnPrefab(9, 0, whiteKeyPrefab);
 		spawnPrefab(15, 0, goldKeyPrefab);
 		spawnPrefab(24, 4, whiteKeyPrefab);
@@ -276,6 +275,17 @@ public class KevinGsMap : Map
 		spawnPrefab(-columns/2 + 2, columns/2 - 10, milkPrefab);
 		spawnPrefab(-columns/2 + 2, columns/2 - 11, redGatePrefab);
 		spawnPrefab (-columns/2, rows/2, portalPrefab);
+
+		spawnPrefab (-15, 24, redGatePrefab);
+		spawnPrefab ( -7,6, whiteKeyPrefab   );
+		spawnPrefab (   -17,-10, blueKeyPrefab   );
+		spawnPrefab (  -7,-22, trapTile    );
+		spawnPrefab (   7,-24,trapTile );
+		spawnPrefab (-12, -18, whiteKeyPrefab);
+		spawnPrefab (26, -20, whiteKeyPrefab);
+		spawnPrefab (26, -16, redKeyPrefab);
+
+
 	}
 	
 }
