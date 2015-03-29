@@ -52,5 +52,6 @@ public class TutorialMap : Map {
 		spawnPrefab (4, 1, whiteGatePrefab);
 		spawnPrefab (3, 0, woodBox);
 		spawnPrefab (4, 0, portalPrefab);
+
 	}
 }

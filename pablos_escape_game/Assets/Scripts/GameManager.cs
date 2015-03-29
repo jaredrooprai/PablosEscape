@@ -64,12 +64,13 @@ public class GameManager : MonoBehaviour {
 			tutoraialMap.setupScene ();
 
 		} else if (level == 5) {
+			tutoraialMap = GetComponent<TutorialMap> ();
+			tutoraialMap.setupScene ();
+
+		} else if (level == 6) {
 			spiderGroundMap = GetComponent<SpiderGroundMap> ();
 			spiderGroundMap.setupScene ();
 
-		} else if (level == 6) {
-			tutoraialMap = GetComponent<TutorialMap> ();
-			tutoraialMap.setupScene ();
 
 		} else if (level == 7) {
 			jaredsMap = GetComponent<JaredsMap> ();
