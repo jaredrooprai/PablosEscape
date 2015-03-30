@@ -300,11 +300,7 @@ public class KevinTsMap : Map
 		spawnPrefab ( -7, -12, milkPrefab);
 		spawnPrefab ( 1, -12, milkPrefab);
 		spawnPrefab (-3, -5, milkPrefab);
-		
-		spawnPrefab (-11, -9, milkPrefab);
-		spawnPrefab (-11, -11,milkPrefab);
-		spawnPrefab (-10, -10,milkPrefab);
-		spawnPrefab (-12, -10,milkPrefab);
+
 		
 		spawnPrefab ( -6, -19, milkPrefab);
 		spawnPrefab ( -4, -19, milkPrefab);

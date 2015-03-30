@@ -189,7 +189,7 @@ public class KevinGsMap : Map
 		spawnPrefab(-2, 2, milkPrefab);
 		spawnPrefab(-1, 1, milkPrefab);
 		
-		spawnPrefab(4, 0, milkPrefab);
+		spawnPrefab(6, 0, milkPrefab);
 		spawnPrefab(8, 0, milkPrefab);
 		spawnPrefab(0, -6, milkPrefab);
 		spawnPrefab(-4, 0, milkPrefab);
@@ -262,7 +262,7 @@ public class KevinGsMap : Map
 		spawnPrefab(21, 0, woodBox);
 		
 		spawnPrefab(9, 0, whiteKeyPrefab);
-		spawnPrefab(15, 0, goldKeyPrefab);
+		spawnPrefab(4, 0, goldKeyPrefab);
 		spawnPrefab(24, 4, whiteKeyPrefab);
 		spawnPrefab(26, 6, goldKeyPrefab);
 		
@@ -284,6 +284,16 @@ public class KevinGsMap : Map
 		spawnPrefab (-12, -18, whiteKeyPrefab);
 		spawnPrefab (26, -20, whiteKeyPrefab);
 		spawnPrefab (26, -16, redKeyPrefab);
+		spawnPrefab (21, -24, woodBox);
+		spawnPrefab (12, -21, woodBox);
+		spawnPrefab (0, -21, woodBox);
+		spawnPrefab (-12, -21, woodBox);
+		spawnPrefab (-24, -21, woodBox);
+		spawnPrefab (-16, 14, goldKeyPrefab);
+		spawnPrefab (-16, 24, goldGatePrefab);
+
+
+
 
 
 	}

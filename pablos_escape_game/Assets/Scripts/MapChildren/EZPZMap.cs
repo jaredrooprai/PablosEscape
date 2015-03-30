@@ -48,7 +48,6 @@ public class EZPZMap : Map {
 	
 	// Method to add items into the map using parent spawnItem method
 	void setupItems(){
-		spawnPrefab (2, 8, whiteKeyPrefab);
 		spawnPrefab (4, 2, whiteGatePrefab);
 
 		spawnPrefab (3, 3, redGatePrefab);

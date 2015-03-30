@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour {
 	public GameObject playerPrefab;
 
 
-	private TutorialMap tutoraialMap;
+	private TutorialMap tutorialMap;
 	private EZPZMap easyMap;
 
 	private ThreeGateMap threeGateMap;
@@ -53,8 +53,8 @@ public class GameManager : MonoBehaviour {
 
 	private void levelManager(){
 		if (level == 1) {
-			tutoraialMap = GetComponent<TutorialMap> ();
-			tutoraialMap.setupScene ();
+			tutorialMap = GetComponent<TutorialMap> ();
+			tutorialMap.setupScene ();
 
 		} else if (level == 2) {
 			easyMap = GetComponent<EZPZMap> ();
