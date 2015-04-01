@@ -1,4 +1,4 @@
-# Pablo's Escape: 
+# Pablo's Escape
 ------
 Pablo's Escape on Google Play:
 ------
