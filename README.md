@@ -1,5 +1,5 @@
-# Pablo's Escape
-Dungeon Adventure/Puzzle game for Android
+# Pablo's Escape on Google Play: https://play.google.com/store/apps/details?id=com.forestory.pablosescape
+
 
 
 How to Build .apk:
@@ -21,9 +21,11 @@ File - Build Settings - Android - Switch Platform - Build
 
 Plugins:
 ------
-Google Play Services Plugin: https://github.com/playgameservices/play-games-plugin-for-unity
+Unity Test Tools: https://www.assetstore.unity3d.com/en/#!/content/13802
 #
-Android Immersive Mode Plugin: https://www.assetstore.unity3d.com/en/#!/content/21774
+Google Play Services: https://github.com/playgameservices/play-games-plugin-for-unity
+#
+Android Immersive Mode: https://www.assetstore.unity3d.com/en/#!/content/21774
 #
 
 Assets Used:
