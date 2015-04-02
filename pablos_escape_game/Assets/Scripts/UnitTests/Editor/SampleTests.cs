@@ -8,45 +8,7 @@ public class SampleTests{
 
 		Assert.That (2 + 2 == 4);
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	
 
 
 

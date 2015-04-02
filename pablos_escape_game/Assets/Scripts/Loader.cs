@@ -16,5 +16,4 @@ public class Loader : MonoBehaviour
 			Application.LoadLevel("MainMenu");
 		}
 	}
-
 }
