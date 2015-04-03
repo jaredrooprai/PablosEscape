@@ -2,7 +2,8 @@
 using System.Collections;
 
 public class SpinPrefab : MonoBehaviour {
-	
+
+	// rotations per min
 	public float rpm;
 	//  public to set in prefab inspector
 

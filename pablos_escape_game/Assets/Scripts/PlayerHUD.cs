@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+/// <summary>
+/// This method is full of static toggle to turn on and off the Player HUD elements
+/// </summary>
+/// 
 public static class PlayerHUD {
 	
 	// health objects
@@ -16,6 +19,7 @@ public static class PlayerHUD {
 	private static GameObject blueKey;
 	private static GameObject goldKey;
 
+	// Panel which has menu or restart buttons attatched
 	private static GameObject OptionsPanel;
 
 

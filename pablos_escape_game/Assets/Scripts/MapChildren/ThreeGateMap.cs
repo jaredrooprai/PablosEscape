@@ -35,15 +35,7 @@ public class ThreeGateMap : Map
 					tile = cementWall;
 				else if ( x >= 0 && x <= 2 && y >= 6 && y <= 14)
 					tile = null;
-				// the above else if does not current work
-				
-				// placing down a tile which represents the next room
-				/*
-				if (x == columns && y == rows)
-					tile = exitTile;
-					*/
-				// depening on where the tile is placed it will either spawn a
-				// horizontal brick pattern or vertical brick battern
+
 				else if( x == -1 || x == columns + 1 || y == -1 || y == rows + 1){
 					tile = cementWall;
 				}
@@ -65,10 +57,9 @@ public class ThreeGateMap : Map
 		spawnPrefab (2, 0, spiderWeb);
 
 		spawnPrefab (0, 3, milkPrefab);
-		spawnPrefab (0, 3, milkPrefab);
-		spawnPrefab (0, 3, milkPrefab);
-		
-		
+		spawnPrefab (9, 1, milkPrefab);
+
+
 		spawnPrefab (0, 2, whiteGatePrefab);
 		spawnPrefab (1, 2, woodBox);
 		spawnPrefab (2, 2, woodBox);

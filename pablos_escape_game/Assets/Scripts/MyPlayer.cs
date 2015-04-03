@@ -12,29 +12,33 @@ public class MyPlayer : MonoBehaviour {
 	private Vector3 position;		// current position
 	private Vector3 newPosition;	// future position
 	
-	public float speed;			// speed of movement from one vector 3 to another
-	public int health;				// Health point value
+	public float speed;				// speed of movement from one vector 3 to another
+	public int health;			
 	
-	
+	// Has key flags
 	private bool hasWhiteKey ;
 	private bool hasRedKey;
 	private bool hasBlueKey;
 	private bool hasGoldKey;						// determining if player has a key to unlock gate or not
-	
+
+	// audio for getting hurt and stepping
 	public AudioClip hurt1;
 	public AudioClip hurt2;
 	public AudioClip hurt3;
 	public AudioClip hurt4;
-	
-	public AudioClip shiny;
 	public AudioClip step1;
 	public AudioClip step2;
 	public AudioClip step3;
-	
-	public AudioClip mine;
-	public AudioClip drink;
-	public AudioClip gate1, gate2;
 
+	// voice audio
+	public AudioClip shiny;
+	public AudioClip mine;
+
+	// drink sound
+	public AudioClip drink;
+	// sounds the gate makes
+	public AudioClip gate1, gate2;
+	// sound for trying to get same key twice
 	public AudioClip alert;
 	
 	// initializing player attributes
@@ -72,7 +76,8 @@ public class MyPlayer : MonoBehaviour {
 		checkKeys ();
 	}
 	
-	
+
+	// Method checks if player has any key, if he does triggers gui to show
 	private void checkKeys(){
 		if (hasWhiteKey == true)
 			PlayerHUD.toggleWhiteKey(true);
@@ -127,12 +132,14 @@ public class MyPlayer : MonoBehaviour {
 	
 	// move the player towards destination
 	private void movePlayer(){
-		if (position != (newPosition)) {																// if player is not standing still
-			position = checkCollider (position, newPosition);	// check players future positino for colliders
+		// if player is not standing still
+		if (position != (newPosition)) {				
+			// check collision of current position to future position
+			position = checkCollider (position, newPosition);											
 			PlayerHUD.toggleOptionsPanel (false);
-
 		}
-		transform.position = Vector3.MoveTowards(transform.position, position, Time.deltaTime * speed);	// move the player to his new or old position
+		// move the player to his new or old position
+		transform.position = Vector3.MoveTowards(transform.position, position, Time.deltaTime * speed);	
 	}
 	
 	
@@ -158,7 +165,12 @@ public class MyPlayer : MonoBehaviour {
 	
 	
 	
-	// detecting for gates and walls is done with linecasting, but interactable items are done with triggers on the box colliders and their tags
+	// Each Gameobject has a trigger, and triggers go off when the player steps on them, each gameobject also has a tag
+	// and we can get the tag by other.tag to check what it is,
+	//
+
+	// This method is handling what happens when player triggers a game object
+	// Only interactable gameobjects are here, walls and boxs don't have triggers becuase player never steps on them
 	void OnTriggerEnter2D (Collider2D other) {
 		if (other.tag == "WhiteKey" ) {
 			if (hasWhiteKey == false){
@@ -220,7 +232,9 @@ public class MyPlayer : MonoBehaviour {
 	
 	
 	
-	
+
+	// This is check if there is something infront of the player that the player should not be able to walk into
+	// this method does not handle deleting gates, the OnTriggerEnter2D() method will take care of this
 	private Vector3 checkCollider(Vector3 start, Vector3 end) {
 		rotatePlayer ();																					
 		//Debug.DrawLine (start, end, Color.green); 														// shows linecast for debugging purposes

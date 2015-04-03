@@ -1,7 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-
+/// <summary>
+/// Parent class that holds Games gameobjects and handls object spawning
+/// This class is not a map itself, but its children are
+/// </summary>
 
 public class Map : MonoBehaviour {
 
@@ -36,6 +39,7 @@ public class Map : MonoBehaviour {
 
 		// using instantiate method here
 		GameObject instance = Instantiate (prefab, new Vector3 (x, y, 0f), Quaternion.identity) as GameObject;
+		// puts it under Map in board
 		instance.transform.SetParent (mapTransform);						
 	}
 
