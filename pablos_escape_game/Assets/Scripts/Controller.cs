@@ -50,7 +50,7 @@ public class Controller : MonoBehaviour {
 	public Vector3 keyboard(Vector3 pos){  /// this is for the keyboard 
 
 		position = pos;
-
+		
 		if (Input.GetKey (KeyCode.A) && transform.position == position) {
 			position+=Vector3.left;
 		} else if (Input.GetKey (KeyCode.D) && transform.position == position) {    

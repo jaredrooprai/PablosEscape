@@ -35,7 +35,7 @@ public static class PlayerHUD {
 
 		OptionsPanel = GameObject.Find ("OptionsPanel");
 	}
-
+	//This is for toggling the menu in the top left	
 	public static void toggleOptionsPanel(bool toggle){
 		if (OptionsPanel != null) {
 			OptionsPanel.SetActive(toggle);
