@@ -27,6 +27,8 @@ public class Map : MonoBehaviour {
 	public GameObject goldKeyPrefab;
 	public GameObject goldGatePrefab;
 
+	[HideInInspector]public Transform mapTransform;
+	[HideInInspector]public List <Vector3> mapPositions = new List <Vector3>();	//list of grid locations
 	// can't use Vector2 even though it uses 2d coord system, because of the Instantiate method.
 	
 	// Places GameObjects on a map
@@ -35,7 +37,8 @@ public class Map : MonoBehaviour {
 		int y = ycoord;
 
 		// using instantiate method here
-		Instantiate (prefab, new Vector3 (x, y, 0f), Quaternion.identity);
+		GameObject instance = Instantiate (prefab, new Vector3 (x, y, 0f), Quaternion.identity) as GameObject;
+		instance.transform.SetParent (mapTransform);						
 	}
 
 

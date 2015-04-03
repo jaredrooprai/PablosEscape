@@ -9,35 +9,33 @@ public class MyPlayer : MonoBehaviour {
 	private Animator animator;
 	private Controller controllerScript;
 	
-	private Vector3 position;				// current position
-	private Vector3 newPosition;			// future position
+	private Vector3 position;		// current position
+	private Vector3 newPosition;	// future position
 	
-	public float speed;						// speed of movement from one vector 3 to another
-	public int health;						// Health point value
+	public float speed;			// speed of movement from one vector 3 to another
+	public int health;				// Health point value
 	
 	
-	private bool hasWhiteKey ;				//check to see if the white key is flagged
-	private bool hasRedKey;					//check to see if the red key is flagged
-	private bool hasBlueKey;				//check to see if the blue key has been flagged
-	private bool hasGoldKey;				// determining if player has a key to unlock gate or not
-
-											//These audio clips are randomly chosen when the player is on the trapTile
-	public AudioClip hurt1;				
+	private bool hasWhiteKey ;
+	private bool hasRedKey;
+	private bool hasBlueKey;
+	private bool hasGoldKey;						// determining if player has a key to unlock gate or not
+	
+	public AudioClip hurt1;
 	public AudioClip hurt2;
 	public AudioClip hurt3;
 	public AudioClip hurt4;
-
-	public AudioClip shiny;					//This is the audio clip is randomly generated with mine for keys
-	public AudioClip mine;					//This is the audio clip is randomly generated with shiny for keys
-
-	public AudioClip step1;					//One of the clips that is randomly selected when the player is moving
-	public AudioClip step2;					
+	
+	public AudioClip shiny;
+	public AudioClip step1;
+	public AudioClip step2;
 	public AudioClip step3;
+	
+	public AudioClip mine;
+	public AudioClip drink;
+	public AudioClip gate1, gate2;
 
-	public AudioClip drink;					//Audio clip when the drink is picked up
-	public AudioClip gate1, gate2;			//One of two of these audio clips are chosen when the gate is unlocked
-
-	public AudioClip alert;					//*******
+	public AudioClip alert;
 	
 	// initializing player attributes
 	void Start() {
@@ -51,10 +49,9 @@ public class MyPlayer : MonoBehaviour {
 		position = transform.position;			// getting current player position from players transform
 		newPosition = transform.position;		// newPosition and position need to be the same at the start in order make sure player can't move in between transitions...
 		speed = 4f;								// ... essentially newposition and position work hand in hand
-		health = 5;								// Sets the health for the player
-
-		//the hasKey method is default set to false
-		hasWhiteKey = false;					
+		health = 5;
+		
+		hasWhiteKey = false;
 		hasRedKey = false;
 		hasBlueKey = false;
 		hasGoldKey = false;
@@ -76,9 +73,8 @@ public class MyPlayer : MonoBehaviour {
 	}
 	
 	
-	private void checkKeys(){									//Check keys method checks to see if any of the hasKeys is flagged 
-																//If flagged then set toggle HUD to to true
-		if (hasWhiteKey == true)								
+	private void checkKeys(){
+		if (hasWhiteKey == true)
 			PlayerHUD.toggleWhiteKey(true);
 		else 
 			PlayerHUD.toggleWhiteKey(false);
@@ -200,8 +196,7 @@ public class MyPlayer : MonoBehaviour {
 			} else {
 				SoundManager.instance.playAlertFx(alert);
 			}
-
-			//When the player has obtained the "Food" then there will be a +1 on the health
+			
 		} else if (other.tag == "Food") {
 			SoundManager.instance.playGatefx (drink);
 			health += 1;
@@ -210,12 +205,10 @@ public class MyPlayer : MonoBehaviour {
 		} else if (other.tag == "Trap") {
 			SoundManager.instance.randomVoiceFx (hurt1, hurt2, hurt3, hurt4);
 			health -= 1;
-
-			//When the player has obtained the "Portal" then it will send the user to the finished level scene
+			
 		} else if (other.tag == "Portal") {
 			GameManager.instance.finishedLevel ();
-
-			//This will generate one of the audio sound clips
+			
 		} else if (other.tag == "Gate") {
 			SoundManager.instance.playGatefx(gate1, gate2);
 
@@ -238,9 +231,7 @@ public class MyPlayer : MonoBehaviour {
 		bool blueGateCollision = Physics2D.Linecast (start, end, 1 << LayerMask.NameToLayer ("blueGateLayer"));	// ..
 		bool goldGateCollision = Physics2D.Linecast (start, end, 1 << LayerMask.NameToLayer ("goldGateLayer"));	// ..
 		
-		//Checking whether the key has been obtained by the player 
-		//If so, when the player collides with the gate of the color key the player has then he will be able to *unlock* it
-		//and walk through afterwards
+		
 		if (whiteGateCollision == true && hasWhiteKey == false) { 
 			return start;
 		} else if (whiteGateCollision == true && hasWhiteKey == true) {

@@ -11,11 +11,25 @@ public class NathansMap: Map
 	
 	// Main method that sets up the scene with items and tiles
 	public void setupScene () {
+		setupGrid ();				// call method to setup grid
 		setupTiles ();		// generate wall and floor tiles
 		setupItems();
 	}
 	
-
+	
+	void setupGrid (){
+		mapTransform = new GameObject ("Map").transform;
+		mapPositions.Clear ();								// clear the list
+		for (int x = -1; x <= rows + 1; x++) 			// adding row items into list
+		{
+			for (int y = -1; y <= columns + 1; y++) 			// adding column items to list
+			{
+				if (x >= 0 && x <= 3 && y >= 5 && y <= 15) 
+					mapPositions.Add (new Vector3 (x, y, 0f));	// z coord is set to 0f because of 2d grid
+			}
+		}
+	}
+	
 	//Sets up the floor and the walls
 	void setupTiles () {
 		//will contain wall prefab or floor prefab
