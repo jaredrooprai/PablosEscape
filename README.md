@@ -32,7 +32,7 @@ Google Play Services: https://github.com/playgameservices/play-games-plugin-for-
 Android Immersive Mode: https://www.assetstore.unity3d.com/en/#!/content/21774
 #
 
-Assets:
+Assets Used:
 ------
 Goblin Voice Pack:
 https://www.assetstore.unity3d.com/en/#!/content/28830
