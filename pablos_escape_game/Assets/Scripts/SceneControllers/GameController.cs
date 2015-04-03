@@ -5,14 +5,12 @@ public class GameController : MonoBehaviour {
 
 
 
-	private bool WindowOpen;
 	public AudioClip click;
 
 
 
 	// Use this for initialization
 	void Start () {
-		WindowOpen = false;
 		PlayerHUD.toggleOptionsPanel (false);
 	}
 
@@ -20,15 +18,9 @@ public class GameController : MonoBehaviour {
 
 	public void OptionsButton(){
 		SoundManager.instance.playWalkingFx(click);
-
-		if (WindowOpen == true) {
-			PlayerHUD.toggleOptionsPanel (false);
-			WindowOpen = false;
-		} else {
-			PlayerHUD.toggleOptionsPanel (true);
-			WindowOpen = true;
-		}
+		PlayerHUD.toggleOptionsPanel ();
 	}
+
 
 	public void MenuButton(){
 		SoundManager.instance.playWalkingFx(click);

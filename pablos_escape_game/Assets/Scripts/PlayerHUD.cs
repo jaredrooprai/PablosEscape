@@ -21,6 +21,7 @@ public static class PlayerHUD {
 
 	// Panel which has menu or restart buttons attatched
 	private static GameObject OptionsPanel;
+	private static bool OptionsPanelTrigger;
 
 
 	// Call this method before other methods
@@ -36,15 +37,27 @@ public static class PlayerHUD {
 		blueKey = GameObject.Find ("blueKey");
 		goldKey = GameObject.Find ("goldKey");
 
-
 		OptionsPanel = GameObject.Find ("OptionsPanel");
+
+	}
+
+	public static void toggleOptionsPanel(){
+		if (OptionsPanel != null) {
+
+			if (OptionsPanelTrigger == true)
+				OptionsPanelTrigger = false;
+			else
+				OptionsPanelTrigger = true;
+
+			OptionsPanel.SetActive(OptionsPanelTrigger);
+		}
 	}
 
 	public static void toggleOptionsPanel(bool toggle){
-		if (OptionsPanel != null) {
-			OptionsPanel.SetActive(toggle);
-		}
+		OptionsPanelTrigger = toggle;
+		OptionsPanel.SetActive(OptionsPanelTrigger);
 	}
+
 
 	// toggles to show or not show the heart health objects on the screen
 	public static void toggleHeart_1 (bool toggle){
