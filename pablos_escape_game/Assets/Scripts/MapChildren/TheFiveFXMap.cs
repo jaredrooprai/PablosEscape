@@ -8,23 +8,12 @@ public class TheFiveFXMap : Map {
 	
 	// Main method that sets up the scene with items and tiles
 	public void setupScene () {
-		setupGrid ();				// call method to setup grid
+		mapTransform = new GameObject ("Map").transform;
 		setupTiles ();		// generate wall and floor tiles
 		setupItems();
 	}
 	
-	
-	void setupGrid (){
-		mapTransform = new GameObject ("Map").transform;
-		mapPositions.Clear ();								// clear the list
-		for (int x = -1; x <= columns + 1; x++) 			// adding row items into list
-		{
-			for (int y = -1; y <= rows + 1; y++) 			// adding column items to list
-			{
-				mapPositions.Add (new Vector3 (x, y, 0f));	// z coord is set to 0f because of 2d grid
-			}
-		}
-	}
+
 	
 	//Sets up the floor and the walls
 	void setupTiles () {

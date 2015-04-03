@@ -28,9 +28,7 @@ public class Map : MonoBehaviour {
 	public GameObject goldGatePrefab;
 
 	[HideInInspector]public Transform mapTransform;
-	[HideInInspector]public List <Vector3> mapPositions = new List <Vector3>();	//list of grid locations
-	// can't use Vector2 even though it uses 2d coord system, because of the Instantiate method.
-	
+
 	// Places GameObjects on a map
 	public void spawnPrefab (int xcoord, int ycoord, GameObject prefab) {
 		int x = xcoord;

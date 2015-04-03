@@ -11,23 +11,12 @@ public class KevinGsMap : Map
 	
 	// Main method that sets up the scene with items and tiles
 	public void setupScene () {
-		setupGrid ();				// call method to setup grid
+		mapTransform = new GameObject ("Map").transform;
 		setupTiles ();		// generate wall and floor tiles
 		setupItems();
 	}
 	
-	
-	void setupGrid (){
-		mapTransform = new GameObject ("Map").transform;
-		mapPositions.Clear ();								// clear the list
-		for (int x = -columns/2; x <= columns/2 + 1; x++) 			// adding row items into list
-		{
-			for (int y = -rows/2; y <= rows/2 + 1; y++) 			// adding column items to list
-			{
-				mapPositions.Add (new Vector3 (x, y, 0f));	// z coord is set to 0f because of 2d grid
-			}
-		}
-	}
+
 	
 	//Sets up the floor and the walls
 	void setupTiles () {
@@ -145,26 +134,7 @@ public class KevinGsMap : Map
 				spawnPrefab(x, y2, goldGatePrefab);
 			}
 		}
-		
-		
-		/*
-		// create top left corner of rooms
-		for (int i = 0; i <= 5; i++) { 		// 5 is for number of rooms in game
-			int temp = i%2;
-			if (temp != 0)
-				i++;
-			else {
-				for (int y = -rows/2 + 5; y <= rows/2 + 1; y += 12) {
-					for (int n = -columns/2 - 1; n <= columns/2; n += 12) {
-						spawnPrefab(n, y-1, cementWall);
-						spawnPrefab(n, y-2, cementWall);
-						for (int x = n; x <= n+2; x++)
-							spawnPrefab(x, y, cementWall);
-					}
-				}
-			}
-		}
-		*/
+
 		
 		spawnPrefab(1, 1, spiderWeb);
 		spawnPrefab(1, 2, spiderWeb);
