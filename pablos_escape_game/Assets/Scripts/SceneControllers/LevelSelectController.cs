@@ -47,7 +47,7 @@ public class LevelSelectController : MonoBehaviour {
 		//android back button
 		if (Input.GetKeyDown (KeyCode.Escape)) {
 			SoundManager.instance.playWalkingFx(click);
-			Application.LoadLevel("MainMenu");
+			StartCoroutine ("loadScene","MainMenu");
 		}
 	}
 	
@@ -58,51 +58,51 @@ public class LevelSelectController : MonoBehaviour {
 
 	public void BackButton(){
 		SoundManager.instance.playWalkingFx(click);
-		Application.LoadLevel ("MainMenu");
+		StartCoroutine ("loadScene","MainMenu");
 	}
 	
 
 	public void TutorialButton(){
-
 		SoundManager.instance.playWalkingFx (click);
 		PlayerPrefs.SetInt ("SavedLevel", 1);
-		Application.LoadLevel ("Tutorial");
+		StartCoroutine ("loadScene","Tutorial");
 	}
 
 	public void level2Button(){
-		checkButton (2);
+		StartCoroutine ("loadScene",2);
 	}
 	
 	public void level3Button(){
-		checkButton (3);
+		StartCoroutine ("loadScene",3 );
 	}
 	
 	public void level4Button(){
-		checkButton (4);
+		StartCoroutine ("loadScene",4 );
 	}
 
 	public void level5Button(){
-		checkButton (5);
+		StartCoroutine ("loadScene", 5);
 	}
+	
 
 	public void level6Button(){
-		checkButton (6);
+		StartCoroutine ("loadScene",6 );
 	}
 
 	public void level7Button(){
-		checkButton (7);
+		StartCoroutine ("loadScene",7 );
 	}
 
 	public void level8Button(){
-		checkButton (8);
+		StartCoroutine ("loadScene", 8);
 	}
 
 	public void level9Button(){
-		checkButton (9);
+		StartCoroutine ("loadScene", 9 );
 	}
-
+	
 	public void level10Button(){
-		checkButton (10);
+		StartCoroutine ("loadScene",10 );
 	}
 
 
@@ -112,14 +112,39 @@ public class LevelSelectController : MonoBehaviour {
 		else
 			levelLock.SetActive (true);
 	}
+	
 
+	IEnumerator checkButton(int level){
 
-	private void checkButton(int level){
 		if (PlayerPrefs.GetInt ("HighestLevel") >= level) {
+
 			SoundManager.instance.playWalkingFx (click);
 			PlayerPrefs.SetInt ("SavedLevel", level);
+
+			float fadeTime = GameObject.Find ("Fader").GetComponent<Fading> ().BeginFade (1);
+			yield return new WaitForSeconds (fadeTime);
 			Application.LoadLevel ("Game");
 		}
+	}
+
+	IEnumerator loadScene(int level){
+		
+		if (PlayerPrefs.GetInt ("HighestLevel") >= level) {
+			
+			SoundManager.instance.playWalkingFx (click);
+			PlayerPrefs.SetInt ("SavedLevel", level);
+			
+			float fadeTime = GameObject.Find ("Fader").GetComponent<Fading> ().BeginFade (1);
+			yield return new WaitForSeconds (fadeTime);
+			Application.LoadLevel ("Game");
+		}
+	}
+
+	IEnumerator loadScene(string sceneName){
+		float fadeTime = GameObject.Find ("Fader").GetComponent<Fading> ().BeginFade (1);
+		yield return new WaitForSeconds (fadeTime);
+		Application.LoadLevel (sceneName);
+		
 	}
 	
 

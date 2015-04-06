@@ -95,15 +95,10 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
-
-
-
-
-
 	public void finishedLevel(){
 		level++;
 		if (level <= 10) {
-			Application.LoadLevel ("NextLevel");
+				Application.LoadLevel ("NextLevel");
 		} else {
 			Application.LoadLevel ("FinishedGame");
 		}

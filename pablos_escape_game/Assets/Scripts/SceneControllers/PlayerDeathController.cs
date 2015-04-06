@@ -18,7 +18,7 @@ public class PlayerDeathController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyDown (KeyCode.Escape)) {
-			Application.Quit();
+			StartCoroutine ("loadScene","MainMenu");
 		}	
 
 	}
@@ -26,12 +26,19 @@ public class PlayerDeathController : MonoBehaviour {
 	
 	public void MenuButton(){
 		SoundManager.instance.playWalkingFx(click);
-		Application.LoadLevel ("MainMenu");
+		StartCoroutine ("loadScene","MainMenu");
 	}
 
 	public void RestartLevelButton(){
 		SoundManager.instance.playWalkingFx(click);
-		Application.LoadLevel ("Game");
+		StartCoroutine ("loadScene","Game");
+	}
 
+
+	IEnumerator loadScene(string sceneName){
+		float fadeTime = GameObject.Find ("Fader").GetComponent<Fading> ().BeginFade (1);
+		yield return new WaitForSeconds (fadeTime);
+		Application.LoadLevel (sceneName);
+		
 	}
 }

@@ -40,13 +40,13 @@ public class MenuController : MonoBehaviour {
 
 	public void AboutGameButton(){
 		SoundManager.instance.playWalkingFx(click);
-		Application.LoadLevel ("AboutGame");
+		StartCoroutine ("loadScene", "AboutGame");
 	}
-
+	
 
 	public void PlayButton(){
 		SoundManager.instance.playWalkingFx(click);
-		Application.LoadLevel ("LevelSelect");
+		StartCoroutine ("loadScene", "LevelSelect");
 	}
 
 
@@ -59,5 +59,11 @@ public class MenuController : MonoBehaviour {
 		SoundManager.instance.playWalkingFx(click);
 	}
 
+	IEnumerator loadScene(string sceneName){
+		float fadeTime = GameObject.Find ("Fader").GetComponent<Fading> ().BeginFade (1);
+		yield return new WaitForSeconds (fadeTime);
+		Application.LoadLevel (sceneName);
+			
+	}
 
 }

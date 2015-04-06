@@ -161,9 +161,7 @@ public class MyPlayer : MonoBehaviour {
 		}
 	}
 	
-	
-	
-	
+
 	
 	// Each Gameobject has a trigger, and triggers go off when the player steps on them, each gameobject also has a tag
 	// and we can get the tag by other.tag to check what it is,
