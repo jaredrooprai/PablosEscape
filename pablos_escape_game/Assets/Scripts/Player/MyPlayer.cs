@@ -8,12 +8,11 @@ public class MyPlayer : MonoBehaviour {
 	// different classes
 	private Animator animator;
 	private Controller controllerScript;
-	
+
 	private Vector3 position;		// current position
 	private Vector3 newPosition;	// future position
 	
 	public float speed;				// speed of movement from one vector 3 to another
-	public int health;			
 	
 	// Has key flags
 	private bool hasWhiteKey ;
@@ -53,8 +52,8 @@ public class MyPlayer : MonoBehaviour {
 		position = transform.position;			// getting current player position from players transform
 		newPosition = transform.position;		// newPosition and position need to be the same at the start in order make sure player can't move in between transitions...
 		speed = 4f;								// ... essentially newposition and position work hand in hand
-		health = 5;
-		
+		PlayerHealth.health = 5;
+
 		hasWhiteKey = false;
 		hasRedKey = false;
 		hasBlueKey = false;
@@ -72,13 +71,16 @@ public class MyPlayer : MonoBehaviour {
 		newPosition = controllerScript.touchScreen(position); 	//get players input and new position from touchscreen controller
 #endif
 		movePlayer ();											// attempt to move player to correct grid position
-		checkHealth ();											// check if players health changed
-		checkKeys ();
+		manageKeys ();
+
+		PlayerHealth.manageHealth ();											// check if players health changed
+		if (PlayerHealth.IsPlayerDead () == true)
+			GameManager.instance.playerDied ();
 	}
 	
 
 	// Method checks if player has any key, if he does triggers gui to show
-	private void checkKeys(){
+	private void manageKeys(){
 		if (hasWhiteKey == true)
 			PlayerHUD.toggleWhiteKey(true);
 		else 
@@ -101,33 +103,7 @@ public class MyPlayer : MonoBehaviour {
 	}
 	
 	
-	//  updates health HUD in playerHUD class and makes sure that the health stays in bound. ( 0 <= health <= 5
-	private void checkHealth(){
-		if (health > 5) 
-			health = 5;
-		
-		if (health >= 1){PlayerHUD.toggleHeart_1(true);}
-		else{ PlayerHUD.toggleHeart_1(false); }
-		
-		if (health >= 2){PlayerHUD.toggleHeart_2(true);}
-		else{ PlayerHUD.toggleHeart_2(false); }
-		
-		if (health >= 3){PlayerHUD.toggleHeart_3(true);}
-		else{ PlayerHUD.toggleHeart_3(false); }
-		
-		if (health >= 4){PlayerHUD.toggleHeart_4(true);}
-		else{ PlayerHUD.toggleHeart_4(false); }
-		
-		if (health >= 5){PlayerHUD.toggleHeart_5(true);}
-		else{ PlayerHUD.toggleHeart_5(false); }
-		
-		if (health < 1) {
-			GameManager.instance.playerDied ();
-		}
-	}
-	
-	
-	
+
 	
 	
 	// move the player towards destination
@@ -209,13 +185,13 @@ public class MyPlayer : MonoBehaviour {
 			
 		} else if (other.tag == "Food") {
 			SoundManager.instance.playGatefx (drink);
-			health += 1;
+			PlayerHealth.incHealth();
 			Destroy (other.gameObject);
 			
 		} else if (other.tag == "Trap") {
 			SoundManager.instance.randomVoiceFx (hurt1, hurt2, hurt3, hurt4);
-			health -= 1;
-			
+			PlayerHealth.decHealth();
+
 		} else if (other.tag == "Portal") {
 			GameManager.instance.finishedLevel ();
 			
