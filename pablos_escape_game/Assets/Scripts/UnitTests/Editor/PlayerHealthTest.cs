@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 
+
 [TestFixture]
 public class PlayerHealthTest{
 
@@ -47,7 +48,6 @@ public class PlayerHealthTest{
 		bool heart4 = PlayerHealth.checkHealth(4);
 		bool heart5 = PlayerHealth.checkHealth(5);
 
-		
 		//Assert
 		Assert.That (true == heart1);
 		Assert.That (true == heart2);
@@ -70,8 +70,7 @@ public class PlayerHealthTest{
 		bool heart3 = PlayerHealth.checkHealth(3);
 		bool heart4 = PlayerHealth.checkHealth(4);
 		bool heart5 = PlayerHealth.checkHealth(5);
-		
-		
+
 		//Assert
 		Assert.That (true == heart1);
 		Assert.That (false == heart2);
@@ -93,8 +92,7 @@ public class PlayerHealthTest{
 		bool heart3 = PlayerHealth.checkHealth(3);
 		bool heart4 = PlayerHealth.checkHealth(4);
 		bool heart5 = PlayerHealth.checkHealth(5);
-		
-		
+			
 		//Assert
 		Assert.That (true == heart1);
 		Assert.That (true == heart2);
@@ -117,8 +115,7 @@ public class PlayerHealthTest{
 		bool heart3 = PlayerHealth.checkHealth(3);
 		bool heart4 = PlayerHealth.checkHealth(4);
 		bool heart5 = PlayerHealth.checkHealth(5);
-		
-		
+
 		//Assert
 		Assert.That (true == heart1);
 		Assert.That (true == heart2);
@@ -140,8 +137,7 @@ public class PlayerHealthTest{
 		bool heart3 = PlayerHealth.checkHealth(3);
 		bool heart4 = PlayerHealth.checkHealth(4);
 		bool heart5 = PlayerHealth.checkHealth(5);
-		
-		
+
 		//Assert
 		Assert.That (true == heart1);
 		Assert.That (true == heart2);
@@ -163,8 +159,7 @@ public class PlayerHealthTest{
 		bool heart3 = PlayerHealth.checkHealth(3);
 		bool heart4 = PlayerHealth.checkHealth(4);
 		bool heart5 = PlayerHealth.checkHealth(5);
-		
-		
+
 		//Assert
 		Assert.That (false == heart1);
 		Assert.That (false == heart2);
@@ -173,7 +168,5 @@ public class PlayerHealthTest{
 		Assert.That (false == heart5);
 	}
 
-
-
-
 }
+    

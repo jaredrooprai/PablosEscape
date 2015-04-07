@@ -14,29 +14,20 @@ public class MyPlayer : MonoBehaviour {
 	
 	public float speed;				// speed of movement from one vector 3 to another
 	
-	// Has key flags
-	private bool hasWhiteKey ;
-	private bool hasRedKey;
-	private bool hasBlueKey;
-	private bool hasGoldKey;						// determining if player has a key to unlock gate or not
 
 	// audio for getting hurt and stepping
-	public AudioClip hurt1;
-	public AudioClip hurt2;
-	public AudioClip hurt3;
-	public AudioClip hurt4;
-	public AudioClip step1;
-	public AudioClip step2;
-	public AudioClip step3;
+	public AudioClip hurt1, hurt2, hurt3, hurt4;
+	public AudioClip step1, step2, step3;
 
-	// voice audio
-	public AudioClip shiny;
-	public AudioClip mine;
+	// voice audio for picking up keys
+	public AudioClip shiny, mine;
 
 	// drink sound
 	public AudioClip drink;
+
 	// sounds the gate makes
 	public AudioClip gate1, gate2;
+
 	// sound for trying to get same key twice
 	public AudioClip alert;
 	
@@ -52,12 +43,15 @@ public class MyPlayer : MonoBehaviour {
 		position = transform.position;			// getting current player position from players transform
 		newPosition = transform.position;		// newPosition and position need to be the same at the start in order make sure player can't move in between transitions...
 		speed = 4f;								// ... essentially newposition and position work hand in hand
-		PlayerHealth.health = 5;
+		
+        //initializing health
+        PlayerHealth.health = 5;    
 
-		hasWhiteKey = false;
-		hasRedKey = false;
-		hasBlueKey = false;
-		hasGoldKey = false;
+        // initializing keys
+		Inventory.whiteKey = false;
+        Inventory.redKey = false;
+        Inventory.blueKey = false;
+        Inventory.goldKey = false;
 	}
 	
 	
@@ -71,7 +65,7 @@ public class MyPlayer : MonoBehaviour {
 		newPosition = controllerScript.touchScreen(position); 	//get players input and new position from touchscreen controller
 #endif
 		movePlayer ();											// attempt to move player to correct grid position
-		manageKeys ();
+		Inventory.manageKeys ();
 
 		PlayerHealth.manageHealth ();											// check if players health changed
 		if (PlayerHealth.IsPlayerDead () == true)
@@ -79,32 +73,6 @@ public class MyPlayer : MonoBehaviour {
 	}
 	
 
-	// Method checks if player has any key, if he does triggers gui to show
-	private void manageKeys(){
-		if (hasWhiteKey == true)
-			PlayerHUD.toggleWhiteKey(true);
-		else 
-			PlayerHUD.toggleWhiteKey(false);
-		
-		if (hasRedKey == true)
-			PlayerHUD.toggleRedKey(true);
-		else 
-			PlayerHUD.toggleRedKey(false);
-		
-		if (hasBlueKey == true)
-			PlayerHUD.toggleBlueKey(true);
-		else 
-			PlayerHUD.toggleBlueKey(false);
-		
-		if (hasGoldKey == true)
-			PlayerHUD.toggleGoldKey(true);
-		else 
-			PlayerHUD.toggleGoldKey(false);
-	}
-	
-	
-
-	
 	
 	// move the player towards destination
 	private void movePlayer(){
@@ -147,17 +115,17 @@ public class MyPlayer : MonoBehaviour {
 	// Only interactable gameobjects are here, walls and boxs don't have triggers becuase player never steps on them
 	void OnTriggerEnter2D (Collider2D other) {
 		if (other.tag == "WhiteKey" ) {
-			if (hasWhiteKey == false){
+			if (Inventory.whiteKey == false){
 				SoundManager.instance.randomVoiceFx (mine, shiny);
-				hasWhiteKey = true;
+                Inventory.whiteKey = true;
 				Destroy (other.gameObject);
 			} else {
 				SoundManager.instance.playAlertFx(alert);
 			}
 			
 		} else if (other.tag == "RedKey") {
-			if (hasRedKey == false) {
-				hasRedKey = true;
+            if (Inventory.redKey == false) {
+                Inventory.redKey = true;
 				SoundManager.instance.randomVoiceFx (mine, shiny);
 				Destroy (other.gameObject);
 			} else {
@@ -165,9 +133,9 @@ public class MyPlayer : MonoBehaviour {
 			}
 			
 		} else if (other.tag == "BlueKey") {
-			if (hasBlueKey == false){
+            if (Inventory.blueKey == false){
 			SoundManager.instance.randomVoiceFx (mine, shiny);
-			hasBlueKey = true;
+            Inventory.blueKey = true;
 			Destroy (other.gameObject);
 			} else {
 				SoundManager.instance.playAlertFx(alert);
@@ -175,9 +143,9 @@ public class MyPlayer : MonoBehaviour {
 			}
 			
 		} else if (other.tag == "GoldKey") {
-			if (hasGoldKey == false){
+            if (Inventory.goldKey == false) {
 				SoundManager.instance.randomVoiceFx (mine, shiny);
-				hasGoldKey = true;
+                Inventory.goldKey = true;
 				Destroy (other.gameObject);
 			} else {
 				SoundManager.instance.playAlertFx(alert);
@@ -218,34 +186,49 @@ public class MyPlayer : MonoBehaviour {
 		bool redGateCollision = Physics2D.Linecast (start, end, 1 << LayerMask.NameToLayer ("redGateLayer"));	// ..
 		bool blueGateCollision = Physics2D.Linecast (start, end, 1 << LayerMask.NameToLayer ("blueGateLayer"));	// ..
 		bool goldGateCollision = Physics2D.Linecast (start, end, 1 << LayerMask.NameToLayer ("goldGateLayer"));	// ..
-		
-		
-		if (whiteGateCollision == true && hasWhiteKey == false) { 
+
+
+        if (whiteGateCollision == true && Inventory.whiteKey == false)
+        { 
 			return start;
-		} else if (whiteGateCollision == true && hasWhiteKey == true) {
-			hasWhiteKey = false;
+        }
+        else if (whiteGateCollision == true && Inventory.whiteKey == true)
+        {
+            Inventory.whiteKey = false;
 			animator.SetTrigger("Walk");
 			return end;
-			
-			
-		} else if (redGateCollision == true && hasRedKey == false) {
+
+
+        }
+        else if (redGateCollision == true && Inventory.redKey == false)
+        {
 			return start;
-		} else if (redGateCollision == true && hasRedKey == true) {
-			hasRedKey = false;
+        }
+        else if (redGateCollision == true && Inventory.redKey == true)
+        {
+            Inventory.redKey = false;
 			animator.SetTrigger("Walk");
 			return end;
-			
-		} else if (blueGateCollision == true && hasBlueKey == false) {
+
+        }
+        else if (blueGateCollision == true && Inventory.blueKey == false)
+        {
 			return start;
-		} else if (blueGateCollision == true && hasBlueKey == true) {
-			hasBlueKey = false;
+        }
+        else if (blueGateCollision == true && Inventory.blueKey == true)
+        {
+            Inventory.blueKey = false;
 			animator.SetTrigger("Walk");
 			return end;
-			
-		} else if (goldGateCollision == true && hasGoldKey == false) {
+
+        }
+        else if (goldGateCollision == true && Inventory.goldKey == false)
+        {
 			return start;
-		} else if (goldGateCollision == true && hasGoldKey == true) {
-			hasGoldKey = false;
+        }
+        else if (goldGateCollision == true && Inventory.goldKey == true)
+        {
+            Inventory.goldKey = false;
 			animator.SetTrigger("Walk");
 			return end;
 			
