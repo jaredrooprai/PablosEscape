@@ -9,7 +9,7 @@ https://play.google.com/store/apps/details?id=com.forestory.pablosescape
 How to Build .apk:
 ------
 #
-Unity Engine version 4.6.4:
+Unity Engine version 5+:
 https://unity3d.com/get-unity/download/archive
 #
 Android SDK tools and Google Play Services packages from the Google SDK manager
@@ -28,8 +28,6 @@ Plugins:
 Unity Test Tools: https://www.assetstore.unity3d.com/en/#!/content/13802
 #
 Google Play Services: https://github.com/playgameservices/play-games-plugin-for-unity
-#
-Android Immersive Mode: https://www.assetstore.unity3d.com/en/#!/content/21774
 #
 
 Assets Used:
