@@ -16,6 +16,11 @@
 *.booproj
 *.apk
 
+#OS Generated
+.DS_Store
+.DS_Store?
+.Thumbs.db
+
 
 # Unity3D generated meta files
 *.pidb.meta
